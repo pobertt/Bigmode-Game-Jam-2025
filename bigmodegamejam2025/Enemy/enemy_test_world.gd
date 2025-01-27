@@ -9,4 +9,5 @@ func _ready() -> void:
 
 # Provides players current world position and sends it to the enemy
 func _process(delta: float) -> void:
-	get_tree().call_group("enemy", "target_position", playerref.global_transform.origin)
+	pass
+	#get_tree().call_group("enemy", "target_position", playerref.global_transform.origin)

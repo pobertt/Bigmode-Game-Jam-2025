@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://beile14a1xc2w"]
+
+[ext_resource type="Script" path="res://enemy_test_world.gd" id="1_56sn2"]
+[ext_resource type="PackedScene" uid="uid://dbjhc7pmmdv30" path="res://enemy.tscn" id="1_m5774"]
+[ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="2_0kvcc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_brm14"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_qt1mb"]
+sky_material = SubResource("ProceduralSkyMaterial_brm14")
+
+[sub_resource type="Environment" id="Environment_aqeem"]
+background_mode = 2
+sky = SubResource("Sky_qt1mb")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_6qs6d"]
+vertices = PackedVector3Array(-9.5, -0.625023, -1.22145, -9.5, -0.625023, 17.7785, 9.5, -0.625023, 17.7785, 9.5, -0.625023, -1.22145)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nbksq"]
+size = Vector2(20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xamex"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[node name="EnemyTestWorld" type="Node3D"]
+script = ExtResource("1_56sn2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_aqeem")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("1_m5774")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54394, -8.27855)
+
+[node name="Player" parent="." instance=ExtResource("2_0kvcc")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12502, -8.27855)
+navigation_mesh = SubResource("NavigationMesh_6qs6d")
+
+[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.12502, 8.27855)
+mesh = SubResource("PlaneMesh_nbksq")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_xamex")

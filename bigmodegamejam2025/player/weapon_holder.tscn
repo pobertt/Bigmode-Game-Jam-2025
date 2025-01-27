@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpytfnpmdkrba"]
+
+[ext_resource type="ArrayMesh" uid="uid://c07t0fpvp2nyn" path="res://assets/weapons/tres/katana.tres" id="1_nxgp5"]
+
+[node name="WeaponHolder" type="Node3D"]
+
+[node name="Weapon" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, 0, 0)
+mesh = ExtResource("1_nxgp5")

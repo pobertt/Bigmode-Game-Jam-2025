@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_8cqqi"]
 [ext_resource type="PackedScene" uid="uid://crolqkue26mif" path="res://systems/gun_system.tscn" id="2_b5b6i"]
+[ext_resource type="ArrayMesh" uid="uid://c07t0fpvp2nyn" path="res://assets/weapons/tres/katana.tres" id="3_bj8fe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_x2bi6"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2nm6r"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
@@ -155,16 +154,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="WeaponPivot" type="Node3D" parent="Head/Camera"]
 
 [node name="WeaponMesh" type="MeshInstance3D" parent="Head/Camera/WeaponPivot"]
-transform = Transform3D(0.099857, -0.0513567, -0.00148797, 0.00534688, 0.959124, 0.0277889, 2.79397e-10, -0.278287, 0.0960498, 0.294349, -0.392429, -0.720675)
-visible = false
-mesh = SubResource("BoxMesh_x2bi6")
+transform = Transform3D(1.99714, -0.102713, -0.0297594, 0.106938, 1.91825, 0.555778, 5.58794e-09, -0.556574, 1.921, 0.294349, -0.392429, -0.720675)
+mesh = ExtResource("3_bj8fe")
 
 [node name="Hitbox" type="Area3D" parent="Head/Camera/WeaponPivot/WeaponMesh"]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera/WeaponPivot/WeaponMesh/Hitbox"]
-transform = Transform3D(1, -6.47937e-09, 3.73686e-10, 4.13826e-10, 1, -1.86265e-09, -7.35766e-11, 2.38419e-07, 1, 0, 0, 0)
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_2nm6r")
 
 [node name="Bullet_RayCast3D" type="RayCast3D" parent="Head/Camera"]

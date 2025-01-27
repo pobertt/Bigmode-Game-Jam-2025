@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Gun" load_steps=5 format=3 uid="uid://b01plfp3cwtmf"]
+
+[ext_resource type="AudioStream" uid="uid://0fk4qktm85x6" path="res://SFX/Guns/shot_dry.wav" id="1_6axpa"]
+[ext_resource type="Script" path="res://resources/gun_resource.gd" id="2_3bvdv"]
+[ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://SFX/melee_swing.mp3" id="2_mlsa6"]
+[ext_resource type="ArrayMesh" uid="uid://c07t0fpvp2nyn" path="res://assets/weapons/tres/katana.tres" id="3_ykleh"]
+
+[resource]
+script = ExtResource("2_3bvdv")
+type = 1
+ammo = "pistol"
+mesh = ExtResource("3_ykleh")
+cooldown = 0.15
+sway = 0.1
+automatic = false
+firing_sounds = Array[AudioStream]([ExtResource("2_mlsa6")])
+dry_fire_sound = ExtResource("1_6axpa")
+damage = 35
+spread = 0.0
+max_mag = 1
+bullet_amt = 1
+bullet_range = 8

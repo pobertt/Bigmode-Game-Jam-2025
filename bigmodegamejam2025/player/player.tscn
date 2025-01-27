@@ -48,6 +48,46 @@ tracks/2/keys = {
 "values": [Vector3(-0.281596, -0.0154904, 0.0556899)]
 }
 
+[sub_resource type="Animation" id="Animation_n6xk7"]
+resource_name = "test_weapon_attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera/WeaponPivot/WeaponMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.11033, -0.120814, -0.820402)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera/WeaponPivot/WeaponMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0872555, 0.268515, -1.26408)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/Camera/WeaponPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.22275, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_7ntxh"]
 resource_name = "test_weapon_idle"
 length = 3.0
@@ -89,46 +129,6 @@ tracks/2/keys = {
 "values": [Vector3(-0.281596, -0.0154904, 0.0556899), Vector3(-0.279635, -0.0370135, 0.133369)]
 }
 
-[sub_resource type="Animation" id="Animation_n6xk7"]
-resource_name = "test_weapon_attack"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera/WeaponPivot/WeaponMesh:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.11033, -0.120814, -0.820402)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera/WeaponPivot/WeaponMesh:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0872555, 0.268515, -1.26408)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Head/Camera/WeaponPivot:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2.22275, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7vp0c"]
 _data = {
 "RESET": SubResource("Animation_mq0ea"),
@@ -151,7 +151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="WeaponPivot" type="Node3D" parent="Head/Camera"]
 
 [node name="WeaponMesh" type="MeshInstance3D" parent="Head/Camera/WeaponPivot"]
-transform = Transform3D(0.099857, -0.0513567, -0.00148797, 0.00534689, 0.959124, 0.0277889, 1.86265e-10, -0.278287, 0.0960498, 0.294349, -0.392429, -0.720675)
+transform = Transform3D(0.099857, -0.0513567, -0.00148797, 0.00534688, 0.959124, 0.0277889, 2.79397e-10, -0.278287, 0.0960498, 0.294349, -0.392429, -0.720675)
 mesh = SubResource("BoxMesh_x2bi6")
 
 [node name="Hitbox" type="Area3D" parent="Head/Camera/WeaponPivot/WeaponMesh"]

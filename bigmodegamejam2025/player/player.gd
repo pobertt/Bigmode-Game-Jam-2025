@@ -1,12 +1,21 @@
 extends CharacterBody3D
 
+# Player Nodes
 @onready var camera: Camera3D = $Head/Camera
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var hitbox: Area3D = $Head/Camera/WeaponPivot/WeaponMesh/Hitbox
 
+# Stats
+
+# Guns
+var current_gun : Gun
+var can_shoot : bool = true
+var is_reloading : bool = false
+var current_bullets : int = current_gun.max_mag
+
+# Movement Var
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
 
 func _ready():
 	# Capturing the mouse to the screen.

@@ -1,22 +1,24 @@
-[gd_resource type="Resource" script_class="Gun" load_steps=5 format=3 uid="uid://dcdvbcykkvtul"]
+[gd_resource type="Resource" script_class="Gun" load_steps=6 format=3 uid="uid://dcdvbcykkvtul"]
 
 [ext_resource type="AudioStream" uid="uid://0fk4qktm85x6" path="res://SFX/Guns/shot_dry.wav" id="1_8w1qt"]
-[ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://SFX/melee_swing.mp3" id="2_7dt5d"]
-[ext_resource type="ArrayMesh" uid="uid://c07t0fpvp2nyn" path="res://assets/weapons/tres/katana.tres" id="3_hrugf"]
+[ext_resource type="AudioStream" uid="uid://ctswk1ff13uwm" path="res://SFX/Guns/shot_shotgun.wav" id="2_oymbp"]
+[ext_resource type="ArrayMesh" uid="uid://ci1f6xqevqb2" path="res://assets/weapons/tres/shotgun.tres" id="3_m0fab"]
+[ext_resource type="AudioStream" uid="uid://cpy25w8khvjgu" path="res://SFX/Guns/reload_shotgun.wav" id="4_4tej0"]
 [ext_resource type="Script" path="res://resources/gun_resource.gd" id="4_ovt1m"]
 
 [resource]
 script = ExtResource("4_ovt1m")
-type = 0
-ammo = "melee"
-mesh = ExtResource("3_hrugf")
-cooldown = 0.15
-sway = 0.1
+type = 2
+ammo = "shotgun"
+mesh = ExtResource("3_m0fab")
+cooldown = 0.5
+sway = 0.2
 automatic = false
-firing_sounds = Array[AudioStream]([ExtResource("2_7dt5d")])
+firing_sounds = Array[AudioStream]([ExtResource("2_oymbp")])
+reload_sound = ExtResource("4_4tej0")
 dry_fire_sound = ExtResource("1_8w1qt")
-damage = 35
-spread = 0.0
-max_mag = 1
-bullet_amt = 1
-bullet_range = 8
+damage = 10
+spread = 2.25
+max_mag = 8
+bullet_amt = 10
+bullet_range = 40

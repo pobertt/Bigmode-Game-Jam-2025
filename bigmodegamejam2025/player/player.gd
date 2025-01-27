@@ -1,17 +1,33 @@
 extends CharacterBody3D
 
 # Player Nodes
-@onready var camera: Camera3D = $Head/Camera
-@onready var anim_player: AnimationPlayer = $AnimationPlayer
-@onready var hitbox: Area3D = $Head/Camera/WeaponPivot/WeaponMesh/Hitbox
+@onready var camera : Camera3D = $Head/Camera
+@onready var anim_player : AnimationPlayer = $AnimationPlayer
+@onready var hitbox : Area3D = $Head/Camera/WeaponPivot/WeaponMesh/Hitbox
+
+# System Nodes
+@onready var gun: Node = $GunSystem
+
+# Raycast
+@onready var bullet_raycast : RayCast3D = $Head/Camera/Bullet_RayCast3D
 
 # Stats
 
 # Guns
-var current_gun : Gun
+var current_gun : Gun = SHOTGUN
 var can_shoot : bool = true
 var is_reloading : bool = false
 var current_bullets : int = current_gun.max_mag
+
+const MELEE = preload("res://resources/guns/melee.tres")
+const SHOTGUN = preload("res://resources/guns/shotgun.tres")
+
+var ammo : Dictionary = {
+	"melee" : 1,
+	"pistol" : 200,
+	"shotgun" : 200,
+	"smg" : 200,
+}
 
 # Movement Var
 const SPEED = 5.0

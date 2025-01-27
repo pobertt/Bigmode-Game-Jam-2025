@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://crolqkue26mif"]
+
+[ext_resource type="Script" path="res://systems/gun_system.gd" id="1_sh2f2"]
+
+[node name="GunSystem" type="Node"]
+script = ExtResource("1_sh2f2")
+
+[node name="CooldownTimer" type="Timer" parent="."]

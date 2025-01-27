@@ -1,6 +1,5 @@
 extends Node
 
-# POWER UP TYPES GET DEFFINED HERE
 enum PowerUpType {
 	SMOKING,
 	DRINKING,
@@ -8,11 +7,13 @@ enum PowerUpType {
 	CAR_KEYS
 }
 
+
 @export var power_up_type : PowerUpType
 
 signal collected(power_up_type)
 
 func _ready():
+	# Connect to the power-up signals
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
 # FUNCTION FOR WHEN THE PLAYER ENTERS THE POWER UP AREA

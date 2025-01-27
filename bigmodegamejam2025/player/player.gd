@@ -11,12 +11,8 @@ var combo_duration = 5.0  # Time limit for combo to be triggered
 const power_ups = preload("res://player/power_ups.gd")
 
 
-
-
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
 
 
 func _ready():
@@ -32,7 +28,7 @@ func _ready():
 func _on_power_up_collected(power_up_type):
 	if power_up_type not in collected_powerups:
 		collected_powerups.append(power_up_type)
-	match power_ups.PowerUpType:
+	match power_up_type:
 		power_ups.PowerUpType.SMOKING:
 			_apply_smoking_effect()
 			

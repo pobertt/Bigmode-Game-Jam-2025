@@ -19,7 +19,7 @@ var is_reloading : bool = false
 var current_bullets : int = current_gun.max_mag
 
 const MELEE = preload("res://resources/guns/melee.tres")
-const PISTOL = preload("res://resources/guns/melee.tres")
+const PISTOL = preload("res://resources/guns/pistol.tres")
 const SHOTGUN = preload("res://resources/guns/shotgun.tres")
 const SMG = preload("res://resources/guns/shotgun.tres")
 
@@ -61,6 +61,7 @@ func _input(event: InputEvent) -> void:
 		switch_weapon(MELEE)
 	if event.is_action_pressed("gun_slot_2") and is_reloading == false and Global.check_menus() == false:
 		switch_weapon(PISTOL)
+		weapon_holder.set_scale(Vector3(10,10,10))
 	if event.is_action_pressed("gun_slot_3") and is_reloading == false and Global.check_menus() == false:
 		switch_weapon(SHOTGUN)
 	if event.is_action_pressed("gun_slot_4") and is_reloading == false and Global.check_menus() == false:

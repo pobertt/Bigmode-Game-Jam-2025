@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cpytfnpmdkrba"]
 
-[ext_resource type="ArrayMesh" uid="uid://c07t0fpvp2nyn" path="res://assets/weapons/tres/katana.tres" id="1_nxgp5"]
 [ext_resource type="Script" path="res://player/weapon_holder.gd" id="1_thm6r"]
+[ext_resource type="ArrayMesh" uid="uid://ci1f6xqevqb2" path="res://assets/weapons/tres/shotgun.tres" id="2_5sk78"]
 
 [sub_resource type="Animation" id="Animation_q0c5d"]
 resource_name = "MELEE_idle"
@@ -58,6 +58,9 @@ tracks/1/keys = {
 "values": [Vector3(0, -3.14159, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_22mcp"]
+resource_name = "recoil"
+
 [sub_resource type="Animation" id="Animation_xebo6"]
 resource_name = "reload"
 length = 2.0
@@ -100,9 +103,6 @@ tracks/2/keys = {
 "values": [Vector3(0, -3.14159, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_22mcp"]
-resource_name = "recoil"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d3dpk"]
 _data = {
 "MELEE_idle": SubResource("Animation_q0c5d"),
@@ -117,7 +117,7 @@ script = ExtResource("1_thm6r")
 [node name="Weapon" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2, 0, -5.07036e-06, 0, 2, 0, 5.07036e-06, 0, -2, 0, 0, 0)
 cast_shadow = 0
-mesh = ExtResource("1_nxgp5")
+mesh = ExtResource("2_5sk78")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

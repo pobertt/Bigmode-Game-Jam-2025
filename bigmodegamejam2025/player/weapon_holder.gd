@@ -8,6 +8,7 @@ signal reload
 func update_mesh(new_mesh : ArrayMesh):
 	print("updating mesh")
 	weapon_mesh.mesh = new_mesh
+	
 
 func play_gun_anim(anim_name : String, speed_scale : float = 1):
 	anim_player.stop() # Stop any current animation

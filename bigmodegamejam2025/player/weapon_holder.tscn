@@ -1,9 +1,76 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpytfnpmdkrba"]
+[gd_scene load_steps=5 format=3 uid="uid://cpytfnpmdkrba"]
 
 [ext_resource type="ArrayMesh" uid="uid://c07t0fpvp2nyn" path="res://assets/weapons/tres/katana.tres" id="1_nxgp5"]
+
+[sub_resource type="Animation" id="Animation_q0c5d"]
+resource_name = "MELEE_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -5.96046e-08, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0), Vector3(0.0349066, -3.14159, 0.0349066)]
+}
+
+[sub_resource type="Animation" id="Animation_wjf1v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d3dpk"]
+_data = {
+"MELEE_idle": SubResource("Animation_q0c5d"),
+"RESET": SubResource("Animation_wjf1v")
+}
 
 [node name="WeaponHolder" type="Node3D"]
 
 [node name="Weapon" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, 0, 0)
+transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 0, 0, 0)
 mesh = ExtResource("1_nxgp5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d3dpk")
+}
+autoplay = "MELEE_idle"

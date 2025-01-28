@@ -20,7 +20,37 @@ func shoot():
 		
 		# Sound Effect
 		# GLOBALCLASS ---- SoundManager.play_sfx(current.gun.firing_sounds.pick_random(), parent)
-		
 
 func get_bullet_raycasts():
-	pass
+	current_gun = parent.current_gun
+	
+	var bullet_raycast = parent.bullet_raycast
+	var valid_bullets : Array[Dictionary]
+	
+	for b in current_gun.bullet_amt:
+		# Get Spread Amount
+		var spread_x : float = randf_range(current_gun.spread * -1, current_gun.spread)
+		var spread_y : float = randf_range(current_gun.spread * -1, current_gun.spread)
+		
+		# Set Spread
+		bullet_raycast.target_position  = Vector3(spread_x, spread_y, -current_gun.bullet_range)
+		
+		# Get Collided Data
+		bullet_raycast.force_raycast_update()
+		var hit_target = bullet_raycast.get_collider()
+		var collision_point = bullet_raycast.get_collision_point()
+		var collision_normal = bullet_raycast.get_collision_normal()
+		
+		# If the bullet hit an object, get it's data
+		if hit_target != null:
+			var valid_bullet : Dictionary = {
+				"hit_target" : hit_target,
+				"collision_point" : collision_point,
+				"collision_normal" : collision_normal,
+			}
+			
+			# Add valid bullet data to array (getting each individual bullet cause shotgun init)
+			valid_bullets.append(valid_bullet)
+			
+		# Send valid bullet data
+		return valid_bullets

@@ -2,8 +2,6 @@ extends CharacterBody3D
 
 # Player Nodes
 @onready var camera : Camera3D = $Head/Camera
-@onready var anim_player : AnimationPlayer = $AnimationPlayer
-@onready var hitbox : Area3D = $Head/Camera/WeaponPivot/WeaponMesh/Hitbox
 
 # System Nodes
 @onready var gun: Node = $GunSystem
@@ -48,10 +46,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 
-	if Input.is_action_just_pressed("attack"):
-		anim_player.play("test_weapon_attack")
-		hitbox.monitoring = true
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -73,13 +67,3 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "test_weapon_attack":
-		anim_player.play("test_weapon_idle")
-		hitbox.monitoring = false
-
-#If enemy is a rigid body then do body_entered signal
-func _on_hitbox_area_entered(area: Area3D) -> void:
-	if area.is_in_group("enemy"):
-		print("hit")

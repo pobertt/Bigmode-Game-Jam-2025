@@ -34,8 +34,6 @@ func _physics_process(delta: float) -> void:
 func target_position(target):
 	navref.target_position = target
 	
-func update_taarget_location(target_location):
-	navref.set_target_location(target_location)
 
 
 
@@ -60,6 +58,8 @@ func _on_vision_timer_timeout():
 					if collider.name == "Player":
 						RayCast.debug_shape_custom_color = Color.RED
 						print("I see you")
+						#call target_position method on see player 
+						target_position(collider.global_transform.origin)
 					#if not colliding with player
 					else:
 						RayCast.debug_shape_custom_color = Color.GREEN

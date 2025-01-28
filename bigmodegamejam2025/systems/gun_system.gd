@@ -1,4 +1,5 @@
 extends Node
+class_name GunSystem
 
 @export var parent : CharacterBody3D
 @onready var cooldown_timer: Timer = $CooldownTimer
@@ -8,14 +9,11 @@ var current_gun : Gun
 func player_ready():
 	if parent.name == "Player":
 		parent.weapon_holder.reload.connect(player_reload)
-		parent.weapon_holder.melee_finished.connect(melee_fin)
 		
 		current_gun = parent.current_gun
 		
 		if parent.is_reloading == false and current_gun.type != Gun.GunType.MELEE:
 			parent.weapon_holder.play_gun_anim("idle") # Keeps playing it from the beginning and new finishes the anim
-		else:
-			parent.weapon_holder.play_gun_anim("melee_idle")
 
 func shoot():
 	current_gun = parent.current_gun
@@ -26,7 +24,7 @@ func shoot():
 		if current_gun.type != Gun.GunType.MELEE: # Subtract bullets if weapon uses bullets
 			parent.current_bullets -= 1
 			parent.weapon_holder.play_gun_anim("recoil")
-			
+		
 		# Cooldown
 		parent.can_shoot = false
 		cooldown_timer.start(current_gun.cooldown)
@@ -70,10 +68,11 @@ func shoot():
 
 func get_bullet_raycasts():
 	current_gun = parent.current_gun
+
 	
 	var bullet_raycast = parent.bullet_raycast
 	var valid_bullets : Array[Dictionary]
-	
+
 	for b in current_gun.bullet_amt:
 		# Get Spread Amount
 		var spread_x : float = randf_range(current_gun.spread * -1, current_gun.spread)
@@ -98,13 +97,8 @@ func get_bullet_raycasts():
 			# Add valid bullet data to array (getting each individual bullet cause shotgun init)
 			valid_bullets.append(valid_bullet)
 			
-		# Send valid bullet data
-		return valid_bullets
-		
-
-func melee():
-	print("melee called")
-	parent.weapon_holder.play_gun_anim("melee")
+	# Send valid bullet data
+	return valid_bullets
 
 func _on_cooldown_timer_timeout() -> void:
 	parent.can_shoot = true
@@ -143,6 +137,3 @@ func player_reload():
 	parent.is_reloading = false
 	parent.weapon_holder.play_gun_anim("idle")
 	Global.update_hud.emit()
-
-func melee_fin():
-	parent.weapon_holder.play_gun_anim("melee_idle")

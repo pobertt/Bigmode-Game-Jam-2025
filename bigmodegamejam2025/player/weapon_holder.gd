@@ -5,8 +5,6 @@ extends Node3D
 
 signal reload
 
-signal melee_finished
-
 func update_mesh(new_mesh : ArrayMesh):
 	print("updating mesh")
 	weapon_mesh.mesh = new_mesh
@@ -19,6 +17,3 @@ func play_gun_anim(anim_name : String, speed_scale : float = 1):
 
 func reload_finished():
 	reload.emit()
-
-func melee_fin():
-	melee_finished.emit()

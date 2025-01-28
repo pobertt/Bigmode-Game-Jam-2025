@@ -13,7 +13,7 @@ extends CharacterBody3D
 # Stats
 
 # Guns
-var current_gun : Gun = SHOTGUN
+@export var current_gun : Gun = SHOTGUN
 var can_shoot : bool = true
 var is_reloading : bool = false
 var current_bullets : int = current_gun.max_mag
@@ -59,17 +59,13 @@ func _input(event: InputEvent) -> void:
 	# Swap Guns
 	if event.is_action_pressed("gun_slot_1") and is_reloading == false and Global.check_menus() == false:
 		switch_weapon(MELEE)
-		weapon_holder.set_scale(Vector3(2,2,2))
 	if event.is_action_pressed("gun_slot_2") and is_reloading == false and Global.check_menus() == false:
 		switch_weapon(PISTOL)
-		weapon_holder.set_scale(Vector3(1,1,1))
 	if event.is_action_pressed("gun_slot_3") and is_reloading == false and Global.check_menus() == false:
 		switch_weapon(SHOTGUN)
-		weapon_holder.set_scale(Vector3(1,1,1))
 	if event.is_action_pressed("gun_slot_4") and is_reloading == false and Global.check_menus() == false:
 		switch_weapon(SMG)
-		weapon_holder.set_scale(Vector3(1,1,1))
-
+		
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
@@ -82,8 +78,7 @@ func _physics_process(delta: float) -> void:
 	# Automatic
 	if Input.is_action_pressed("attack") and current_gun.automatic == true and Global.check_menus() == false and current_gun != MELEE:
 		gun.shoot()
-	if Input.is_action_pressed("attack") and Global.check_menus() == false and current_gun == MELEE:
-		gun.melee()
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

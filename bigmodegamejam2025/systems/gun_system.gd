@@ -8,6 +8,14 @@ var current_gun : Gun
 func player_ready():
 	if parent.name == "Player":
 		parent.weapon_holder.reload.connect(player_reload)
+		parent.weapon_holder.melee_finished.connect(melee_fin)
+		
+		current_gun = parent.current_gun
+		
+		if parent.is_reloading == false and current_gun.type != Gun.GunType.MELEE:
+			parent.weapon_holder.play_gun_anim("idle") # Keeps playing it from the beginning and new finishes the anim
+		else:
+			parent.weapon_holder.play_gun_anim("melee_idle")
 
 func shoot():
 	current_gun = parent.current_gun
@@ -17,7 +25,8 @@ func shoot():
 		
 		if current_gun.type != Gun.GunType.MELEE: # Subtract bullets if weapon uses bullets
 			parent.current_bullets -= 1
-		
+			parent.weapon_holder.play_gun_anim("recoil")
+			
 		# Cooldown
 		parent.can_shoot = false
 		cooldown_timer.start(current_gun.cooldown)
@@ -34,6 +43,7 @@ func shoot():
 				print(current_gun.bullet_amt)
 				# Enemy Damage
 				if b.hit_target.is_in_group("enemy"): # Check if is enemy
+					print("enemy hit")
 					b.hit_target.change_health(current_gun.damage * -1) # Can change this later but hurt/damage/kill enemy
 				
 				# Spawn Decal
@@ -51,6 +61,7 @@ func shoot():
 				
 				# Add to decal counting array
 				Global.spawned_decals.append(bullet)
+				print(Global.spawned_decals)
 				
 				# Check for decal amount
 				if Global.spawned_decals.size() > Global.max_decals:
@@ -67,7 +78,6 @@ func get_bullet_raycasts():
 		# Get Spread Amount
 		var spread_x : float = randf_range(current_gun.spread * -1, current_gun.spread)
 		var spread_y : float = randf_range(current_gun.spread * -1, current_gun.spread)
-		
 		# Set Spread
 		bullet_raycast.target_position  = Vector3(spread_x, spread_y, -current_gun.bullet_range)
 		
@@ -90,6 +100,11 @@ func get_bullet_raycasts():
 			
 		# Send valid bullet data
 		return valid_bullets
+		
+
+func melee():
+	print("melee called")
+	parent.weapon_holder.play_gun_anim("melee")
 
 func _on_cooldown_timer_timeout() -> void:
 	parent.can_shoot = true
@@ -126,5 +141,8 @@ func player_reload():
 	
 	parent.can_shoot = true
 	parent.is_reloading = false
+	parent.weapon_holder.play_gun_anim("idle")
 	Global.update_hud.emit()
-			
+
+func melee_fin():
+	parent.weapon_holder.play_gun_anim("melee_idle")

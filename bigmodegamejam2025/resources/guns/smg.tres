@@ -7,8 +7,8 @@
 
 [resource]
 script = ExtResource("4_4q3sr")
-type = 0
-ammo = "melee"
+type = 3
+ammo = "smg"
 mesh = ExtResource("3_mqu57")
 cooldown = 0.15
 sway = 0.1

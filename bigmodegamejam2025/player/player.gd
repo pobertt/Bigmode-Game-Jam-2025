@@ -47,6 +47,14 @@ func _process(delta: float) -> void:
 		get_tree().quit()
 
 func _physics_process(delta: float) -> void:
+	# Gun
+	# Semi-Automatic
+	if Input.is_action_just_pressed("attack") and current_gun.automatic == false and Global.check_menus() == false:
+		gun.shoot()
+	# Automatic
+	if Input.is_action_pressed("attack") and current_gun.automatic == true and Global.check_menus() == false:
+		gun.shoot()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

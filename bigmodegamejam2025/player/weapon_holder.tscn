@@ -67,6 +67,7 @@ _data = {
 
 [node name="Weapon" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 0, 0, 0)
+cast_shadow = 0
 mesh = ExtResource("1_nxgp5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -20,6 +20,34 @@ func shoot():
 		
 		# Sound Effect
 		# GLOBALCLASS ---- SoundManager.play_sfx(current.gun.firing_sounds.pick_random(), parent)
+		
+		# if any bullets hits do all this stuff
+		if valid_bullets.is_empty() == false:
+			for b in valid_bullets:
+				# Enemy Damage
+				if b.hit_target.is_in_group("enemy"): # Check if is enemy
+					b.hit_target.change_health(current_gun.damage * -1) # Can change this later but hurt/damage/kill enemy
+				
+				# Spawn Decal
+				var bullet = Global.BULLET_DECAL.instantiate()
+				b.hit_target.add_child(bullet)
+				bullet.global_transform.origin = b.collision_point
+				
+				# Match decal direction to surface normal
+				if b.collision_normal  == Vector3(0,1,0):
+					bullet.look_at(b.collision_point + b.collision_normal, Vector3.RIGHT)
+				elif b.collision_normal == Vector3(0,-1,0):
+					bullet.look_at(b.collision_point + b.collision_normal, Vector3.RIGHT)
+				else:
+					bullet.look_at(b.collision_point + b.collision_normal, Vector3.DOWN)
+				
+				# Add to decal counting array
+				Global.spawned_decals.append(bullet)
+				
+				# Check for decal amount
+				if Global.spawned_decals.size() > Global.max_decals:
+					Global.spawned_decals[0].queue_free() # Remove oldest decal from the world
+					Global.spawned_decals.remove_at(0) # Remove freed decal from list
 
 func get_bullet_raycasts():
 	current_gun = parent.current_gun
@@ -54,3 +82,6 @@ func get_bullet_raycasts():
 			
 		# Send valid bullet data
 		return valid_bullets
+
+func _on_cooldown_timer_timeout() -> void:
+	parent.can_shoot = true

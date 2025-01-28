@@ -8,6 +8,7 @@ extends CharacterBody3D
 
 # Raycast
 @onready var bullet_raycast : RayCast3D = $Head/Camera/Bullet_RayCast3D
+@onready var weapon_holder: Node3D = $Head/Camera/WeaponHolder
 
 # Stats
 
@@ -32,8 +33,14 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 func _ready():
+	Global.player_ref = self
+	
+	gun.player_ready()
+	
 	# Capturing the mouse to the screen.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	Global.update_hud.emit()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	# Camera Rotation.
@@ -41,6 +48,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * .005)
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+	
+	# Reload
+	if event.is_action_pressed("reload") and Global.check_menus() == false:
+		gun.reload()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):

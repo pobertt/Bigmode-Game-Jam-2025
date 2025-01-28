@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://jmxxedj0ya4l"]
+[gd_scene load_steps=6 format=3 uid="uid://jmxxedj0ya4l"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_8cqqi"]
 [ext_resource type="PackedScene" uid="uid://crolqkue26mif" path="res://systems/gun_system.tscn" id="2_b5b6i"]
 [ext_resource type="PackedScene" uid="uid://cpytfnpmdkrba" path="res://player/weapon_holder.tscn" id="3_j1wrt"]
+[ext_resource type="PackedScene" uid="uid://c1118cqtdm1xd" path="res://UI/HUD/HUD.tscn" id="4_m2rbr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
 
@@ -29,3 +30,5 @@ enabled = false
 target_position = Vector3(0, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_m2rbr")]

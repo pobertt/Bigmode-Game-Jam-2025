@@ -5,6 +5,10 @@ extends Node
 
 var current_gun : Gun
 
+func player_ready():
+	if parent.name == "Player":
+		parent.weapon_holder.reload.connect(player_reload)
+
 func shoot():
 	current_gun = parent.current_gun
 	
@@ -20,6 +24,9 @@ func shoot():
 		
 		# Sound Effect
 		# GLOBALCLASS ---- SoundManager.play_sfx(current.gun.firing_sounds.pick_random(), parent)
+		
+		if parent.name == "Player":
+			Global.update_hud.emit()
 		
 		# if any bullets hits do all this stuff
 		if valid_bullets.is_empty() == false:
@@ -85,3 +92,38 @@ func get_bullet_raycasts():
 
 func _on_cooldown_timer_timeout() -> void:
 	parent.can_shoot = true
+
+func reload():
+	current_gun = parent.current_gun
+	
+	if current_gun.type != Gun.GunType.MELEE:
+		# If mag is missing bullets and player has required bullets
+		if parent.current_bullets < current_gun.max_mag:
+			parent.can_shoot = false
+			parent.is_reloading = true
+			
+			if parent.name == "Player":
+				if parent.ammo[current_gun.ammo] > 0: # If player has the required ammo
+					parent.weapon_holder.play_gun_anim("reload") # When player reload animation is finished, reload gun
+					#SoundManager stuff in here (reload sound)
+					return
+
+func player_reload():
+	current_gun = parent.current_gun
+	
+	# Ammo Var
+	var ammo_amt : int = parent.ammo[current_gun.ammo] # Get player ammo ammount for required ammo
+	var missing_ammo : int = current_gun.max_mag - parent.current_bullets
+	
+	match ammo_amt >= current_gun.max_mag: # Check if the player has enough ammo to fill the mag
+		true: # Fill Mag
+			parent.current_bullets = current_gun.max_mag
+			parent.ammo[current_gun.ammo] -= missing_ammo
+		false: # Partially Fill Mag
+			parent.current_bullets += parent.ammo[current_gun.ammo]
+			parent.ammo[current_gun.ammo] = 0
+	
+	parent.can_shoot = true
+	parent.is_reloading = false
+	Global.update_hud.emit()
+			

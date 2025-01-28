@@ -19,7 +19,9 @@ var is_reloading : bool = false
 var current_bullets : int = current_gun.max_mag
 
 const MELEE = preload("res://resources/guns/melee.tres")
+const PISTOL = preload("res://resources/guns/melee.tres")
 const SHOTGUN = preload("res://resources/guns/shotgun.tres")
+const SMG = preload("res://resources/guns/shotgun.tres")
 
 var ammo : Dictionary = {
 	"melee" : 1,
@@ -52,6 +54,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Reload
 	if event.is_action_pressed("reload") and Global.check_menus() == false:
 		gun.reload()
+
+func _input(event: InputEvent) -> void:
+	# Swap Guns
+	if event.is_action_pressed("gun_slot_1") and is_reloading == false and Global.check_menus() == false:
+		print("gun slot 1")
+		switch_weapon(MELEE)
+	if event.is_action_pressed("gun_slot_2") and is_reloading == false and Global.check_menus() == false:
+		switch_weapon(PISTOL)
+	if event.is_action_pressed("gun_slot_3") and is_reloading == false and Global.check_menus() == false:
+		switch_weapon(SHOTGUN)
+	if event.is_action_pressed("gun_slot_4") and is_reloading == false and Global.check_menus() == false:
+		switch_weapon(SMG)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
@@ -86,3 +100,29 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func switch_weapon(new_weapon : Gun):
+	print("switching weapon")
+	if new_weapon == current_gun: # Do nothing if already using that gun
+		return
+	
+	# Add bullets back to total ammo count
+	ammo[current_gun.ammo] += current_bullets
+	current_bullets = 0
+	
+	#Switch Gun Resource
+	current_gun = new_weapon
+	
+	# Set in-game mesh
+	weapon_holder.update_mesh(current_gun.mesh)
+	
+	# Load bullets into new gun
+	match ammo[current_gun.ammo] >= current_gun.max_mag: # Check if the player has enough ammo to fill the mag
+		true: # Fill Mag
+			current_bullets = current_gun.max_mag
+			ammo[current_gun.ammo] -= current_gun.max_mag
+		false: # Partially Fill Mag
+			current_bullets += ammo[current_gun.ammo]
+			ammo[current_gun.ammo] = 0
+	
+	Global.update_hud.emit()

@@ -2,14 +2,14 @@
 
 [ext_resource type="AudioStream" uid="uid://0fk4qktm85x6" path="res://SFX/Guns/shot_dry.wav" id="1_dhvu0"]
 [ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://SFX/melee_swing.mp3" id="2_tueoq"]
-[ext_resource type="ArrayMesh" uid="uid://c07t0fpvp2nyn" path="res://assets/weapons/tres/katana.tres" id="3_euhjt"]
+[ext_resource type="ArrayMesh" uid="uid://ci1f6xqevqb2" path="res://assets/weapons/tres/shotgun.tres" id="3_mqu57"]
 [ext_resource type="Script" path="res://resources/gun_resource.gd" id="4_4q3sr"]
 
 [resource]
 script = ExtResource("4_4q3sr")
 type = 0
 ammo = "melee"
-mesh = ExtResource("3_euhjt")
+mesh = ExtResource("3_mqu57")
 cooldown = 0.15
 sway = 0.1
 automatic = false

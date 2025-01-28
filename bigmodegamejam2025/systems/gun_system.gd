@@ -31,6 +31,7 @@ func shoot():
 		# if any bullets hits do all this stuff
 		if valid_bullets.is_empty() == false:
 			for b in valid_bullets:
+				print(current_gun.bullet_amt)
 				# Enemy Damage
 				if b.hit_target.is_in_group("enemy"): # Check if is enemy
 					b.hit_target.change_health(current_gun.damage * -1) # Can change this later but hurt/damage/kill enemy

@@ -42,4 +42,9 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 
 target_position = Vector3(0, 0, -100)
 debug_shape_custom_color = Color(1, 1, 0, 1)
 
+[node name="AggroTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [connection signal="timeout" from="VisionTimer" to="." method="_on_vision_timer_timeout"]
+[connection signal="timeout" from="AggroTimer" to="." method="_on_aggro_timer_timeout"]

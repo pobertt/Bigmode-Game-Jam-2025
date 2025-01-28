@@ -41,10 +41,10 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54394, -8.27855)
 
 [node name="Player" parent="." instance=ExtResource("2_0kvcc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275553, -0.119367, 7.92266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275553, -0.119367, 19.6152)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12502, -8.27855)
+transform = Transform3D(2.295, 0, 0, 0, 2.295, 0, 0, 0, 2.295, 0, 1.12502, -8.27855)
 navigation_mesh = SubResource("NavigationMesh_6qs6d")
 
 [node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D"]
@@ -57,7 +57,7 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xamex")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.74487)
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(2.295, 0, 0, 0, 2.295, 0, 0, 0, 2.295, 0, 1.12502, 9.49593)
 use_collision = true
-size = Vector3(4, 4, 4)
+size = Vector3(2, 4, 4)

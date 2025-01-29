@@ -38,7 +38,6 @@ func shoot():
 		# if any bullets hits do all this stuff
 		if valid_bullets.is_empty() == false:
 			for b in valid_bullets:
-				print(current_gun.bullet_amt)
 				# Enemy Damage
 				if b.hit_target.is_in_group("enemy"): # Check if is enemy
 					print("enemy hit")
@@ -59,7 +58,6 @@ func shoot():
 				
 				# Add to decal counting array
 				Global.spawned_decals.append(bullet)
-				print(Global.spawned_decals)
 				
 				# Check for decal amount
 				if Global.spawned_decals.size() > Global.max_decals:

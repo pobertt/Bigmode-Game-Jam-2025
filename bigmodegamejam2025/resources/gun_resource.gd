@@ -15,7 +15,7 @@ enum GunType {
 @export var sway : float = 0.15
 @export var automatic : bool = false
 
-@export_category("Sounds")
+@export_category("SFX/VFX")
 @export var firing_sounds : Array[AudioStream]
 @export var reload_sound : AudioStream
 @export var dry_fire_sound : AudioStream = preload("res://SFX/Guns/shot_dry.wav")

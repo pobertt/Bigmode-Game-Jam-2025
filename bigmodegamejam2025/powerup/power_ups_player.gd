@@ -31,8 +31,8 @@ func _on_power_up_collected(power_up_type):
 		power_ups.PowerUpType.SNUSING:
 			_apply_snusing_effect()
 			
-		power_ups.PowerUpType.CAR_KEYS:
-			_apply_car_keys_effect()
+		power_ups.PowerUpType.PILLS:
+			_apply_pills_effect()
 	# Check for combo
 	_check_for_combo1()
 	_check_for_combo2()
@@ -51,8 +51,8 @@ func _apply_snusing_effect():
 	print("Player uses snus!")
 	# Add your effect logic, e.g., alertness or focus
 
-func _apply_car_keys_effect():
-	print("Player gets car keys!")
+func _apply_pills_effect():
+	print("Player gets pills!")
 	# Add your effect logic, e.g., unlocking a car or a speed boost
 	
 func _check_for_combo1():
@@ -85,7 +85,7 @@ func _check_for_combo2():
 			_reset_combo()
 			
 func _check_for_combo3():
-	if power_ups.PowerUpType.CAR_KEYS in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
+	if power_ups.PowerUpType.PILLS in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
 		combo_active = true
 		combo_timer = combo_duration  # Reset combo timer
 		print("Combo activated!")

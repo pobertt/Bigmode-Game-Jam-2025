@@ -38,7 +38,8 @@ parent = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_ygf8x")
 
-[node name="PowerUps" parent="." instance=ExtResource("5_4g6ax")]
+[node name="PowerUps" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("5_4g6ax")]
+player_ref = NodePath("..")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

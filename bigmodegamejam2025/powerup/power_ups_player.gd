@@ -1,4 +1,7 @@
 extends Node
+class_name PowerUpSystem
+
+@export var player_ref : CharacterBody3D
 
 var collected_powerups = []
 
@@ -18,7 +21,6 @@ func _process(delta: float) -> void:
 		combo_timer -= delta  # Countdown for the combo effect
 		
 	if combo_timer <= 0:
-		print("Combo expired!")
 		_reset_combo()
 		
 # FOR WHEN THE PLAYER COLLECTS A POWER UP
@@ -48,11 +50,14 @@ func _apply_smoking_effect():
 
 func _apply_drinking_effect():
 	print("Player starts drinking!")
-	# Add your effect logic, e.g., blur vision, or increase energy
-
+	
+	player_ref.bladder += 10
+	print(player_ref.bladder)
+	
 func _apply_snusing_effect():
 	print("Player uses snus!")
 	# Add your effect logic, e.g., alertness or focus
+	player_ref.snusM += 5
 
 func _apply_pills_effect():
 	print("Player gets pills!")
@@ -74,5 +79,4 @@ func _activate_combo():
 # Reset combo state after timer runs out
 func _reset_combo():
 	combo_active = false
-	print("Combo expired.")
 	 # Reset combo effects here, if needed_

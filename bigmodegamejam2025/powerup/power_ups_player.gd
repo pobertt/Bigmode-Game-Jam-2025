@@ -57,7 +57,10 @@ func _apply_drinking_effect():
 func _apply_snusing_effect():
 	print("Player uses snus!")
 	# Add your effect logic, e.g., alertness or focus
-	player_ref.snusM += 5
+	var tween := create_tween()
+	
+	player_ref.snusM += 2.5
+	tween.tween_property(player_ref.camera, "fov", 75 + 20, 1)
 
 func _apply_pills_effect():
 	print("Player gets pills!")

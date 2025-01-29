@@ -12,6 +12,7 @@ extends CharacterBody3D
 
 # Stats
 
+
 # Guns
 @export var current_gun : Gun = PISTOL
 var can_shoot : bool = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jmxxedj0ya4l"]
+[gd_scene load_steps=11 format=3 uid="uid://jmxxedj0ya4l"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_8cqqi"]
 [ext_resource type="PackedScene" uid="uid://crolqkue26mif" path="res://systems/gun_system.tscn" id="2_b5b6i"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1118cqtdm1xd" path="res://UI/HUD/HUD.tscn" id="4_m2rbr"]
 [ext_resource type="PackedScene" uid="uid://dcs10cmxvu8i8" path="res://powerup/power_ups_player.tscn" id="5_4g6ax"]
 [ext_resource type="Shader" path="res://shaders/newpsxshader.gdshader" id="5_bnhrv"]
+[ext_resource type="PackedScene" uid="uid://cdopmcdyyh8t3" path="res://player/fist.tscn" id="6_4xsi2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
 
@@ -46,16 +47,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="Camera" type="Camera3D" parent="Head"]
 
 [node name="WeaponHolder" parent="Head/Camera" instance=ExtResource("3_j1wrt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.427606, -0.236423, -0.392579)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.427606, -0.236423, -0.484476)
 
 [node name="Bullet_RayCast3D" type="RayCast3D" parent="Head/Camera"]
 enabled = false
 target_position = Vector3(0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera"]
+[node name="shader" type="MeshInstance3D" parent="Head/Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000684738, 0, -1.03424)
 material_override = SubResource("ShaderMaterial_kcyex")
 mesh = SubResource("QuadMesh_wec7u")
+
+[node name="Fist" parent="Head/Camera" instance=ExtResource("6_4xsi2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.362767, -0.250145, 0.0400259)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

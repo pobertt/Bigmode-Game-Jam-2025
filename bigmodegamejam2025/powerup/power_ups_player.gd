@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 		combo_timer -= delta  # Countdown for the combo effect
 		
 	if combo_timer <= 0:
-		print("Combo expired!")
 		_reset_combo()
 		
 # FOR WHEN THE PLAYER COLLECTS A POWER UP
@@ -74,5 +73,4 @@ func _activate_combo():
 # Reset combo state after timer runs out
 func _reset_combo():
 	combo_active = false
-	print("Combo expired.")
 	 # Reset combo effects here, if needed_

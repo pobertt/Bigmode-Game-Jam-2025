@@ -16,7 +16,11 @@ func _ready():
 func _process(delta: float) -> void:
 	if combo_active:
 		combo_timer -= delta  # Countdown for the combo effect
-
+		
+	if combo_timer <= 0:
+		print("Combo expired!")
+		_reset_combo()
+		
 # FOR WHEN THE PLAYER COLLECTS A POWER UP
 func _on_power_up_collected(power_up_type):
 	if power_up_type not in collected_powerups:
@@ -34,9 +38,8 @@ func _on_power_up_collected(power_up_type):
 		power_ups.PowerUpType.PILLS:
 			_apply_pills_effect()
 	# Check for combo
-	_check_for_combo1()
-	_check_for_combo2()
-	_check_for_combo3()
+	
+	_check_for_comboA()
 
 # Apply individual effects for each power-up
 func _apply_smoking_effect():
@@ -55,51 +58,21 @@ func _apply_pills_effect():
 	print("Player gets pills!")
 	# Add your effect logic, e.g., unlocking a car or a speed boost
 	
-func _check_for_combo1():
+func _check_for_comboA():
 	if power_ups.PowerUpType.SMOKING in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
+		_activate_combo()
+	elif power_ups.PowerUpType.SNUSING in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
+		_activate_combo()
+	elif power_ups.PowerUpType.PILLS in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
+		_activate_combo()
+
+func _activate_combo():
+	if !combo_active:
 		combo_active = true
 		combo_timer = combo_duration  # Reset combo timer
 		print("Combo activated!")
-		# Apply combo effect, like boosting speed or unlocking a special ability
-		
-		
-	if combo_active:
-		combo_timer -= get_process_delta_time()  # Decrease timer
-		if combo_timer <= 0:
-			# Reset combo after timer expires
-			_reset_combo()
-			
-		
-func _check_for_combo2():
-	if power_ups.PowerUpType.SNUSING in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
-		combo_active = true
-		combo_timer = combo_duration  # Reset combo timer
-		print("Combo activated!")
-		# Apply combo effect, like boosting speed or unlocking a special ability
-		
-		
-	if combo_active:
-		combo_timer -= get_process_delta_time()  # Decrease timer
-		if combo_timer <= 0:
-			# Reset combo after timer expires
-			_reset_combo()
-			
-func _check_for_combo3():
-	if power_ups.PowerUpType.PILLS in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
-		combo_active = true
-		combo_timer = combo_duration  # Reset combo timer
-		print("Combo activated!")
-		# Apply combo effect, like boosting speed or unlocking a special ability
-		
-		
-	if combo_active:
-		combo_timer -= get_process_delta_time()  # Decrease timer
-		if combo_timer <= 0:
-			# Reset combo after timer expires
-			_reset_combo()
-			
 # Reset combo state after timer runs out
 func _reset_combo():
 	combo_active = false
 	print("Combo expired.")
-	 # Reset combo effects here, if needed
+	 # Reset combo effects here, if needed_

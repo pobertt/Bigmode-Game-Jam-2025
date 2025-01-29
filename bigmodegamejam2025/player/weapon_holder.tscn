@@ -155,6 +155,7 @@ mesh = ExtResource("4_5l2ln")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Weapon"]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -9.61529e-07, 0.0449301, 0.379274)
+emitting = false
 amount = 6
 lifetime = 0.1
 explosiveness = 1.0

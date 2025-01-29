@@ -44,7 +44,8 @@ var speed = WALK_SPEED
 const WALK_SPEED = 8
 const JUMP_VELOCITY = 4.5
 
-# Headbob Vars
+# CAM VARS
+
 const BOB_FREQ : float = 2.0
 const BOB_AMP : float = 0.1
 var t_bob : float = 0.0
@@ -152,3 +153,21 @@ func switch_weapon(new_weapon : Gun):
 			ammo[current_gun.ammo] = 0
 	
 	Global.update_hud.emit()
+
+
+func _camera_shake(period, magnitude):
+	var initial_transform = camera.transform 
+	var elapsed_time = 0.0
+
+	while elapsed_time < period:
+		var offset = Vector3(
+			randf_range(-magnitude, magnitude),
+			randf_range(-magnitude, magnitude),
+			0.0
+		)
+
+		camera.transform.origin = initial_transform.origin + offset
+		elapsed_time += get_process_delta_time()
+		await get_tree().process_frame
+
+	camera.transform = initial_transform

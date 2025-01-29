@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://jmxxedj0ya4l"]
+[gd_scene load_steps=7 format=3 uid="uid://jmxxedj0ya4l"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_8cqqi"]
 [ext_resource type="PackedScene" uid="uid://crolqkue26mif" path="res://systems/gun_system.tscn" id="2_b5b6i"]
 [ext_resource type="PackedScene" uid="uid://cpytfnpmdkrba" path="res://player/weapon_holder.tscn" id="3_j1wrt"]
 [ext_resource type="PackedScene" uid="uid://c1118cqtdm1xd" path="res://UI/HUD/HUD.tscn" id="4_m2rbr"]
+[ext_resource type="PackedScene" uid="uid://dcs10cmxvu8i8" path="res://powerup/power_ups_player.tscn" id="5_4g6ax"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_8cqqi")
 
 [node name="GunSystem" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_b5b6i")]
@@ -32,3 +33,5 @@ target_position = Vector3(0, 0, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("4_m2rbr")]
+
+[node name="PowerUps" parent="." instance=ExtResource("5_4g6ax")]

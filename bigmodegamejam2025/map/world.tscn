@@ -61,6 +61,7 @@ shape = SubResource("ConcavePolygonShape3D_crx4q")
 
 [node name="TestHit" parent="." instance=ExtResource("2_k6ph8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.815425, 4.04291)
+object_health = 10000
 
 [node name="Player" parent="." instance=ExtResource("1_w1kce")]
 

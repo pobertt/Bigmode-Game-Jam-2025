@@ -1,12 +1,15 @@
 extends CharacterBody3D
 
 # Player Nodes
+
 @onready var camera : Camera3D = $Head/Camera
 
 # System Nodes
+
 @onready var gun: Node = $GunSystem
 
 # Raycast
+
 @onready var bullet_raycast : RayCast3D = $Head/Camera/Bullet_RayCast3D
 @onready var weapon_holder: Node3D = $Head/Camera/WeaponHolder
 
@@ -18,6 +21,7 @@ var strengh : int = 10
 var snusM : int = 1
 
 # Guns
+
 @export var current_gun : Gun = PISTOL
 var can_shoot : bool = true
 var is_reloading : bool = false
@@ -35,8 +39,15 @@ var ammo : Dictionary = {
 }
 
 # Movement Var
-const SPEED = 5.0
+
+var speed = WALK_SPEED
+const WALK_SPEED = 8
 const JUMP_VELOCITY = 4.5
+
+# Headbob Vars
+const BOB_FREQ : float = 2.0
+const BOB_AMP : float = 0.1
+var t_bob : float = 0.0
 
 func _ready():
 	Global.player_ref = self
@@ -87,18 +98,35 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	if is_on_floor():
+		if get_direction():
+			velocity.x = get_direction().x * speed
+			velocity.z = get_direction().z * speed
+		else:
+			velocity.x = lerp(velocity.x, get_direction().x * speed, delta * 7.0)
+			velocity.z = lerp(velocity.z, get_direction().x * speed, delta * 7.0)
+	else:
+		velocity.x = lerp(velocity.x, get_direction().x * speed, delta * 3.0)
+		velocity.z = lerp(velocity.z, get_direction().z * speed, delta * 3.0)
+	
+	# Headbob stuff:
+	t_bob += delta * velocity.length() * float(is_on_floor())
+	camera.transform.origin = _headbob(t_bob)
+	
+	# FOV stuff:
+	
+	move_and_slide()
+
+func get_direction() -> Vector3:
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED * snusM
-		velocity.z = direction.z * SPEED * snusM
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	return direction
 
-	move_and_slide()
+func _headbob(time) -> Vector3:
+	var pos = Vector3.ZERO
+	pos.y = sin(time * BOB_FREQ) * BOB_AMP
+	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
+	return pos
 
 func switch_weapon(new_weapon : Gun):
 	if new_weapon == current_gun: # Do nothing if already using that gun

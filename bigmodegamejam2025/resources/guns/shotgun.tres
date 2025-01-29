@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://0fk4qktm85x6" path="res://SFX/Guns/shot_dry.wav" id="1_8w1qt"]
 [ext_resource type="AudioStream" uid="uid://ctswk1ff13uwm" path="res://SFX/Guns/shot_shotgun.wav" id="2_oymbp"]
-[ext_resource type="ArrayMesh" uid="uid://ci1f6xqevqb2" path="res://assets/weapons/tres/shotgun.tres" id="3_m0fab"]
+[ext_resource type="ArrayMesh" uid="uid://dk3cx0r5h8sf1" path="res://assets/weapons/tres/new_tres/new_shotgun.res" id="3_fbvx8"]
 [ext_resource type="AudioStream" uid="uid://cpy25w8khvjgu" path="res://SFX/Guns/reload_shotgun.wav" id="4_4tej0"]
 [ext_resource type="Script" path="res://resources/gun_resource.gd" id="4_ovt1m"]
 
@@ -10,7 +10,7 @@
 script = ExtResource("4_ovt1m")
 type = 2
 ammo = "shotgun"
-mesh = ExtResource("3_m0fab")
+mesh = ExtResource("3_fbvx8")
 cooldown = 0.5
 sway = 0.2
 automatic = false

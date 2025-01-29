@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlsqp5lw5rpwi"]
+[gd_scene load_steps=8 format=3 uid="uid://dlsqp5lw5rpwi"]
 
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="1_w1kce"]
 [ext_resource type="PackedScene" uid="uid://bhvov8bj68qid" path="res://player/test_hit.tscn" id="2_k6ph8"]
-[ext_resource type="Resource" uid="uid://dcdvbcykkvtul" path="res://resources/guns/shotgun.tres" id="2_sb3cf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ua71i"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,17 +39,17 @@ mesh = SubResource("PlaneMesh_b8688")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_crx4q")
 
-[node name="Floor" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -10)
-mesh = SubResource("PlaneMesh_b8688")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor/Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_crx4q")
-
 [node name="Player" parent="." instance=ExtResource("1_w1kce")]
-current_gun = ExtResource("2_sb3cf")
 
 [node name="TestHit" parent="." instance=ExtResource("2_k6ph8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.815425, 4.04291)
+
+[node name="Floor2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -10)
+mesh = SubResource("PlaneMesh_b8688")
+skeleton = NodePath("../Floor")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_crx4q")

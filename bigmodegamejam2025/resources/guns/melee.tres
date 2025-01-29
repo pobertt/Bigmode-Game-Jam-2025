@@ -3,13 +3,13 @@
 [ext_resource type="AudioStream" uid="uid://0fk4qktm85x6" path="res://SFX/Guns/shot_dry.wav" id="1_6axpa"]
 [ext_resource type="Script" path="res://resources/gun_resource.gd" id="2_3bvdv"]
 [ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://SFX/melee_swing.mp3" id="2_mlsa6"]
-[ext_resource type="ArrayMesh" uid="uid://c07t0fpvp2nyn" path="res://assets/weapons/tres/katana.tres" id="3_ykleh"]
+[ext_resource type="ArrayMesh" uid="uid://26lh2naey0yw" path="res://assets/weapons/tres/new_tres/new_katana.res" id="3_dccgv"]
 
 [resource]
 script = ExtResource("2_3bvdv")
 type = 1
 ammo = "pistol"
-mesh = ExtResource("3_ykleh")
+mesh = ExtResource("3_dccgv")
 cooldown = 0.15
 sway = 0.1
 automatic = false

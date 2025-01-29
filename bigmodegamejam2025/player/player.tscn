@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c1118cqtdm1xd" path="res://UI/HUD/HUD.tscn" id="4_m2rbr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
-radius = 1.0
-height = 4.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_8cqqi")
@@ -16,16 +14,16 @@ script = ExtResource("1_8cqqi")
 parent = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_ygf8x")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 
 [node name="WeaponHolder" parent="Head/Camera" instance=ExtResource("3_j1wrt")]
-transform = Transform3D(-1, 3.2035e-09, 8.73641e-08, 0, 0.999329, -0.0366437, -8.74228e-08, -0.0366437, -0.999329, 1.343, -0.629, -1.151)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.427606, -0.236423, -0.392579)
 
 [node name="Bullet_RayCast3D" type="RayCast3D" parent="Head/Camera"]
 enabled = false

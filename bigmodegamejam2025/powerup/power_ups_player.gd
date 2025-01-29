@@ -1,4 +1,7 @@
 extends Node
+class_name PowerUpSystem
+
+@export var player_ref : CharacterBody3D
 
 var collected_powerups = []
 
@@ -47,11 +50,14 @@ func _apply_smoking_effect():
 
 func _apply_drinking_effect():
 	print("Player starts drinking!")
-	# Add your effect logic, e.g., blur vision, or increase energy
-
+	
+	player_ref.bladder += 10
+	print(player_ref.bladder)
+	
 func _apply_snusing_effect():
 	print("Player uses snus!")
 	# Add your effect logic, e.g., alertness or focus
+	player_ref.snusM += 5
 
 func _apply_pills_effect():
 	print("Player gets pills!")

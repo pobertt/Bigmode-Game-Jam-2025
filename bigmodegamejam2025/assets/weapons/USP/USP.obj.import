@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://vl1nnwwhlneq"
+path="res://.godot/imported/USP.obj-7f4e298bfdcc2f8313e1bd5c26fb1cff.mesh"
+
+[deps]
+
+files=["res://.godot/imported/USP.obj-7f4e298bfdcc2f8313e1bd5c26fb1cff.mesh"]
+
+source_file="res://assets/weapons/USP/USP.obj"
+dest_files=["res://.godot/imported/USP.obj-7f4e298bfdcc2f8313e1bd5c26fb1cff.mesh", "res://.godot/imported/USP.obj-7f4e298bfdcc2f8313e1bd5c26fb1cff.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

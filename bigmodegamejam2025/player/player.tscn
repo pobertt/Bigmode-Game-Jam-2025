@@ -1,173 +1,68 @@
-[gd_scene load_steps=9 format=3 uid="uid://jmxxedj0ya4l"]
+[gd_scene load_steps=11 format=3 uid="uid://jmxxedj0ya4l"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_8cqqi"]
+[ext_resource type="PackedScene" uid="uid://crolqkue26mif" path="res://systems/gun_system.tscn" id="2_b5b6i"]
+[ext_resource type="PackedScene" uid="uid://cpytfnpmdkrba" path="res://player/weapon_holder.tscn" id="3_j1wrt"]
+[ext_resource type="PackedScene" uid="uid://c1118cqtdm1xd" path="res://UI/HUD/HUD.tscn" id="4_m2rbr"]
+[ext_resource type="PackedScene" uid="uid://dcs10cmxvu8i8" path="res://powerup/power_ups_player.tscn" id="5_4g6ax"]
+[ext_resource type="Shader" path="res://shaders/newpsxshader.gdshader" id="5_bnhrv"]
+[ext_resource type="PackedScene" uid="uid://cdopmcdyyh8t3" path="res://player/fist.tscn" id="6_4xsi2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_x2bi6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcyex"]
+render_priority = 0
+shader = ExtResource("5_bnhrv")
+shader_parameter/enable_fog = true
+shader_parameter/fog_color = Color(0.601223, 0.601223, 0.601223, 1)
+shader_parameter/noise_color = Color(0.629675, 0.629675, 0.629675, 1)
+shader_parameter/fog_distance = 6000.0
+shader_parameter/fog_fade_range = 50.0
+shader_parameter/enable_noise = true
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 16
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 0.3
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2nm6r"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="QuadMesh" id="QuadMesh_wec7u"]
+flip_faces = true
+size = Vector2(2, 2)
 
-[sub_resource type="Animation" id="Animation_mq0ea"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera/WeaponPivot:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera/WeaponPivot/WeaponMesh:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.294349, -0.392429, -0.720675)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Head/Camera/WeaponPivot/WeaponMesh:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.281596, -0.0154904, 0.0556899)]
-}
-
-[sub_resource type="Animation" id="Animation_n6xk7"]
-resource_name = "test_weapon_attack"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera/WeaponPivot/WeaponMesh:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.11033, -0.120814, -0.820402)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera/WeaponPivot/WeaponMesh:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0872555, 0.268515, -1.26408)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Head/Camera/WeaponPivot:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2.22275, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_7ntxh"]
-resource_name = "test_weapon_idle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera/WeaponPivot:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera/WeaponPivot/WeaponMesh:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(0.294349, -0.392429, -0.720675), Vector3(0.294349, -0.453037, -0.720675)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Head/Camera/WeaponPivot/WeaponMesh:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector3(-0.281596, -0.0154904, 0.0556899), Vector3(-0.279635, -0.0370135, 0.133369)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7vp0c"]
-_data = {
-"RESET": SubResource("Animation_mq0ea"),
-"test_weapon_attack": SubResource("Animation_n6xk7"),
-"test_weapon_idle": SubResource("Animation_7ntxh")
-}
-
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_8cqqi")
+
+[node name="GunSystem" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_b5b6i")]
+parent = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_ygf8x")
+
+[node name="PowerUps" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("5_4g6ax")]
+player_ref = NodePath("..")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 
-[node name="WeaponPivot" type="Node3D" parent="Head/Camera"]
+[node name="WeaponHolder" parent="Head/Camera" instance=ExtResource("3_j1wrt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.427606, -0.236423, -0.484476)
 
-[node name="WeaponMesh" type="MeshInstance3D" parent="Head/Camera/WeaponPivot"]
-transform = Transform3D(0.099857, -0.0513567, -0.00148797, 0.00534688, 0.959124, 0.0277889, 2.79397e-10, -0.278287, 0.0960498, 0.294349, -0.392429, -0.720675)
-mesh = SubResource("BoxMesh_x2bi6")
+[node name="Bullet_RayCast3D" type="RayCast3D" parent="Head/Camera"]
+enabled = false
+target_position = Vector3(0, 0, 0)
 
-[node name="Hitbox" type="Area3D" parent="Head/Camera/WeaponPivot/WeaponMesh"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
-monitoring = false
+[node name="shader" type="MeshInstance3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000684738, 0, -1.03424)
+material_override = SubResource("ShaderMaterial_kcyex")
+mesh = SubResource("QuadMesh_wec7u")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera/WeaponPivot/WeaponMesh/Hitbox"]
-transform = Transform3D(1, -6.47937e-09, 3.73686e-10, 4.13826e-10, 1, -1.86265e-09, -7.35766e-11, 2.38419e-07, 1, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_2nm6r")
+[node name="Fist" parent="Head/Camera" instance=ExtResource("6_4xsi2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.362767, -0.250145, 0.0400259)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_7vp0c")
-}
-autoplay = "test_weapon_idle"
-playback_default_blend_time = 0.2
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[connection signal="area_entered" from="Head/Camera/WeaponPivot/WeaponMesh/Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_m2rbr")]
+metadata/_edit_use_anchors_ = true

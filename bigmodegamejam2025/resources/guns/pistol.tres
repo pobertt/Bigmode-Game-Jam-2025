@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Gun" load_steps=5 format=3 uid="uid://dfg1r0y1fjjsa"]
+
+[ext_resource type="AudioStream" uid="uid://0fk4qktm85x6" path="res://SFX/Guns/shot_dry.wav" id="1_7qvwt"]
+[ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://SFX/melee_swing.mp3" id="2_fukoc"]
+[ext_resource type="ArrayMesh" uid="uid://i3uwgivvosx3" path="res://assets/weapons/tres/new_tres/new_pistol.res" id="3_lb5u0"]
+[ext_resource type="Script" path="res://resources/gun_resource.gd" id="4_a3gj4"]
+
+[resource]
+script = ExtResource("4_a3gj4")
+type = 1
+ammo = "pistol"
+mesh = ExtResource("3_lb5u0")
+cooldown = 0.15
+sway = 10.0
+automatic = false
+firing_sounds = Array[AudioStream]([ExtResource("2_fukoc")])
+dry_fire_sound = ExtResource("1_7qvwt")
+damage = 35
+spread = 0.0
+max_mag = 12
+bullet_amt = 1
+bullet_range = 60

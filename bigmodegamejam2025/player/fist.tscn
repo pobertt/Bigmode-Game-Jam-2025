@@ -125,7 +125,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="fist_mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.18557e-07, -5, -2.18557e-07, 0, -2.18557e-07, 5, -5, 2.18557e-07, 9.55343e-15, 8.58563e-10, 0, 0.0331006)
+transform = Transform3D(-1.81e-05, -5, -1.81e-05, 0, -1.81e-05, 5, -5, 1.81e-05, 6.55216e-11, 8.58563e-10, 0, 0.0331006)
 material_override = SubResource("StandardMaterial3D_k2obd")
 cast_shadow = 0
 mesh = ExtResource("3_vtgaq")

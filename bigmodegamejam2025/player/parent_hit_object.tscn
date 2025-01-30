@@ -13,7 +13,7 @@ points = PackedVector3Array(0.457871, 0.198079, 0.0157824, -0.48874, -0.0916874,
 [node name="parent_object" type="RigidBody3D" groups=["enemy"]]
 script = ExtResource("1_faetc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="mesh" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_8khvv")
 mesh = SubResource("SphereMesh_3ogey")
 skeleton = NodePath("../..")

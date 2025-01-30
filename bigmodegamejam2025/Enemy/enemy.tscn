@@ -46,5 +46,6 @@ debug_shape_custom_color = Color(1, 1, 0, 1)
 wait_time = 4.0
 one_shot = true
 
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
 [connection signal="timeout" from="VisionTimer" to="." method="_on_vision_timer_timeout"]
 [connection signal="timeout" from="AggroTimer" to="." method="_on_aggro_timer_timeout"]

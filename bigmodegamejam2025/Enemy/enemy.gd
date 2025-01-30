@@ -5,7 +5,7 @@ extends CharacterBody3D
 @onready var VisionRef = $VisionArea
 @onready var RayCast = $VisionRayCast
 @onready var AggroTimer = $AggroTimer
-
+@onready var randomPos = Vector3(randf_range(-20, 20), position.y,randf_range(-20, 20))
 var PlayerRef
 
 const SPEED = 2.0
@@ -38,6 +38,8 @@ func _physics_process(delta: float) -> void:
 #set next target position
 func target_position(target):
 	navref.target_position = target
+	navref.target_desired_distance = 2.0
+	navref.path_desired_distance = 2.0
 	
 #every time the timer elapses
 func _on_vision_timer_timeout():
@@ -62,6 +64,7 @@ func _on_vision_timer_timeout():
 		else:
 			pass
 		print("StillFollowing")
+		
 	
 
 #manage enemy line of sight
@@ -102,3 +105,9 @@ func _GoTowardsPlayer():
 func _on_aggro_timer_timeout() -> void:
 	PlayerRef = null
 	print("StopFollowing")
+
+
+func _on_navigation_agent_3d_target_reached() -> void:
+	if navref.target_position == null:
+		target_position(randomPos)
+		print("Got random location")

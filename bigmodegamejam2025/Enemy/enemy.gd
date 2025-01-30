@@ -1,12 +1,18 @@
 extends CharacterBody3D
 
-
 @onready var navref = $NavigationAgent3D
 @onready var VisionRef = $VisionArea
 @onready var RayCast = $VisionRayCast
 @onready var AggroTimer = $AggroTimer
-@onready var randomPos = Vector3(randf_range(-20, 20), position.y,randf_range(-20, 20))
+@onready var IdleTimer = $IdleTimer
+@onready var DamageAreaRef = $DamageArea
+@onready var animation_player: AnimationPlayer = $animations/AnimationPlayer
 var PlayerRef
+
+
+enum STATE { ROAMING , CHASING , IDLING , SEARCHING}
+
+var CurrentState : STATE = STATE.IDLING
 
 const SPEED = 2.0
 const JUMP_VELOCITY = 4.5
@@ -46,6 +52,7 @@ func _on_vision_timer_timeout():
 	#check overlapping bodies
 	var overlaps = VisionRef.get_overlapping_bodies()
 	var foundplayer = false
+	
 	if overlaps.size() > 0:
 		for overlap in overlaps:
 			#confirm its the player
@@ -61,11 +68,22 @@ func _on_vision_timer_timeout():
 		if AggroTimer.time_left == 0.0:
 			AggroTimer.start()
 			_GoTowardsPlayer()
+			CurrentState = STATE.SEARCHING
 		else:
 			pass
-		print("StillFollowing")
-		
+		print("StillFollowing")		
 	
+	var damageoverlaps = DamageAreaRef.get_overlapping_bodies()
+	
+	if damageoverlaps.size() > 0:
+		for overlap in damageoverlaps:
+			if overlap.name == "Player":
+				#playerdamage function goes here
+				print("DamagePlayer")
+				#apply_central_impulse(overlap.basis.z * 2.0)
+			
+			
+
 
 #manage enemy line of sight
 func _TrackPlayerRaycast():
@@ -83,6 +101,8 @@ func _TrackPlayerRaycast():
 			if AggroTimer.time_left != 0.0:
 				AggroTimer.stop()
 			_GoTowardsPlayer()
+			CurrentState = STATE.CHASING    
+			animation_player.play("running")                                                     
 		#if not colliding with player but still searching
 		elif collider.name != "Player" and PlayerRef != null:
 			if AggroTimer.time_left != 0.0:
@@ -93,6 +113,7 @@ func _TrackPlayerRaycast():
 				#start/restart timer for aggro
 				AggroTimer.start()
 				_GoTowardsPlayer()
+				CurrentState = STATE.SEARCHING
 			RayCast.debug_shape_custom_color = Color.GREEN
 
 func _GoTowardsPlayer():
@@ -108,6 +129,26 @@ func _on_aggro_timer_timeout() -> void:
 
 
 func _on_navigation_agent_3d_target_reached() -> void:
-	if navref.target_position == null:
-		target_position(randomPos)
-		print("Got random location")
+	match CurrentState:
+		STATE.ROAMING:
+			CurrentState = STATE.IDLING
+			IdleTimer.start()
+			animation_player.play("idling")
+		STATE.CHASING:
+			pass
+		STATE.SEARCHING:
+			CurrentState = STATE.IDLING
+			IdleTimer.start()
+			animation_player.play("idling")
+
+func change_health(damage):
+	print("Hit enemy")
+	
+func _on_idle_timer_timeout() -> void:
+	var randompos = Vector3(randf_range(-20, 20), position.y,randf_range(-20, 20))
+	look_at(Vector3(randompos.x, global_position.y, randompos.z), Vector3.UP, true)
+	target_position(randompos)
+	print(randompos)
+	CurrentState = STATE.ROAMING
+	animation_player.play("walking")
+	

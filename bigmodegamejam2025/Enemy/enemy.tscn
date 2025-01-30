@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbjhc7pmmdv30"]
+[gd_scene load_steps=8 format=3 uid="uid://dbjhc7pmmdv30"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_p5vra"]
 [ext_resource type="PackedScene" uid="uid://c8giknctto3q0" path="res://Enemy/cone.tscn" id="2_0nyk1"]
+[ext_resource type="PackedScene" uid="uid://doryfyf5t73b" path="res://Enemy/EnemyAnim.tscn" id="3_a413t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_70vpo"]
 
@@ -9,6 +10,8 @@
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ia488"]
 points = PackedVector3Array(-0.000195742, 1, -0.000195742, 0.194988, -1, -0.980814, -0.000195742, -1, -1, -0.195184, -1, -0.980814, -0.382733, -1, -0.924041, -0.555599, -1, -0.831637, -0.707126, -1, -0.707126, -0.831637, -1, -0.555599, -0.924041, -1, -0.382733, -0.980814, -1, -0.195184, -1, -1, -0.000195742, -0.980814, -1, 0.194988, -0.924041, -1, 0.382537, -0.831637, -1, 0.555403, -0.707126, -1, 0.70693, -0.555599, -1, 0.831441, -0.382733, -1, 0.923845, -0.195184, -1, 0.980619, -0.000195742, -1, 1, 0.194988, -1, 0.980619, 0.382537, -1, 0.923845, 0.555403, -1, 0.831441, 0.70693, -1, 0.70693, 0.831441, -1, 0.555403, 0.923845, -1, 0.382537, 0.980619, -1, 0.194988, 1, -1, -0.000195742, 0.980619, -1, -0.195184, 0.923845, -1, -0.382733, 0.831441, -1, -0.555599, 0.70693, -1, -0.707126, 0.555403, -1, -0.831637, 0.382537, -1, -0.924041)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1hkik"]
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_p5vra")
@@ -19,6 +22,7 @@ shape = SubResource("CapsuleShape3D_70vpo")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_qbgx5")
 skeleton = NodePath("../NavigationAgent3D")
 
@@ -46,6 +50,22 @@ debug_shape_custom_color = Color(1, 1, 0, 1)
 wait_time = 4.0
 one_shot = true
 
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="DamageArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.723257)
+shape = SubResource("CapsuleShape3D_1hkik")
+
+[node name="animations" parent="." instance=ExtResource("3_a413t")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.929245, 0)
+
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
 [connection signal="timeout" from="VisionTimer" to="." method="_on_vision_timer_timeout"]
 [connection signal="timeout" from="AggroTimer" to="." method="_on_aggro_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+
+[editable path="animations"]

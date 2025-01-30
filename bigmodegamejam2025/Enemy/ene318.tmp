@@ -41,7 +41,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.279)
 
 [node name="Player" parent="." instance=ExtResource("2_0kvcc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275553, -0.119367, 24.7329)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275553, -0.119367, 19.6152)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(2.295, 0, 0, 0, 2.295, 0, 0, 0, 2.295, 0, 1.54984, -8.27855)

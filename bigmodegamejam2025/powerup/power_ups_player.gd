@@ -12,6 +12,7 @@ var combo_duration = 5.0  # Time limit for combo to be triggered
 
 const power_ups = preload("res://powerup/power_ups.gd")
 
+
 func _ready():
 	for power_up in get_tree().get_nodes_in_group("power_ups"):
 		power_up.connect("collected", Callable(self, "_on_power_up_collected"))
@@ -42,11 +43,14 @@ func _on_power_up_collected(power_up_type):
 	# Check for combo
 	
 	_check_for_comboA()
-
+	
+	
 # Apply individual effects for each power-up
 func _apply_smoking_effect():
 	print("Player starts smoking!")
-	# Add your effect logic, e.g., reduce health or stamina
+	player_ref.health += 10
+	print(player_ref.health)
+	
 
 func _apply_drinking_effect():
 	print("Player starts drinking!")
@@ -56,7 +60,7 @@ func _apply_drinking_effect():
 	
 func _apply_snusing_effect():
 	print("Player uses snus!")
-	# Add your effect logic, e.g., alertness or focus
+	
 	var tween := create_tween()
 	
 	player_ref.snusM += 2.5
@@ -64,21 +68,36 @@ func _apply_snusing_effect():
 
 func _apply_pills_effect():
 	print("Player gets pills!")
-	# Add your effect logic, e.g., unlocking a car or a speed boost
+	player_ref.strength += 10
+	print(player_ref.strength)
 	
 func _check_for_comboA():
 	if power_ups.PowerUpType.SMOKING in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
-		_activate_combo()
+		_activate_combo0()
 	elif power_ups.PowerUpType.SNUSING in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
-		_activate_combo()
+		_activate_combo1()
 	elif power_ups.PowerUpType.PILLS in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
-		_activate_combo()
+		_activate_combo2()
 
-func _activate_combo():
+func _activate_combo0():
 	if !combo_active:
 		combo_active = true
 		combo_timer = combo_duration  # Reset combo timer
-		print("Combo activated!")
+		print("Combo 1 activated!")
+# Reset combo state after timer runs out
+
+func _activate_combo1():
+	if !combo_active:
+		combo_active = true
+		combo_timer = combo_duration  # Reset combo timer
+		print("Combo 2 activated!")
+# Reset combo state after timer runs out
+
+func _activate_combo2():
+	if !combo_active:
+		combo_active = true
+		combo_timer = combo_duration  # Reset combo timer
+		print("Combo 3 activated!")
 # Reset combo state after timer runs out
 func _reset_combo():
 	combo_active = false

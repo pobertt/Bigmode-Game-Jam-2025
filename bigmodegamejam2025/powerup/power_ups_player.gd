@@ -3,6 +3,7 @@ class_name PowerUpSystem
 
 @export var player_ref : CharacterBody3D
 
+
 var collected_powerups = []
 
 # Combo system: define combo triggers
@@ -11,6 +12,7 @@ var combo_timer = 0.0
 var combo_duration = 5.0  # Time limit for combo to be triggered
 
 const power_ups = preload("res://powerup/power_ups.gd")
+var spawn_object : PackedScene = preload("res://powerup/Lighter.tscn")
 
 
 func _ready():
@@ -50,6 +52,15 @@ func _apply_smoking_effect():
 	print("Player starts smoking!")
 	player_ref.health += 10
 	print(player_ref.health)
+	var obj = spawn_object.instantiate()  
+	player_ref.obj_holder.add_child(obj)
+	
+	#var player_position = player_ref.position
+	#var player_forward = player_ref.global_transform.basis.z 
+	#var distance_in_front = 5
+	#var new_position = player_position + player_forward * distance_in_front
+	#obj.position = new_position
+	#obj.queue_free()
 	
 
 func _apply_drinking_effect():

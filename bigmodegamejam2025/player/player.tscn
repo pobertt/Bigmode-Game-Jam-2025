@@ -56,11 +56,15 @@ target_position = Vector3(0, 0, 0)
 
 [node name="shader" type="MeshInstance3D" parent="Head/Camera"]
 transform = Transform3D(1, -0.000161073, -0.00049253, 0.000160791, 1, -0.000566793, 0.000492622, 0.000566713, 1, 0.000684738, 0, -1.03424)
+visible = false
 material_override = SubResource("ShaderMaterial_kcyex")
 mesh = SubResource("QuadMesh_wec7u")
 
 [node name="Fist" parent="Head/Camera" instance=ExtResource("6_4xsi2")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.554441, -0.404013, 0.303861)
+
+[node name="obj_holder" type="Node3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0471687, -1.55661)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

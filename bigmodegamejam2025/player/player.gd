@@ -3,6 +3,7 @@ extends CharacterBody3D
 # Player Nodes
 
 @onready var camera : Camera3D = $Head/Camera
+@onready var obj_holder: Node3D = $Head/Camera/obj_holder
 
 # System Nodes
 

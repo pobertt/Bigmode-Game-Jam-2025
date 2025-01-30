@@ -38,7 +38,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("1_m5774")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.279)
+transform = Transform3D(1.00153, 0, 0, 0, 1.00153, 0, 0, 0, 1.00153, 6.30428, 0.520515, 14.7604)
 
 [node name="Player" parent="." instance=ExtResource("2_0kvcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275553, -0.119367, 24.7329)
@@ -59,5 +59,10 @@ shape = SubResource("ConcavePolygonShape3D_xamex")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0948291, 7.87354)
+use_collision = true
+size = Vector3(2, 4, 4.25732)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(3.93572, 0, 0, 0, 2.65141, 0, 0, 0, 0.994528, 0, -0.189658, -3.95315)
 use_collision = true
 size = Vector3(2, 4, 4.25732)

@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var IdleTimer = $IdleTimer
 @onready var DamageAreaRef = $DamageArea
 @onready var animation_player: AnimationPlayer = $animations/AnimationPlayer
+@onready var skeleton = $animations/Armature/Skeleton3D
 var PlayerRef
 
 
@@ -143,6 +144,12 @@ func _on_navigation_agent_3d_target_reached() -> void:
 
 func change_health(damage):
 	print("Hit enemy")
+	skeleton.physical_bones_start_simulation()
+	var bones = skeleton.get_children()
+	#for bone in bones:
+		#if bone.get_class() == "PhysicalBone3D":
+			#bone.linear_velocity = Vector3.FORWARD * 10
+	
 	
 func _on_idle_timer_timeout() -> void:
 	var randompos = Vector3(randf_range(-20, 20), position.y,randf_range(-20, 20))

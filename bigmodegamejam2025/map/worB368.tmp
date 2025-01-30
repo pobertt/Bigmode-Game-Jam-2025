@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dlsqp5lw5rpwi"]
 
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="1_w1kce"]
-[ext_resource type="PackedScene" uid="uid://bhvov8bj68qid" path="res://objects/parent_hit_object.tscn" id="2_k6ph8"]
+[ext_resource type="PackedScene" uid="uid://bhvov8bj68qid" path="res://player/parent_hit_object.tscn" id="2_k6ph8"]
 [ext_resource type="PackedScene" uid="uid://fm8evqanx3am" path="res://powerup/powerup.tscn" id="3_5ng3o"]
 [ext_resource type="PackedScene" uid="uid://dd00d2ci8cl2n" path="res://assets/dirtground.blend" id="4_es478"]
 [ext_resource type="Texture2D" uid="uid://bp1pto7xyopax" path="res://assets/dirtground_ground_Material.png" id="5_3yv1v"]
@@ -45,6 +45,10 @@ environment = SubResource("Environment_txn73")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
+[node name="TestHit" parent="." instance=ExtResource("2_k6ph8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.815425, 4.04291)
+object_health = 10000
+
 [node name="PowerUp" parent="." instance=ExtResource("3_5ng3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -6.19641)
 power_up_type = 1
@@ -87,8 +91,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20049, 0.631804, -0.64927)
 
 [node name="Plane" parent="dirtground" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_sih5x")
-
-[node name="parent_object2" parent="." instance=ExtResource("2_k6ph8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46894, 1.82658, 5.45973)
 
 [editable path="dirtground"]

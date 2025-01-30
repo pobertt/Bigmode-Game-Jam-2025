@@ -17,7 +17,7 @@ extends CharacterBody3D
 
 var health : int = 100
 var bladder : int = 0
-var strengh : float = 10
+var strength : float = 10
 var snusM : int = 1
 
 # Guns

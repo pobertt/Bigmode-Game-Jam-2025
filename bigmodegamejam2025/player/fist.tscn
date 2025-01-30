@@ -1,42 +1,39 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdopmcdyyh8t3"]
+[gd_scene load_steps=10 format=3 uid="uid://cdopmcdyyh8t3"]
 
 [ext_resource type="Script" path="res://player/fist.gd" id="1_4ru20"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_jn0cu"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xhtyr"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[ext_resource type="Texture2D" uid="uid://e8kr64hbtss0" path="res://assets/weapons/new_weapons/fist/Player_Arm_PlayerArms.png" id="2_ji7nd"]
+[ext_resource type="ArrayMesh" uid="uid://kxjsf87wlobe" path="res://assets/weapons/new_weapons/fist/test/Cube_002.res" id="3_vtgaq"]
 
 [sub_resource type="Animation" id="Animation_eg31d"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("fist_mesh:rotation")
+tracks/0/path = NodePath("fist_mesh:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.110074, -0.0148925, 0.134757)]
+"values": [Vector3(8.58563e-10, 0, 0.0331006)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("fist_mesh:position")
+tracks/1/path = NodePath("fist_mesh:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.0786601, 0)]
+"values": [Vector3(-1.5708, 1.5708, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ia7ij"]
 resource_name = "idle"
-length = 3.0
+length = 1.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -45,10 +42,10 @@ tracks/0/path = NodePath("fist_mesh:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.110074, -0.0148925, 0.134757)]
+"values": [Vector3(1.5708, 1.5708, 0), Vector3(1.5708, 1.5708, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -57,10 +54,10 @@ tracks/1/path = NodePath("fist_mesh:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -0.0786601, 0)]
+"values": [Vector3(8.58563e-10, 0, -0.0507828), Vector3(8.58563e-10, -0.00573947, -0.0507828)]
 }
 
 [sub_resource type="Animation" id="Animation_4elfs"]
@@ -73,10 +70,10 @@ tracks/0/path = NodePath("fist_mesh:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
+"times": PackedFloat32Array(0, 0.233333, 0.4),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(1.5708, 1.5708, 0), Vector3(1.5708, 1.5708, 0), Vector3(1.5708, 1.5708, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -85,10 +82,24 @@ tracks/1/path = NodePath("fist_mesh:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
+"times": PackedFloat32Array(0, 0.233333, 0.4),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector3(0, -0.0128782, 0), Vector3(0, -0.0128782, -0.854098), Vector3(0, -0.0128782, 0)]
+"values": [Vector3(8.58563e-10, 0, -0.0507828), Vector3(0, 0, 0.75), Vector3(8.58563e-10, 0, -0.0507828)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [null],
+"method": &"_on_animation_player_animation_finished"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xcmg6"]
@@ -98,23 +109,32 @@ _data = {
 "punch": SubResource("Animation_4elfs")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2obd"]
+albedo_texture = ExtResource("2_ji7nd")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8antm"]
+points = PackedVector3Array(-0.151699, -0.0195629, -0.00591919, -0.0290917, 0.0146643, 0.00834048, -0.0633258, 0.0118116, 0.0111929, -0.194491, 0.0146643, -0.000216667, -0.0290917, 0.00895897, -0.0116262, -0.160257, -0.0338262, 0.00548809, -0.0290917, -0.0167055, 0.00834048, -0.0290917, -0.0167055, -0.00877381, -0.211626, -0.00530434, 0.00548809, -0.168816, -0.0338262, -0.00306681, -0.205891, 0.000400985, -0.00306681, -0.0861426, -0.008157, -0.0116262, -0.0861426, 0.0146643, -0.00877381, -0.0804429, -0.0110049, 0.0111929, -0.183074, 0.00325364, 0.00834048, -0.180233, 0.0146643, 0.00548809, -0.0832838, 0.00895897, -0.0116262, -0.0290917, -0.008157, 0.0111929, -0.183074, -0.008157, 0.00834048, -0.0290917, 0.0146643, -0.00877381, -0.205891, -0.0138528, -0.000216667, -0.168816, -0.0338262, 0.00548809, -0.191632, 0.0118116, -0.00306681, -0.205891, 0.00895897, 0.00548809, -0.0661846, -0.0110049, -0.0116262, -0.205891, -0.00530434, -0.00306681, -0.0775841, 0.0118116, 0.0111929, -0.0290917, -0.008157, -0.0116262, -0.20875, 0.00895897, -0.000216667, -0.0290917, 0.00895897, 0.0111929, -0.160257, -0.0338262, -0.00306681, -0.168816, 0.00895897, 0.00834048)
+
 [node name="Fist" type="Node3D"]
 script = ExtResource("1_4ru20")
-
-[node name="fist_mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.199253, -0.0221002, -0.0148018, 0.026848, 0.164017, 0.109852, 6.74085e-09, -0.0184584, 0.993838, 0, -0.0786601, 0)
-mesh = SubResource("BoxMesh_jn0cu")
-
-[node name="hitbox" type="Area3D" parent="fist_mesh"]
-monitoring = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fist_mesh/hitbox"]
-shape = SubResource("ConvexPolygonShape3D_xhtyr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xcmg6")
 }
 autoplay = "idle"
+
+[node name="fist_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.18557e-07, -5, -2.18557e-07, 0, -2.18557e-07, 5, -5, 2.18557e-07, 9.55343e-15, 8.58563e-10, 0, 0.0331006)
+material_override = SubResource("StandardMaterial3D_k2obd")
+cast_shadow = 0
+mesh = ExtResource("3_vtgaq")
+
+[node name="hitbox" type="Area3D" parent="fist_mesh"]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fist_mesh/hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_8antm")
 
 [connection signal="body_entered" from="fist_mesh/hitbox" to="." method="_on_hitbox_body_entered"]

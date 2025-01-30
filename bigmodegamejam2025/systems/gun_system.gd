@@ -24,13 +24,19 @@ func shoot():
 		if current_gun.type != Gun.GunType.MELEE: # Subtract bullets if weapon uses bullets
 			parent.current_bullets -= 1
 			parent.weapon_holder.play_gun_anim("recoil")
+			
+		# Screen Shake
+		if current_gun.type == Gun.GunType.SHOTGUN:
+			parent._camera_shake(0.075,0.1)
+		else:
+			parent._camera_shake(0.025, 0.1)
 		
 		# Cooldown
 		parent.can_shoot = false
 		cooldown_timer.start(current_gun.cooldown)
 		
 		# Sound Effect
-		# GLOBALCLASS ---- SoundManager.play_sfx(current.gun.firing_sounds.pick_random(), parent)
+		SoundManager.play_sfx(current_gun.firing_sounds.pick_random(), parent)
 		
 		if parent.name == "Player":
 			Global.update_hud.emit()
@@ -62,10 +68,11 @@ func shoot():
 				if Global.spawned_decals.size() > Global.max_decals:
 					Global.spawned_decals[0].queue_free() # Remove oldest decal from the world
 					Global.spawned_decals.remove_at(0) # Remove freed decal from list
+	elif parent.current_bullets <= 0:
+		SoundManager.play_sfx(current_gun.dry_fire_sound, parent)
 
 func get_bullet_raycasts():
 	current_gun = parent.current_gun
-
 	
 	var bullet_raycast = parent.bullet_raycast
 	var valid_bullets : Array[Dictionary]
@@ -112,7 +119,7 @@ func reload():
 			if parent.name == "Player":
 				if parent.ammo[current_gun.ammo] > 0: # If player has the required ammo
 					parent.weapon_holder.play_gun_anim("reload") # When player reload animation is finished, reload gun
-					#SoundManager stuff in here (reload sound)
+					SoundManager.play_sfx(current_gun.reload_sound, parent)
 					return
 
 func player_reload():

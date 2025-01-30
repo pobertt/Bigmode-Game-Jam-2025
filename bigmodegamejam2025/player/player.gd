@@ -142,6 +142,7 @@ func switch_weapon(new_weapon : Gun):
 	
 	# Set in-game mesh
 	weapon_holder.update_mesh(current_gun.mesh)
+	weapon_holder.set_particle(current_gun.type)
 	
 	# Load bullets into new gun
 	match ammo[current_gun.ammo] >= current_gun.max_mag: # Check if the player has enough ammo to fill the mag

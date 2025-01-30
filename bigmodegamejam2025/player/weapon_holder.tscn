@@ -1,28 +1,41 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpytfnpmdkrba"]
+[gd_scene load_steps=13 format=3 uid="uid://cpytfnpmdkrba"]
 
 [ext_resource type="Script" path="res://player/weapon_holder.gd" id="1_thm6r"]
-[ext_resource type="ArrayMesh" uid="uid://i3uwgivvosx3" path="res://assets/weapons/tres/new_tres/new_pistol.res" id="4_5l2ln"]
+[ext_resource type="ArrayMesh" uid="uid://dg822pvsh1r32" path="res://assets/weapons/new_weapons/new_shotgun.res" id="2_c0po0"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cfust"]
-particle_flag_align_y = true
-spread = 100.0
-initial_velocity_min = 12.0
-initial_velocity_max = 14.0
-scale_min = 0.5
-scale_max = 1.5
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i6v42"]
+angle_min = -70.0
+angle_max = 70.0
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5snbd"]
+[sub_resource type="Gradient" id="Gradient_e3bla"]
+colors = PackedColorArray(1, 0.605918, 0.0939295, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5jgq1"]
+gradient = SubResource("Gradient_e3bla")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8crm8"]
 transparency = 1
-cull_mode = 2
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.545098, 0.258824, 1)
+blend_mode = 1
+albedo_color = Color(0.777463, 0.457357, 0, 1)
+albedo_texture = SubResource("GradientTexture2D_5jgq1")
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 5.52
+emission_texture = SubResource("GradientTexture2D_5jgq1")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_aqyrm"]
-material = SubResource("StandardMaterial3D_5snbd")
-top_radius = 0.01
-bottom_radius = 0.01
-height = 0.1
+[sub_resource type="QuadMesh" id="QuadMesh_hraur"]
+material = SubResource("StandardMaterial3D_8crm8")
+size = Vector2(0.05, 0.05)
 
 [sub_resource type="Animation" id="Animation_wjf1v"]
 length = 0.001
@@ -151,16 +164,26 @@ script = ExtResource("1_thm6r")
 [node name="Weapon" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
 cast_shadow = 0
-mesh = ExtResource("4_5l2ln")
+mesh = ExtResource("2_c0po0")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Weapon"]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -1.26244e-06, 0.0449301, 0.497969)
+[node name="PistolParticles3D" type="GPUParticles3D" parent="Weapon"]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -4.37035e-07, 0.0449301, 0.172389)
 emitting = false
-amount = 6
-lifetime = 0.1
+lifetime = 0.01
+one_shot = true
 explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_cfust")
-draw_pass_1 = SubResource("CylinderMesh_aqyrm")
+process_material = SubResource("ParticleProcessMaterial_i6v42")
+draw_pass_1 = SubResource("QuadMesh_hraur")
+
+[node name="ShotgunParticles3D" type="GPUParticles3D" parent="Weapon"]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -0.0205837, 0.090194, 0.865908)
+emitting = false
+amount = 20
+lifetime = 0.05
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_i6v42")
+draw_pass_1 = SubResource("QuadMesh_hraur")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

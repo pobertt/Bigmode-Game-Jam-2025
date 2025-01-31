@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr2dryduxwb06"]
+
+[ext_resource type="MeshLibrary" uid="uid://ba3ppfglas7hm" path="res://assets/buildings/FARM/mesh_lib/mesh_lib_farm.tres" id="1_nh70d"]
+
+[node name="GridMap" type="GridMap"]
+mesh_library = ExtResource("1_nh70d")

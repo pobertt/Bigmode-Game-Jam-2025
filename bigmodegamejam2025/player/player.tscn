@@ -16,16 +16,16 @@
 render_priority = 0
 shader = ExtResource("5_bnhrv")
 shader_parameter/enable_fog = true
-shader_parameter/fog_color = Color(0.601223, 0.601223, 0.601223, 1)
+shader_parameter/fog_color = Color(0.654232, 0.654232, 0.654232, 1)
 shader_parameter/noise_color = Color(0.629675, 0.629675, 0.629675, 1)
-shader_parameter/fog_distance = 6000.0
+shader_parameter/fog_distance = 100.0
 shader_parameter/fog_fade_range = 50.0
 shader_parameter/enable_noise = true
 shader_parameter/noise_time_fac = 4.0
 shader_parameter/enable_color_limitation = true
 shader_parameter/color_levels = 32
 shader_parameter/enable_dithering = true
-shader_parameter/dither_strength = 0.3
+shader_parameter/dither_strength = 0.4
 
 [sub_resource type="QuadMesh" id="QuadMesh_wec7u"]
 flip_faces = true

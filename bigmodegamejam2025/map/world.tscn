@@ -1,14 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlsqp5lw5rpwi"]
+[gd_scene load_steps=27 format=3 uid="uid://dlsqp5lw5rpwi"]
 
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="1_w1kce"]
 [ext_resource type="PackedScene" uid="uid://bhvov8bj68qid" path="res://objects/parent_hit_object.tscn" id="2_k6ph8"]
 [ext_resource type="PackedScene" uid="uid://fm8evqanx3am" path="res://powerup/powerup.tscn" id="3_5ng3o"]
 [ext_resource type="PackedScene" uid="uid://dd00d2ci8cl2n" path="res://assets/dirtground.blend" id="4_es478"]
 [ext_resource type="Texture2D" uid="uid://bp1pto7xyopax" path="res://assets/dirtground_ground_Material.png" id="5_3yv1v"]
-[ext_resource type="PackedScene" uid="uid://bqh3254hh5hcr" path="res://assets/buildings/barbuilding-col.blend" id="6_qx6au"]
-[ext_resource type="Texture2D" uid="uid://5e434g1d0rsh" path="res://assets/buildings/bar_building_BaseColor.webp" id="7_jje57"]
+[ext_resource type="PackedScene" uid="uid://bf1wjb8aia2jj" path="res://assets/buildings/updated_bar_building/barbuilding2-col.blend" id="8_6c1yj"]
 [ext_resource type="PackedScene" uid="uid://dqtoa4htwu2s4" path="res://assets/buildings/petrol_station-col.blend" id="8_g2ajn"]
-[ext_resource type="Texture2D" uid="uid://cc5o4qvayeqwe" path="res://assets/petrol station_petrol station_DefaultMaterial_BaseColor.png" id="9_qriw1"]
+[ext_resource type="Texture2D" uid="uid://bbirjo7u2j85f" path="res://assets/buildings/textures/petrol station_DefaultMaterial_BaseColor.png" id="9_j83d6"]
+[ext_resource type="Texture2D" uid="uid://bcb51vlf6xu3v" path="res://assets/buildings/textures/barbuilding-BaseColor_2.png" id="9_pskil"]
+[ext_resource type="PackedScene" uid="uid://comwdkifp0gpk" path="res://assets/buildings/FARM/SCENES/big_barn_col.tscn" id="10_dauuv"]
+[ext_resource type="PackedScene" uid="uid://xprcjj44j5o2" path="res://assets/buildings/FARM/SCENES/grain_store.tscn" id="11_flqac"]
+[ext_resource type="Texture2D" uid="uid://bmgof0gep3m0w" path="res://assets/buildings/FARM/Farm-Assets_House_Variant_3_Base_color.png" id="11_yford"]
+[ext_resource type="Texture2D" uid="uid://i01iwp41lcly" path="res://assets/buildings/FARM/Farm-Assets_Barn_Base_color.png" id="13_7cpne"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ua71i"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,11 +44,17 @@ points = PackedVector3Array(-0.214183, -0.948028, -0.451129, 0.0227317, 0.952146
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sih5x"]
 albedo_texture = ExtResource("5_3yv1v")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3h74u"]
-albedo_texture = ExtResource("7_jje57")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qq042"]
+albedo_texture = ExtResource("9_pskil")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r6k1"]
-albedo_texture = ExtResource("9_qriw1")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7awy"]
+albedo_texture = ExtResource("9_j83d6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q630v"]
+albedo_texture = ExtResource("11_yford")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t65yf"]
+albedo_texture = ExtResource("13_7cpne")
 
 [node name="World" type="Node3D"]
 
@@ -99,7 +109,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20049, 0.631804, -0.64927)
 surface_material_override/0 = SubResource("StandardMaterial3D_sih5x")
 
 [node name="parent_object2" parent="." instance=ExtResource("2_k6ph8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46894, 1.82658, 5.45973)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91259, 1.82658, 5.45973)
 
 [node name="PowerUp5" parent="." instance=ExtResource("3_5ng3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -9.31524)
@@ -117,19 +127,36 @@ power_up_type = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -20.1255)
 power_up_type = 1
 
-[node name="barbuilding-col2" parent="." instance=ExtResource("6_qx6au")]
-transform = Transform3D(-0.312153, 0, 0.950032, 0, 1, 0, -0.950032, 0, -0.312153, 22.2167, -0.781965, -21.7553)
+[node name="BUILDINGS" type="Node3D" parent="."]
 
-[node name="barbuilding" parent="barbuilding-col2" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_3h74u")
+[node name="barbuilding2-col" parent="BUILDINGS" instance=ExtResource("8_6c1yj")]
+transform = Transform3D(0.017749, 0, 0.999842, 0, 1, 0, -0.999842, 0, 0.017749, 29.3132, -3.8147e-06, 15.0671)
 
-[node name="petrol_station-col" parent="." instance=ExtResource("8_g2ajn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1, -4.76837e-06, -22.8672)
+[node name="building" parent="BUILDINGS/barbuilding2-col" index="0"]
+material_override = SubResource("StandardMaterial3D_qq042")
 
-[node name="cube" parent="petrol_station-col" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2057, 0, 36.3982)
-surface_material_override/0 = SubResource("StandardMaterial3D_8r6k1")
+[node name="petrol_station-col" parent="BUILDINGS" instance=ExtResource("8_g2ajn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8739, -4.76837e-06, -22.8672)
+
+[node name="cube" parent="BUILDINGS/petrol_station-col" index="1"]
+transform = Transform3D(-0.0480479, 0, -0.998845, 0, 1, 0, 0.998845, 0, -0.0480479, -2.97588, 0, 11.7949)
+surface_material_override/0 = SubResource("StandardMaterial3D_n7awy")
+
+[node name="big_barn-col" parent="BUILDINGS" instance=ExtResource("10_dauuv")]
+transform = Transform3D(-0.666191, 0.00012782, 0.745781, -5.43449e-05, 1, -0.000219936, -0.745781, -0.000187049, -0.666191, 18.0088, 2.10737, 37.5328)
+
+[node name="House_Variant_3" parent="BUILDINGS/big_barn-col" index="0"]
+material_override = SubResource("StandardMaterial3D_q630v")
+
+[node name="grain_store" parent="BUILDINGS" instance=ExtResource("11_flqac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.30934, 6.18647, 30.4908)
+
+[node name="GrainStore" parent="BUILDINGS/grain_store" index="0"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -21.974, 0, 0)
+material_override = SubResource("StandardMaterial3D_t65yf")
 
 [editable path="dirtground"]
-[editable path="barbuilding-col2"]
-[editable path="petrol_station-col"]
+[editable path="BUILDINGS/barbuilding2-col"]
+[editable path="BUILDINGS/petrol_station-col"]
+[editable path="BUILDINGS/big_barn-col"]
+[editable path="BUILDINGS/grain_store"]

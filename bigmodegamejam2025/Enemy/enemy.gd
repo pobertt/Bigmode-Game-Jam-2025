@@ -6,12 +6,12 @@ extends CharacterBody3D
 @onready var AggroTimer = $AggroTimer
 @onready var IdleTimer = $IdleTimer
 @onready var DamageAreaRef = $DamageArea
-@onready var animation_player: AnimationPlayer = $animations/AnimationPlayer
-@onready var skeleton = $animations/Armature/Skeleton3D
+@onready var animation_player: AnimationPlayer = $policeresizedanims/AnimationPlayer
+@onready var skeleton = $policeresizedanims/Armature/Skeleton3D
 var PlayerRef
 
 
-enum STATE { ROAMING , CHASING , IDLING , SEARCHING}
+enum STATE { ROAMING , CHASING , IDLING , SEARCHING, DYING}
 
 var CurrentState : STATE = STATE.IDLING
 
@@ -50,39 +50,42 @@ func target_position(target):
 	
 #every time the timer elapses
 func _on_vision_timer_timeout():
-	#check overlapping bodies
-	var overlaps = VisionRef.get_overlapping_bodies()
-	var foundplayer = false
+	if CurrentState != STATE.DYING:
+		
+		#check overlapping bodies
+		var overlaps = VisionRef.get_overlapping_bodies()
+		var foundplayer = false
 	
-	if overlaps.size() > 0:
-		for overlap in overlaps:
-			#confirm its the player
-			if overlap.name == "Player":
-				#set playerref for following after lostsight
-				PlayerRef = overlap
-				foundplayer = true
-				#update raycast with player location
-				_TrackPlayerRaycast()
-	#if player wasn't found but still exists in memory
-	if PlayerRef != null and foundplayer == false:
-		#if no aggro yet, start timer and save last position
-		if AggroTimer.time_left == 0.0:
-			AggroTimer.start()
-			_GoTowardsPlayer()
-			CurrentState = STATE.SEARCHING
-		else:
-			pass
-		print("StillFollowing")		
+		if overlaps.size() > 0:
+			for overlap in overlaps:
+				#confirm its the player
+				if overlap.name == "Player":
+					#set playerref for following after lostsight
+					PlayerRef = overlap
+					foundplayer = true
+					#update raycast with player location
+					_TrackPlayerRaycast()
+		#if player wasn't found but still exists in memory
+		if PlayerRef != null and foundplayer == false:
+			#if no aggro yet, start timer and save last position
+			if AggroTimer.time_left == 0.0:
+				AggroTimer.start()
+				_GoTowardsPlayer()
+				CurrentState = STATE.SEARCHING
+			else:
+				pass
+			print("StillFollowing")		
 	
-	var damageoverlaps = DamageAreaRef.get_overlapping_bodies()
+		var damageoverlaps = DamageAreaRef.get_overlapping_bodies()
 	
-	if damageoverlaps.size() > 0:
-		for overlap in damageoverlaps:
-			if overlap.name == "Player":
-				#playerdamage function goes here
-				print("DamagePlayer")
-				#apply_central_impulse(overlap.basis.z * 2.0)
-			
+		if damageoverlaps.size() > 0:
+			for overlap in damageoverlaps:
+				if overlap.name == "Player":
+					#playerdamage function goes here
+					print("DamagePlayer")
+					#apply_central_impulse(overlap.basis.z * 2.0)
+	else:
+		print("dead")
 			
 
 
@@ -103,7 +106,7 @@ func _TrackPlayerRaycast():
 				AggroTimer.stop()
 			_GoTowardsPlayer()
 			CurrentState = STATE.CHASING    
-			animation_player.play("running")                                                     
+			animation_player.play("run")                                                     
 		#if not colliding with player but still searching
 		elif collider.name != "Player" and PlayerRef != null:
 			if AggroTimer.time_left != 0.0:
@@ -134,21 +137,37 @@ func _on_navigation_agent_3d_target_reached() -> void:
 		STATE.ROAMING:
 			CurrentState = STATE.IDLING
 			IdleTimer.start()
-			animation_player.play("idling")
+			animation_player.play("looking around")
 		STATE.CHASING:
 			pass
 		STATE.SEARCHING:
 			CurrentState = STATE.IDLING
 			IdleTimer.start()
-			animation_player.play("idling")
+			animation_player.play("idle 2")
 
 func change_health(damage):
 	print("Hit enemy")
-	skeleton.physical_bones_start_simulation()
 	var bones = skeleton.get_children()
-	#for bone in bones:
-		#if bone.get_class() == "PhysicalBone3D":
-			#bone.linear_velocity = Vector3.FORWARD * 10
+	look_at(Vector3(Global.player_ref.global_position.x, global_position.y, Global.player_ref.global_position.z), Vector3.UP, true)
+	#animation_player.pause()
+	for bone in bones:
+		if bone.get_child_count() > 0:
+			for bonecollision in bone.get_children():
+				if bonecollision.get_class() == "CollisionShape3D":
+					bonecollision.disabled = false
+	skeleton.physical_bones_start_simulation()
+	for bone in bones:
+		if bone.get_class() == "PhysicalBone3D":
+			bone.apply_central_impulse(-Global.player_ref.basis.z * 100.0)
+			#global_transform.basis.z.normalized() * Vector3(1, 10, -100)
+	velocity = Vector3(0, 0, 0)
+	navref.velocity = Vector3(0, 0, 0)
+	target_position(self.global_position)
+	CurrentState = STATE.DYING
+	if CurrentState == STATE.DYING:
+		#$CollisionShape3D.queue_free()
+		pass
+	
 	
 	
 func _on_idle_timer_timeout() -> void:

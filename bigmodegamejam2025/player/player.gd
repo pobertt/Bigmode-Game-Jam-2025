@@ -94,6 +94,9 @@ func _input(event: InputEvent) -> void:
 		piss = false
 		p_particle.piss()
 		
+	if event.is_action_pressed("interact"):
+		interact()
+
 func _process(delta: float) -> void:
 	if piss == true:
 		bladder -= 0.0001*delta
@@ -199,3 +202,7 @@ func change_health(damage):
 	health -= damage
 	if health <= 0:
 		print("dead")
+
+func interact():
+	print("interacting")
+	Global.on_interact.emit()

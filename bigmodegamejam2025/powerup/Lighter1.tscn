@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjmkcpv8a1g61"]
+
+[ext_resource type="PackedScene" uid="uid://cao78xdvcb5s7" path="res://assets/misc_items/zippo_lighter.glb" id="1_6l5xg"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="zippo_lighter" parent="." instance=ExtResource("1_6l5xg")]

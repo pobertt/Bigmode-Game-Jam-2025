@@ -1,8 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bhvov8bj68qid"]
+[gd_scene load_steps=20 format=3 uid="uid://bhvov8bj68qid"]
 
 [ext_resource type="Script" path="res://objects/fuel_tank.gd" id="1_pmpnu"]
+[ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://SFX/melee_swing.mp3" id="2_u5uk4"]
 [ext_resource type="Texture2D" uid="uid://bai235wugtswo" path="res://addons/kenney_particle_pack/smoke_05.png" id="3_0na6n"]
 [ext_resource type="Texture2D" uid="uid://bvk7xx75ogi4c" path="res://addons/kenney_particle_pack/smoke_04.png" id="3_l2npg"]
+[ext_resource type="AudioStream" uid="uid://cc8j8vopxsurw" path="res://SFX/dead.mp3" id="3_pxbhk"]
 [ext_resource type="ArrayMesh" uid="uid://cr5eomrh8iih8" path="res://assets/OBJECTS_RES/fuel_tank.res" id="4_xbsev"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c1soh"]
@@ -74,6 +76,8 @@ size = Vector2(2, 2)
 
 [node name="fuel_tank" type="RigidBody3D" groups=["enemy"]]
 script = ExtResource("1_pmpnu")
+audio_hit = ExtResource("2_u5uk4")
+audio_death = ExtResource("3_pxbhk")
 obj_type = 1
 
 [node name="mesh" type="MeshInstance3D" parent="."]

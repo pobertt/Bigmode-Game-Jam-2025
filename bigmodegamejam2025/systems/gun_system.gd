@@ -27,7 +27,7 @@ func shoot():
 			
 		# Screen Shake
 		if current_gun.type == Gun.GunType.SHOTGUN:
-			parent._camera_shake(0.075,0.1)
+			parent._camera_shake(0.1,0.1)
 		else:
 			parent._camera_shake(0.025, 0.1)
 		

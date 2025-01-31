@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://b2k5xyokkcmlb"]
+
+[ext_resource type="Script" path="res://player/p_particle.gd" id="1_wb4ym"]
+[ext_resource type="AudioStream" uid="uid://cmddm2im72vrc" path="res://SFX/water/83779__ssaada1__water-trickling.wav" id="2_q4hse"]
+
+[sub_resource type="Curve" id="Curve_44tir"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0869565, 0.56044), 0.0, 0.0, 0, 0, Vector2(0.731884, 0.989011), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_6fmvi"]
+curve = SubResource("Curve_44tir")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bq0ev"]
+particle_flag_align_y = true
+direction = Vector3(0, 0.27, -0.49)
+spread = 2.5
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, -5, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_6fmvi")
+color = Color(1, 0.9145, 0.43, 0.0705882)
+hue_variation_min = -0.08
+hue_variation_max = 0.02
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jd8ut"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+uv1_triplanar = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_v7uyr"]
+material = SubResource("StandardMaterial3D_jd8ut")
+radius = 0.025
+height = 0.146
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nr5sr"]
+particle_flag_align_y = true
+direction = Vector3(0, 1.035, -0.49)
+spread = 19.849
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.2
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_6fmvi")
+color = Color(1, 0.9865, 0.91, 0.0705882)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_xmxxa"]
+material = SubResource("StandardMaterial3D_jd8ut")
+radius = 0.025
+height = 0.146
+
+[node name="PParticle" type="Node3D"]
+script = ExtResource("1_wb4ym")
+
+[node name="3dparticle" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 100
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_bq0ev")
+draw_pass_1 = SubResource("SphereMesh_v7uyr")
+
+[node name="splash" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_nr5sr")
+draw_pass_1 = SubResource("SphereMesh_xmxxa")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_q4hse")
+volume_db = 12.973

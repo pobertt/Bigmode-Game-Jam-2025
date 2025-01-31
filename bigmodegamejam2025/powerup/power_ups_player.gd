@@ -55,8 +55,10 @@ func _apply_smoking_effect():
 func _apply_drinking_effect():
 	print("Player starts drinking!")
 	
-	player_ref.bladder += 10
 	print(player_ref.bladder)
+	player_ref.bladder += 200
+	Global.update_piss_bar.emit(player_ref.bladder)
+	
 	
 func _apply_snusing_effect():
 	print("Player uses snus!")

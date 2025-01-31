@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cpytfnpmdkrba"]
 
 [ext_resource type="Script" path="res://player/weapon_holder.gd" id="1_thm6r"]
-[ext_resource type="ArrayMesh" uid="uid://dg822pvsh1r32" path="res://assets/weapons/new_weapons/new_shotgun.res" id="2_c0po0"]
+[ext_resource type="ArrayMesh" uid="uid://dklmfiukc7i6n" path="res://assets/weapons/new_weapons/new_pistol.res" id="2_omsfr"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i6v42"]
 angle_min = -70.0
@@ -164,7 +164,7 @@ script = ExtResource("1_thm6r")
 [node name="Weapon" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, 0, 0, 0)
 cast_shadow = 0
-mesh = ExtResource("2_c0po0")
+mesh = ExtResource("2_omsfr")
 
 [node name="PistolParticles3D" type="GPUParticles3D" parent="Weapon"]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -4.37035e-07, 0.0449301, 0.172389)

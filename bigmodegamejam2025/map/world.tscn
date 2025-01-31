@@ -53,7 +53,7 @@ power_up_type = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48587, 0.889913, -6.1875)
 
 [node name="PowerUp3" parent="." instance=ExtResource("3_5ng3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76431, 1.77983, -5.93675)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76431, 0.968088, -5.93675)
 power_up_type = 3
 
 [node name="PowerUp4" parent="." instance=ExtResource("3_5ng3o")]
@@ -90,5 +90,21 @@ surface_material_override/0 = SubResource("StandardMaterial3D_sih5x")
 
 [node name="parent_object2" parent="." instance=ExtResource("2_k6ph8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46894, 1.82658, 5.45973)
+
+[node name="PowerUp5" parent="." instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -9.31524)
+power_up_type = 1
+
+[node name="PowerUp6" parent="." instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -13.0644)
+power_up_type = 1
+
+[node name="PowerUp7" parent="." instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -16.915)
+power_up_type = 1
+
+[node name="PowerUp8" parent="." instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -20.1255)
+power_up_type = 1
 
 [editable path="dirtground"]

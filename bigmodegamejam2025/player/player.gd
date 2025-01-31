@@ -59,6 +59,7 @@ func _ready():
 	
 	gun.player_ready()
 	
+	
 	# Capturing the mouse to the screen.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -92,11 +93,14 @@ func _input(event: InputEvent) -> void:
 		p_particle.piss()
 		
 func _process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 	
 	if piss == true:
 		bladder -= 0.0001*delta
+		screen_distort.material.set_shader_parameter("shader_parameter/speed", 0.5) 
+
 		Global.decrease_piss_bar.emit(bladder)
 	if bladder == 0:
 		piss = false

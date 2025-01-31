@@ -4,9 +4,18 @@ class_name DestructableObjects
 @export var object_health : int = 100
 @export var audio_hit : AudioStream
 @export var audio_death : AudioStream
+@export var obj_type : ObjectType = ObjectType.NORMAL
+
 @onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
+@onready var explosion_1: GPUParticles3D 
+@onready var explosion_2: GPUParticles3D
 
+
+enum ObjectType {
+	NORMAL,
+	EXPLOSIVE,
+}
 
 func change_health(damage):
 	object_health -= damage
@@ -27,9 +36,11 @@ func change_health(damage):
 		b.queue_free()
 		a.queue_free()
 		audio_stream_player.play()
-
+		if obj_type == ObjectType.EXPLOSIVE:
+			print("explosive")
+			explosion_1.emitting = true
+			explosion_2.emitting = true
+		
 func _process(delta: float) -> void:
 	if audio_stream_player.stream == audio_death && audio_stream_player.playing == false:
-		print("DELETED")
 		self.queue_free()
-		

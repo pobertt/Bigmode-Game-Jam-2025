@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://codcnbogwmadn"]
+
+[ext_resource type="ArrayMesh" uid="uid://cr5eomrh8iih8" path="res://assets/OBJECTS_RES/fuel_tank.res" id="1_bkkwg"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6abkc"]
+points = PackedVector3Array(271.813, 50.9952, 93.0948, -248.165, -40.1992, -173.337, -262.807, 46.5889, -183.193, -213.245, 56.5074, 164.157, 282.26, -132.353, -51.1677, 282.086, 117.605, -97.4274, -287.744, -121.305, 31.5426, 209.984, -47.294, 147.108, -289.99, 135.359, -23.2923, 247.946, -40.1992, -173.337, 277.693, 124.941, 22.3543, -293.464, -123.796, -88.6727, 233.365, 56.5074, 164.157, 263.152, 46.5889, -183.193, -192.783, -47.294, 147.108, 278.197, -121.305, 31.5426, -291.672, 117.621, -97.4077, 279.651, -103.599, -115.007, -285.515, -47.8767, 94.6046, -287.241, 124.941, 22.3543, 294.496, 15.9462, 23.1923, -304.072, 25.2898, 13.8351, 278.715, 134.551, -41.5052, -295.149, -30.8368, -164.066, -289.299, -131.18, -4.95846, 285.548, -30.8307, -164.069, 275.891, -47.8633, 94.6077, -281.435, 51.0082, 93.0915, 283.918, -123.796, -88.6727, -288.772, -75.9476, -142.342, -291.806, -132.353, -51.1677, -289.914, 126.105, -78.4976)
+
+[node name="fuel_tank" type="Node3D"]
+
+[node name="Fuel_Tank" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
+mesh = ExtResource("1_bkkwg")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Fuel_Tank"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fuel_Tank/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_6abkc")

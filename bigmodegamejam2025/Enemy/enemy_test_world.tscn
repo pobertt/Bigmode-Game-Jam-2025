@@ -1,10 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://beile14a1xc2w"]
+[gd_scene load_steps=10 format=3 uid="uid://beile14a1xc2w"]
 
 [ext_resource type="Script" path="res://Enemy/enemy_test_world.gd" id="1_56sn2"]
 [ext_resource type="PackedScene" uid="uid://dbjhc7pmmdv30" path="res://Enemy/enemy.tscn" id="1_m5774"]
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="2_0kvcc"]
-[ext_resource type="PackedScene" uid="uid://bhrcakfk33vv2" path="res://Enemy/policeresizedanims.tscn" id="4_71hxl"]
-[ext_resource type="PackedScene" uid="uid://b8dwv1ljjivaw" path="res://Enemy/new_enemy_test.tscn" id="5_lclby"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_brm14"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -68,9 +66,3 @@ size = Vector3(2, 4, 4.25732)
 transform = Transform3D(3.93572, 0, 0, 0, 2.65141, 0, 0, 0, 0.994528, 0, -0.189658, -3.95315)
 use_collision = true
 size = Vector3(2, 4, 4.25732)
-
-[node name="policeresizedanims" parent="." instance=ExtResource("4_71hxl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.76845, -1.03208, 16.599)
-
-[node name="new_enemy_test" parent="." instance=ExtResource("5_lclby")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.54747, -1.03208, 17.1409)

@@ -11,11 +11,11 @@ enum PowerUpType {
 @export var power_up_type : PowerUpType
 @onready var pick_up_sound: AudioStreamPlayer3D = $pick_up_sound
 
-const SMOKE_SOUND = preload("res://SFX/dead.mp3")
 
 const BOTTLE = preload("res://assets/misc_items/res/BOTTLE.res")
 const CIG_PACK = preload("res://assets/misc_items/res/CIGS.res")
 const PILLS = preload("res://assets/misc_items/res/PILLS.res")
+const SNUS = preload("res://assets/OBJECTS_RES/snus.res")
 
 signal collected(power_up_type)
 
@@ -24,11 +24,11 @@ func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	if power_up_type == PowerUpType.SMOKING:
 		powerup_mesh.mesh = CIG_PACK
-		pick_up_sound.stream = SMOKE_SOUND
+		#pick_up_sound.stream = SMOKE_SOUND
 	elif power_up_type == PowerUpType.DRINKING:
 		powerup_mesh.mesh = BOTTLE
 	elif power_up_type == PowerUpType.SNUSING:
-		powerup_mesh.mesh = BOTTLE
+		powerup_mesh.mesh = SNUS
 	elif power_up_type == PowerUpType.PILLS:
 		powerup_mesh.mesh = PILLS
 	

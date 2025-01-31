@@ -2,7 +2,10 @@ extends Node
 class_name PowerUpSystem
 
 @export var player_ref : CharacterBody3D
-
+const SMOKE_SOUND = preload("res://SFX/PowerUps/LIGHTING.mp3")
+const DRINKING_SOUND = preload("res://SFX/PowerUps/DRINKING.mp3")
+const PILL_SOUND = preload("res://SFX/PowerUps/SWALLOW.mp3")
+const SNUS_SOUND = preload("res://SFX/PowerUps/SWALLOW.mp3")
 
 var collected_powerups = []
 
@@ -66,6 +69,12 @@ func _apply_smoking_effect():
 	var obj = spawn_object.instantiate()  
 	player_ref.obj_holder.add_child(obj)
 	
+	var smoke_player = AudioStreamPlayer3D.new()
+	smoke_player.stream = SMOKE_SOUND
+	smoke_player.global_position = player_ref.global_position  # Position the sound at the player
+	player_ref.add_child(smoke_player)  # Add it to the player node to ensure it's processed
+	smoke_player.play()
+	
 	await get_tree().create_timer(2.0).timeout
 	obj.queue_free()
 	
@@ -79,9 +88,21 @@ func _apply_drinking_effect():
 	
 	player_ref.screen_distort.visible=true
 	
+	var drinking_player = AudioStreamPlayer3D.new()
+	drinking_player.stream = DRINKING_SOUND
+	drinking_player.global_position = player_ref.global_position
+	player_ref.add_child(drinking_player)
+	drinking_player.play()
+	
 func _apply_snusing_effect():
 	print("Player uses snus!")
 	original_fov = player_ref.camera.fov
+	
+	var snus_player = AudioStreamPlayer3D.new()
+	snus_player.stream = SNUS_SOUND
+	snus_player.global_position = player_ref.global_position
+	player_ref.add_child(snus_player)
+	snus_player.play()
 	
 	var tween := create_tween()
 	
@@ -92,6 +113,12 @@ func _apply_pills_effect():
 	print("Player gets pills!")
 	player_ref.strength += 10
 	print(player_ref.strength)
+	
+	var pill_player = AudioStreamPlayer3D.new()
+	pill_player.stream = PILL_SOUND
+	pill_player.global_position = player_ref.global_position
+	player_ref.add_child(pill_player)
+	pill_player.play()
 	
 func _check_for_comboA():
 	if power_ups.PowerUpType.SMOKING in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:

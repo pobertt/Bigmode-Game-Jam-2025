@@ -77,7 +77,6 @@ func _apply_drinking_effect():
 	player_ref.bladder += 200
 	Global.update_piss_bar.emit(player_ref.bladder)
 	
-	
 	player_ref.screen_distort.visible=true
 	
 func _apply_snusing_effect():

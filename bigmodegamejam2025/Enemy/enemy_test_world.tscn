@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://beile14a1xc2w"]
+[gd_scene load_steps=11 format=3 uid="uid://beile14a1xc2w"]
 
 [ext_resource type="Script" path="res://Enemy/enemy_test_world.gd" id="1_56sn2"]
 [ext_resource type="PackedScene" uid="uid://dbjhc7pmmdv30" path="res://Enemy/enemy.tscn" id="1_m5774"]
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="2_0kvcc"]
+[ext_resource type="PackedScene" uid="uid://de1gebfnxt8qp" path="res://UI/pause_menu/pause_menu.tscn" id="4_yq6ql"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_brm14"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -66,3 +67,8 @@ size = Vector3(2, 4, 4.25732)
 transform = Transform3D(3.93572, 0, 0, 0, 2.65141, 0, 0, 0, 0.994528, 0, -0.189658, -3.95315)
 use_collision = true
 size = Vector3(2, 4, 4.25732)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("4_yq6ql")]
+visible = false

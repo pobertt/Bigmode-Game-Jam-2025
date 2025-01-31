@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dlsqp5lw5rpwi"]
+[gd_scene load_steps=26 format=3 uid="uid://dlsqp5lw5rpwi"]
 
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="1_w1kce"]
 [ext_resource type="PackedScene" uid="uid://bhvov8bj68qid" path="res://objects/fuel_tank.tscn" id="2_k6ph8"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://i01iwp41lcly" path="res://assets/buildings/FARM/Farm-Assets_Barn_Base_color.png" id="13_7cpne"]
 [ext_resource type="PackedScene" uid="uid://bdyxrycbmdwfq" path="res://objects/parent_obj.tscn" id="14_0hj5q"]
 [ext_resource type="Texture2D" uid="uid://n5or8kyvlop5" path="res://assets/buildings/FARM/Farm-Assets_Fuel_Tank_Base_color.png" id="15_5imwt"]
+[ext_resource type="PackedScene" uid="uid://de1gebfnxt8qp" path="res://UI/pause_menu/pause_menu.tscn" id="16_ef7p8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ua71i"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -128,7 +129,7 @@ power_up_type = 1
 [node name="Interactables" type="Node3D" parent="."]
 
 [node name="fuel_tank" parent="Interactables" instance=ExtResource("2_k6ph8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30969, 1.60764, 18.8992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1545, 1.60764, -4.20106)
 mass = 1000.0
 object_health = 500
 
@@ -136,7 +137,12 @@ object_health = 500
 surface_material_override/0 = SubResource("StandardMaterial3D_x1atb")
 
 [node name="parent_object" parent="Interactables" instance=ExtResource("14_0hj5q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.07031, 2.06424, 14.3864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.82335, 1.26186, 14.3864)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("16_ef7p8")]
+visible = false
 
 [editable path="dirtground"]
 [editable path="BUILDINGS/barbuilding2-col"]

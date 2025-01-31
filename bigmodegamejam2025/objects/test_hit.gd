@@ -6,7 +6,7 @@ class_name DestructableObjects
 @export var audio_death : AudioStream
 @export var obj_type : ObjectType = ObjectType.NORMAL
 
-@export var explosion_force : float = 1
+@export var explosion_force : float = 25
 @export var max_explosion_dist = 10
 @export var explosion_damage: float  = 10
 

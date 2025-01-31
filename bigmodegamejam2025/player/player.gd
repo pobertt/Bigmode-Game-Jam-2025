@@ -59,7 +59,6 @@ func _ready():
 	
 	gun.player_ready()
 	
-	
 	# Capturing the mouse to the screen.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -78,6 +77,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		gun.reload()
 
 func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause"):
+		Global.pause_ref.pause_menu()
+		
 	# Swap Guns
 	if event.is_action_pressed("gun_slot_1") and is_reloading == false and Global.check_menus() == false:
 		switch_weapon(PISTOL)
@@ -93,10 +95,6 @@ func _input(event: InputEvent) -> void:
 		p_particle.piss()
 		
 func _process(delta: float) -> void:
-	
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
-	
 	if piss == true:
 		bladder -= 0.0001*delta
 		screen_distort.material.set_shader_parameter("shader_parameter/speed", 0.5) 
@@ -120,7 +118,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and Global.check_menus() == false:
 		velocity.y = JUMP_VELOCITY
 
 	if is_on_floor():
@@ -198,4 +196,6 @@ func _camera_shake(period, magnitude):
 	camera.transform = initial_transform
 
 func change_health(damage):
-	print("lol")
+	health -= damage
+	if health <= 0:
+		print("dead")

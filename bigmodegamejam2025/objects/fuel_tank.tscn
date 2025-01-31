@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bhvov8bj68qid"]
+[gd_scene load_steps=21 format=3 uid="uid://bhvov8bj68qid"]
 
 [ext_resource type="Script" path="res://objects/fuel_tank.gd" id="1_pmpnu"]
 [ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://SFX/melee_swing.mp3" id="2_u5uk4"]
@@ -74,6 +74,8 @@ albedo_texture = ExtResource("3_l2npg")
 material = SubResource("StandardMaterial3D_6wb5v")
 size = Vector2(2, 2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1nla4"]
+
 [node name="fuel_tank" type="RigidBody3D" groups=["enemy"]]
 script = ExtResource("1_pmpnu")
 audio_hit = ExtResource("2_u5uk4")
@@ -112,3 +114,9 @@ explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_pmvw2")
 draw_pass_1 = SubResource("QuadMesh_hfvcn")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("BoxShape3D_1nla4")

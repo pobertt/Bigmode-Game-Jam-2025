@@ -196,3 +196,6 @@ func _camera_shake(period, magnitude):
 		await get_tree().process_frame
 
 	camera.transform = initial_transform
+
+func change_health(damage):
+	print("lol")

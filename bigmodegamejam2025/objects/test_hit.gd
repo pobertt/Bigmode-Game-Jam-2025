@@ -6,6 +6,10 @@ class_name DestructableObjects
 @export var audio_death : AudioStream
 @export var obj_type : ObjectType = ObjectType.NORMAL
 
+@export var explosion_force : float = 1
+@export var max_explosion_dist = 10
+@export var explosion_damage: float  = 10
+
 @onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @onready var explosion_1: GPUParticles3D 
@@ -36,10 +40,29 @@ func change_health(damage):
 		a.queue_free()
 		audio_stream_player.play()
 		if obj_type == ObjectType.EXPLOSIVE:
-			print("explosive")
 			explosion_1.emitting = true
 			explosion_2.emitting = true
-		
+			push_away_objects()
+
 func _process(delta: float) -> void:
 	if audio_stream_player.stream == audio_death && audio_stream_player.playing == false:
 		self.queue_free()
+
+func push_away_objects():
+	for body in $Area3D.get_overlapping_bodies():
+		var body_pos = body.global_position
+		var force_div = 1.0
+		if body is CharacterBody3D:
+			body_pos.y += 1.0
+			force_div = 4.0 # Character bodies have no mass
+		elif body is RigidBody3D:
+			force_div = max(0.01, body.mass)
+		var force_dir = self.global_position.direction_to(body_pos)
+		var body_dist = (body_pos - self.global_position).length()
+		var explosion_vec = lerp(0.0, explosion_force, 1.0 - clampf((body_dist / max_explosion_dist), 0.0, 1.0)) / force_div * force_dir
+		if body is RigidBody3D:
+			body.apply_impulse(explosion_vec * explosion_force)
+		elif body is CharacterBody3D:
+			body.velocity += explosion_vec * explosion_force
+			if body.has_method("change_health"):
+				body.change_health(explosion_damage)

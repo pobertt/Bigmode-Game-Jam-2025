@@ -11,7 +11,6 @@ class_name DestructableObjects
 @onready var explosion_1: GPUParticles3D 
 @onready var explosion_2: GPUParticles3D
 
-
 enum ObjectType {
 	NORMAL,
 	EXPLOSIVE,

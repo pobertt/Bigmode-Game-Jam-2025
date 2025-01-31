@@ -9,10 +9,13 @@ enum PowerUpType {
 
 @onready var powerup_mesh: MeshInstance3D = $powerup_mesh
 @export var power_up_type : PowerUpType
+@onready var pick_up_sound: AudioStreamPlayer3D = $pick_up_sound
+
 
 const BOTTLE = preload("res://assets/misc_items/res/BOTTLE.res")
 const CIG_PACK = preload("res://assets/misc_items/res/CIGS.res")
 const PILLS = preload("res://assets/misc_items/res/PILLS.res")
+const SNUS = preload("res://assets/OBJECTS_RES/snus.res")
 
 signal collected(power_up_type)
 
@@ -24,7 +27,7 @@ func _ready():
 	elif power_up_type == PowerUpType.DRINKING:
 		powerup_mesh.mesh = BOTTLE
 	elif power_up_type == PowerUpType.SNUSING:
-		powerup_mesh.mesh = BOTTLE
+		powerup_mesh.mesh = SNUS
 	elif power_up_type == PowerUpType.PILLS:
 		powerup_mesh.mesh = PILLS
 	

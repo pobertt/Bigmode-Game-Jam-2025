@@ -1,12 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://de1gebfnxt8qp"]
+[gd_scene load_steps=8 format=3 uid="uid://de1gebfnxt8qp"]
 
 [ext_resource type="Script" path="res://UI/pause_menu/pause_menu.gd" id="1_4d25c"]
-[ext_resource type="Shader" path="res://Shaders/blur.gdshader" id="3_y2yk6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ohkfd"]
-shader = ExtResource("3_y2yk6")
-shader_parameter/blur = 0.0
-shader_parameter/brightness = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rcas"]
 bg_color = Color(0.98, 0.98, 0.98, 0)
@@ -138,6 +134,7 @@ _data = {
 }
 
 [node name="pause_menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,17 +181,19 @@ alignment = 1
 
 [node name="GameLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/Button_Container"]
 layout_mode = 2
-text = "Weapon Tutorial"
+text = "Pound Town
+"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/Panel/MarginContainer/Button_Container"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="Options_Button" type="Button" parent="CenterContainer/Panel/MarginContainer/Button_Container"]
+[node name="Resume_Button" type="Button" parent="CenterContainer/Panel/MarginContainer/Button_Container"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "Options"
+text = "Resume
+"
 
 [node name="Quit_Button" type="Button" parent="CenterContainer/Panel/MarginContainer/Button_Container"]
 custom_minimum_size = Vector2(0, 50)
@@ -206,4 +205,5 @@ libraries = {
 "": SubResource("AnimationLibrary_0tyt8")
 }
 
+[connection signal="pressed" from="CenterContainer/Panel/MarginContainer/Button_Container/Resume_Button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/Button_Container/Quit_Button" to="." method="_on_quit_button_pressed"]

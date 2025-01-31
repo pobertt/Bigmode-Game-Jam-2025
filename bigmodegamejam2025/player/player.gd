@@ -3,6 +3,9 @@ extends CharacterBody3D
 # Player Nodes
 
 @onready var camera : Camera3D = $Head/Camera
+@onready var p_particle: Node3D = $Head/Camera/PParticle
+@onready var screen_distort: ColorRect = $Head/Camera/Control/ScreenDistort
+@onready var obj_holder: Node3D = $Head/Camera/obj_holder
 
 # System Nodes
 
@@ -19,6 +22,7 @@ var health : int = 100
 var bladder : int = 0
 var strength : float = 10
 var snusM : int = 1
+var piss : bool = false
 
 # Guns
 
@@ -60,6 +64,7 @@ func _ready():
 	
 	Global.update_hud.emit()
 	
+	
 func _unhandled_input(event: InputEvent) -> void:
 	# Camera Rotation.
 	if event is InputEventMouseMotion:
@@ -72,15 +77,32 @@ func _unhandled_input(event: InputEvent) -> void:
 		gun.reload()
 
 func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause"):
+		Global.pause_ref.pause_menu()
+		
 	# Swap Guns
 	if event.is_action_pressed("gun_slot_1") and is_reloading == false and Global.check_menus() == false:
 		switch_weapon(PISTOL)
 	if event.is_action_pressed("gun_slot_2") and is_reloading == false and Global.check_menus() == false:
 		switch_weapon(SHOTGUN)
+	if event.is_action_pressed("piss") and Global.check_menus() == false:
+		if bladder > 0:
+			piss = true
+			
+			p_particle.piss()
+	if event.is_action_released("piss") and Global.check_menus() == false:
+		piss = false
+		p_particle.piss()
 		
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
+	if piss == true:
+		bladder -= 0.0001*delta
+		screen_distort.material.set_shader_parameter("shader_parameter/speed", 0.5) 
+
+		Global.decrease_piss_bar.emit(bladder)
+	if bladder == 0:
+		piss = false
+		p_particle.piss()
 
 func _physics_process(delta: float) -> void:
 	# Gun
@@ -96,7 +118,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and Global.check_menus() == false:
 		velocity.y = JUMP_VELOCITY
 
 	if is_on_floor():
@@ -142,6 +164,7 @@ func switch_weapon(new_weapon : Gun):
 	
 	# Set in-game mesh
 	weapon_holder.update_mesh(current_gun.mesh)
+	weapon_holder.set_particle(current_gun.type)
 	
 	# Load bullets into new gun
 	match ammo[current_gun.ammo] >= current_gun.max_mag: # Check if the player has enough ammo to fill the mag
@@ -171,3 +194,8 @@ func _camera_shake(period, magnitude):
 		await get_tree().process_frame
 
 	camera.transform = initial_transform
+
+func change_health(damage):
+	health -= damage
+	if health <= 0:
+		print("dead")

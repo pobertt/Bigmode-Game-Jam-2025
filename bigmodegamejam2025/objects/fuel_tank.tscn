@@ -1,0 +1,122 @@
+[gd_scene load_steps=21 format=3 uid="uid://bhvov8bj68qid"]
+
+[ext_resource type="Script" path="res://objects/fuel_tank.gd" id="1_pmpnu"]
+[ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://SFX/melee_swing.mp3" id="2_u5uk4"]
+[ext_resource type="Texture2D" uid="uid://bai235wugtswo" path="res://addons/kenney_particle_pack/smoke_05.png" id="3_0na6n"]
+[ext_resource type="Texture2D" uid="uid://bvk7xx75ogi4c" path="res://addons/kenney_particle_pack/smoke_04.png" id="3_l2npg"]
+[ext_resource type="AudioStream" uid="uid://cc8j8vopxsurw" path="res://SFX/dead.mp3" id="3_pxbhk"]
+[ext_resource type="ArrayMesh" uid="uid://cr5eomrh8iih8" path="res://assets/OBJECTS_RES/fuel_tank.res" id="4_xbsev"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c1soh"]
+points = PackedVector3Array(-258.653, -40.218, -178.264, -304.073, -85.4498, -137.781, -304.073, -30.5063, -164.244, -258.653, 40.1851, -178.264, 256.822, -40.218, -178.264, -304.073, -123.492, -90.1075, -317.479, -26.9919, -64.465, 294.469, -85.4498, -137.781, -317.479, -9.63422, -72.8046, -304.073, 30.4734, -164.244, -304.073, 85.4169, -137.781, 256.822, 40.1851, -178.264, 294.469, -30.5063, -164.244, -304.073, -137.04, -30.6471, -317.479, -43.2764, -30.6471, -317.479, -38.9839, -49.3947, 294.469, -123.492, -90.1075, 307.874, -29.621, -67.7811, -317.479, 9.60135, -72.8046, -317.479, 26.959, -64.465, -304.073, 123.432, -90.1075, 294.469, 85.4169, -137.781, 294.469, 30.4734, -164.244, 307.874, -10.5732, -76.9415, -304.073, -123.492, 28.8133, 294.469, -137.04, -30.6471, -317.479, -38.9839, -11.8667, 307.874, -42.7935, -51.2334, 307.874, -47.5152, -30.6471, -317.479, 38.951, -49.3947, -317.479, 43.2435, -30.6471, -304.073, 137.034, -30.6471, 294.469, 123.432, -90.1075, 307.874, 29.5881, -67.7811, 307.874, 10.5403, -76.9415, -207.724, -47.9176, 157.157, -304.073, -85.4498, 76.4867, -317.479, -26.9919, 3.17078, 294.469, -123.492, 28.8133, 307.874, -42.7935, -10.0281, -317.479, 38.951, -11.8667, -304.073, 123.459, 28.8133, 294.469, 137.034, -30.6471, 307.874, 42.7606, -51.2334, -207.724, 47.8847, 157.157, -304.073, -30.5063, 102.95, 233.255, -47.9176, 157.157, -317.479, -9.63422, 11.5432, 307.874, -29.621, 6.48689, 294.469, -85.4498, 76.4867, -317.479, 26.959, 3.17078, -304.073, 85.4169, 76.4867, 294.469, 123.459, 28.8133, 307.874, 42.7606, -10.0281, 307.874, 47.4555, -30.6471, -304.073, 30.4734, 102.95, 233.255, 47.8847, 157.157, 294.469, -30.5063, 102.95, -317.479, 9.60135, 11.5432, 307.874, -10.5732, 15.6473, 294.469, 85.4169, 76.4867, 307.874, 29.5881, 6.48689, 294.469, 30.4734, 102.95, 307.874, 10.5403, 15.6473)
+
+[sub_resource type="Curve" id="Curve_1spcj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.417241, 0.13757), 0.734702, 0.734702, 0, 0, Vector2(0.537931, 0.300978), 1.0191, 1.0191, 0, 0, Vector2(0.603448, 0.418994), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_1q16v"]
+curve = SubResource("Curve_1spcj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k7vde"]
+particle_flag_rotate_y = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.5
+angular_velocity_min = 8.99998
+angular_velocity_max = 11.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -0.100002
+linear_accel_max = 0.199998
+alpha_curve = SubResource("CurveTexture_1q16v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nk611"]
+albedo_texture = ExtResource("3_0na6n")
+
+[sub_resource type="QuadMesh" id="QuadMesh_43guk"]
+material = SubResource("StandardMaterial3D_nk611")
+size = Vector2(10, 10)
+
+[sub_resource type="Curve" id="Curve_afxbv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wh8qa"]
+curve = SubResource("Curve_afxbv")
+
+[sub_resource type="Gradient" id="Gradient_a0vuv"]
+offsets = PackedFloat32Array(0, 0.301527)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.0392157, 0.0235294, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_suxkx"]
+gradient = SubResource("Gradient_a0vuv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pmvw2"]
+particle_flag_rotate_y = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 0.35
+initial_velocity_max = 0.75
+angular_velocity_min = 8.99998
+angular_velocity_max = 11.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -0.100002
+linear_accel_max = 0.199998
+color_ramp = SubResource("GradientTexture1D_suxkx")
+alpha_curve = SubResource("CurveTexture_wh8qa")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wb5v"]
+albedo_texture = ExtResource("3_l2npg")
+
+[sub_resource type="QuadMesh" id="QuadMesh_hfvcn"]
+material = SubResource("StandardMaterial3D_6wb5v")
+size = Vector2(2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1nla4"]
+
+[node name="fuel_tank" type="RigidBody3D" groups=["enemy"]]
+script = ExtResource("1_pmpnu")
+audio_hit = ExtResource("2_u5uk4")
+audio_death = ExtResource("3_pxbhk")
+obj_type = 1
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
+mesh = ExtResource("4_xbsev")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_c1soh")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="explosion1" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 32
+lifetime = 2.3
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_k7vde")
+draw_pass_1 = SubResource("QuadMesh_43guk")
+
+[node name="explosion2" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 12
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.35
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pmvw2")
+draw_pass_1 = SubResource("QuadMesh_hfvcn")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("BoxShape3D_1nla4")

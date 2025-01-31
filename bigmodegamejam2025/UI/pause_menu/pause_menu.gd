@@ -7,14 +7,16 @@ extends Control
 var is_open : bool = false
 
 func _ready() -> void:
-	Global.PauseRef = self
+	Global.pause_ref = self
 
 ## Open / Close
 func pause_menu():
 	match is_open:
 		true:
+			get_tree().paused = false
 			close()
 		false:
+			get_tree().paused = true
 			open()
 
 func open():
@@ -34,3 +36,8 @@ func close():
 ## Buttons
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_resume_button_pressed() -> void:
+	close()
+	get_tree().paused = false

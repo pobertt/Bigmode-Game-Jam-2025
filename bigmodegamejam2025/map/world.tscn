@@ -1,10 +1,21 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlsqp5lw5rpwi"]
+[gd_scene load_steps=26 format=3 uid="uid://dlsqp5lw5rpwi"]
 
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="1_w1kce"]
-[ext_resource type="PackedScene" uid="uid://bhvov8bj68qid" path="res://objects/parent_hit_object.tscn" id="2_k6ph8"]
+[ext_resource type="PackedScene" uid="uid://bhvov8bj68qid" path="res://objects/fuel_tank.tscn" id="2_k6ph8"]
 [ext_resource type="PackedScene" uid="uid://fm8evqanx3am" path="res://powerup/powerup.tscn" id="3_5ng3o"]
 [ext_resource type="PackedScene" uid="uid://dd00d2ci8cl2n" path="res://assets/dirtground.blend" id="4_es478"]
 [ext_resource type="Texture2D" uid="uid://bp1pto7xyopax" path="res://assets/dirtground_ground_Material.png" id="5_3yv1v"]
+[ext_resource type="PackedScene" uid="uid://bf1wjb8aia2jj" path="res://assets/buildings/updated_bar_building/barbuilding2-col.blend" id="8_6c1yj"]
+[ext_resource type="PackedScene" uid="uid://dqtoa4htwu2s4" path="res://assets/buildings/petrol_station-col.blend" id="8_g2ajn"]
+[ext_resource type="Texture2D" uid="uid://bbirjo7u2j85f" path="res://assets/buildings/textures/petrol station_DefaultMaterial_BaseColor.png" id="9_j83d6"]
+[ext_resource type="Texture2D" uid="uid://bcb51vlf6xu3v" path="res://assets/buildings/textures/barbuilding-BaseColor_2.png" id="9_pskil"]
+[ext_resource type="PackedScene" uid="uid://comwdkifp0gpk" path="res://assets/buildings/FARM/SCENES/big_barn_col.tscn" id="10_dauuv"]
+[ext_resource type="PackedScene" uid="uid://xprcjj44j5o2" path="res://assets/buildings/FARM/SCENES/grain_store.tscn" id="11_flqac"]
+[ext_resource type="Texture2D" uid="uid://bmgof0gep3m0w" path="res://assets/buildings/FARM/Farm-Assets_House_Variant_3_Base_color.png" id="11_yford"]
+[ext_resource type="Texture2D" uid="uid://i01iwp41lcly" path="res://assets/buildings/FARM/Farm-Assets_Barn_Base_color.png" id="13_7cpne"]
+[ext_resource type="PackedScene" uid="uid://bdyxrycbmdwfq" path="res://objects/parent_obj.tscn" id="14_0hj5q"]
+[ext_resource type="Texture2D" uid="uid://n5or8kyvlop5" path="res://assets/buildings/FARM/Farm-Assets_Fuel_Tank_Base_color.png" id="15_5imwt"]
+[ext_resource type="PackedScene" uid="uid://de1gebfnxt8qp" path="res://UI/pause_menu/pause_menu.tscn" id="16_ef7p8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ua71i"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,22 +30,23 @@ sky = SubResource("Sky_5xyx4")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_deuin"]
-albedo_color = Color(0.517647, 0.517647, 1, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7d2hs"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wxkms"]
-points = PackedVector3Array(-0.214183, -0.948028, -0.451129, 0.0227317, 0.952146, 0.498887, 0.171488, 0.951995, 0.469018, -0.125934, 0.952684, -0.483291, 0.499663, -0.953674, -0.00688883, -0.387646, -0.93796, 0.315653, -0.483292, 0.952686, -0.12593, 0.375097, 0.940128, -0.329816, 0.171488, -0.951995, 0.469018, 0.140783, -0.945485, -0.479579, 0.469014, 0.952011, 0.171499, -0.387646, 0.93796, 0.315653, -0.483292, -0.952686, -0.12593, -0.183511, -0.943076, 0.464698, 0.407412, -0.946994, 0.288983, 0.375097, -0.940128, -0.329816, -0.395154, 0.955761, -0.305523, -0.479555, 0.945437, 0.14088, 0.464698, 0.943099, -0.183512, 0.140783, 0.945485, -0.479579, -0.243203, 0.945955, 0.436491, -0.479555, -0.945437, 0.14088, 0.288971, 0.946988, 0.407421, -0.395154, -0.955761, -0.305523, -0.0069906, -0.953641, 0.499658, 0.499663, 0.953674, -0.00688883, -0.271948, 0.943071, -0.419217, 0.464698, -0.943099, -0.183512, -0.125934, -0.952684, -0.483291, 0.315648, 0.937973, -0.387651, 0.469014, -0.952011, 0.171499, 0.407412, 0.946994, 0.288983)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frbnp"]
-albedo_color = Color(0.706315, 2.57981e-05, 0.520197, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6s4sr"]
-points = PackedVector3Array(-0.214183, -0.948028, -0.451129, 0.0227317, 0.952146, 0.498887, 0.171488, 0.951995, 0.469018, -0.125934, 0.952684, -0.483291, 0.499663, -0.953674, -0.00688883, -0.387646, -0.93796, 0.315653, -0.483292, 0.952686, -0.12593, 0.375097, 0.940128, -0.329816, 0.171488, -0.951995, 0.469018, 0.140783, -0.945485, -0.479579, 0.469014, 0.952011, 0.171499, -0.387646, 0.93796, 0.315653, -0.483292, -0.952686, -0.12593, -0.183511, -0.943076, 0.464698, 0.407412, -0.946994, 0.288983, 0.375097, -0.940128, -0.329816, -0.395154, 0.955761, -0.305523, -0.479555, 0.945437, 0.14088, 0.464698, 0.943099, -0.183512, 0.140783, 0.945485, -0.479579, -0.243203, 0.945955, 0.436491, -0.479555, -0.945437, 0.14088, 0.288971, 0.946988, 0.407421, -0.395154, -0.955761, -0.305523, -0.0069906, -0.953641, 0.499658, 0.499663, 0.953674, -0.00688883, -0.271948, 0.943071, -0.419217, 0.464698, -0.943099, -0.183512, -0.125934, -0.952684, -0.483291, 0.315648, 0.937973, -0.387651, 0.469014, -0.952011, 0.171499, 0.407412, 0.946994, 0.288983)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sih5x"]
 albedo_texture = ExtResource("5_3yv1v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qq042"]
+albedo_texture = ExtResource("9_pskil")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7awy"]
+albedo_texture = ExtResource("9_j83d6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q630v"]
+albedo_texture = ExtResource("11_yford")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t65yf"]
+albedo_texture = ExtResource("13_7cpne")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1atb"]
+albedo_texture = ExtResource("15_5imwt")
 
 [node name="World" type="Node3D"]
 
@@ -45,41 +57,6 @@ environment = SubResource("Environment_txn73")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="PowerUp" parent="." instance=ExtResource("3_5ng3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -6.19641)
-power_up_type = 1
-
-[node name="PowerUp2" parent="." instance=ExtResource("3_5ng3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48587, 0.889913, -6.1875)
-
-[node name="PowerUp3" parent="." instance=ExtResource("3_5ng3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76431, 1.77983, -5.93675)
-power_up_type = 3
-
-[node name="PowerUp4" parent="." instance=ExtResource("3_5ng3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47815, 0.977909, -5.93675)
-power_up_type = 2
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.00234, 0, 0, 0, 1, -15.3883, 0.923485, -0.695241)
-material_override = SubResource("StandardMaterial3D_deuin")
-mesh = SubResource("CylinderMesh_7d2hs")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_wxkms")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2.00234, 0, 0, 0, 1, -18.0567, 0.923485, 2.93866)
-material_override = SubResource("StandardMaterial3D_frbnp")
-mesh = SubResource("CylinderMesh_7d2hs")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_6s4sr")
-
 [node name="Player" parent="." instance=ExtResource("1_w1kce")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20049, 0.631804, -0.64927)
 
@@ -88,7 +65,88 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20049, 0.631804, -0.64927)
 [node name="Plane" parent="dirtground" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_sih5x")
 
-[node name="parent_object2" parent="." instance=ExtResource("2_k6ph8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46894, 1.82658, 5.45973)
+[node name="BUILDINGS" type="Node3D" parent="."]
+
+[node name="barbuilding2-col" parent="BUILDINGS" instance=ExtResource("8_6c1yj")]
+transform = Transform3D(0.017749, 0, 0.999842, 0, 1, 0, -0.999842, 0, 0.017749, 29.3132, -3.8147e-06, 15.0671)
+
+[node name="building" parent="BUILDINGS/barbuilding2-col" index="0"]
+material_override = SubResource("StandardMaterial3D_qq042")
+
+[node name="petrol_station-col" parent="BUILDINGS" instance=ExtResource("8_g2ajn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8739, -4.76837e-06, -22.8672)
+
+[node name="cube" parent="BUILDINGS/petrol_station-col" index="1"]
+transform = Transform3D(-0.0480479, 0, -0.998845, 0, 1, 0, 0.998845, 0, -0.0480479, -2.97588, 0, 11.7949)
+surface_material_override/0 = SubResource("StandardMaterial3D_n7awy")
+
+[node name="big_barn-col" parent="BUILDINGS" instance=ExtResource("10_dauuv")]
+transform = Transform3D(-0.666191, 0.00012782, 0.745781, -5.43449e-05, 1, -0.000219936, -0.745781, -0.000187049, -0.666191, 18.0088, 2.10737, 37.5328)
+
+[node name="House_Variant_3" parent="BUILDINGS/big_barn-col" index="0"]
+material_override = SubResource("StandardMaterial3D_q630v")
+
+[node name="grain_store" parent="BUILDINGS" instance=ExtResource("11_flqac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.30934, 6.18647, 30.4908)
+
+[node name="GrainStore" parent="BUILDINGS/grain_store" index="0"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -21.974, 0, 0)
+material_override = SubResource("StandardMaterial3D_t65yf")
+
+[node name="PowerUps" type="Node3D" parent="."]
+
+[node name="PowerUp" parent="PowerUps" instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -6.19641)
+power_up_type = 1
+
+[node name="PowerUp2" parent="PowerUps" instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48587, 0.889913, -6.1875)
+
+[node name="PowerUp3" parent="PowerUps" instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76431, 0.968088, -5.93675)
+power_up_type = 3
+
+[node name="PowerUp4" parent="PowerUps" instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47815, 0.977909, -5.93675)
+power_up_type = 2
+
+[node name="PowerUp5" parent="PowerUps" instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -9.31524)
+power_up_type = 1
+
+[node name="PowerUp6" parent="PowerUps" instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -13.0644)
+power_up_type = 1
+
+[node name="PowerUp7" parent="PowerUps" instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -16.915)
+power_up_type = 1
+
+[node name="PowerUp8" parent="PowerUps" instance=ExtResource("3_5ng3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, -20.1255)
+power_up_type = 1
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="fuel_tank" parent="Interactables" instance=ExtResource("2_k6ph8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.1545, 1.60764, -4.20106)
+mass = 1000.0
+object_health = 500
+
+[node name="mesh" parent="Interactables/fuel_tank" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_x1atb")
+
+[node name="parent_object" parent="Interactables" instance=ExtResource("14_0hj5q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.82335, 1.26186, 14.3864)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("16_ef7p8")]
+visible = false
 
 [editable path="dirtground"]
+[editable path="BUILDINGS/barbuilding2-col"]
+[editable path="BUILDINGS/petrol_station-col"]
+[editable path="BUILDINGS/big_barn-col"]
+[editable path="BUILDINGS/grain_store"]
+[editable path="Interactables/fuel_tank"]

@@ -24,7 +24,6 @@ func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
 	if power_up_type == PowerUpType.SMOKING:
 		powerup_mesh.mesh = CIG_PACK
-		#pick_up_sound.stream = SMOKE_SOUND
 	elif power_up_type == PowerUpType.DRINKING:
 		powerup_mesh.mesh = BOTTLE
 	elif power_up_type == PowerUpType.SNUSING:
@@ -35,8 +34,7 @@ func _ready():
 # FUNCTION FOR WHEN THE PLAYER ENTERS THE POWER UP AREA
 func _on_body_entered(body):
 	if body.is_in_group("player"):  
-		emit_signal("collected", power_up_type) 
-		pick_up_sound.play() 
+		emit_signal("collected", power_up_type)  
 		queue_free() 
 		print("collected")
 

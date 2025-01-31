@@ -4,6 +4,7 @@ extends CharacterBody3D
 
 @onready var camera : Camera3D = $Head/Camera
 @onready var obj_holder: Node3D = $Head/Camera/obj_holder
+@onready var screen_distort: ColorRect = $Head/Camera/distortion_holder/Control/ScreenDistort
 
 # System Nodes
 

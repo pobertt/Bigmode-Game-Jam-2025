@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jmxxedj0ya4l"]
+[gd_scene load_steps=12 format=3 uid="uid://jmxxedj0ya4l"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_8cqqi"]
 [ext_resource type="PackedScene" uid="uid://crolqkue26mif" path="res://systems/gun_system.tscn" id="2_b5b6i"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dcs10cmxvu8i8" path="res://powerup/power_ups_player.tscn" id="5_4g6ax"]
 [ext_resource type="Shader" path="res://shaders/newpsxshader.gdshader" id="5_bnhrv"]
 [ext_resource type="PackedScene" uid="uid://cdopmcdyyh8t3" path="res://player/fist.tscn" id="6_4xsi2"]
+[ext_resource type="PackedScene" uid="uid://donk6bqbefioh" path="res://shaders/NauseaScene.tscn" id="7_wqa6t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
 
@@ -65,7 +66,18 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.554
 [node name="obj_holder" type="Node3D" parent="Head/Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0471687, -1.55661)
 
+[node name="distortion_holder" type="Node3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0471687, -1.16541)
+visible = false
+
+[node name="Control" parent="Head/Camera/distortion_holder" instance=ExtResource("7_wqa6t")]
+
+[node name="ScreenDistort" parent="Head/Camera/distortion_holder/Control" index="0"]
+visible = false
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("4_m2rbr")]
 metadata/_edit_use_anchors_ = true
+
+[editable path="Head/Camera/distortion_holder/Control"]

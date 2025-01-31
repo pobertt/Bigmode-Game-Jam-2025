@@ -73,13 +73,14 @@ func _apply_smoking_effect():
 func _apply_drinking_effect():
 	print("Player starts drinking!")
 	
-	original_fov = player_ref.camera.fov
-	
 	player_ref.bladder += 10
 	print(player_ref.bladder)
 	
+	player_ref.screen_distort.visible=true
+	
 func _apply_snusing_effect():
 	print("Player uses snus!")
+	original_fov = player_ref.camera.fov
 	
 	var tween := create_tween()
 	

@@ -273,7 +273,7 @@ cast_shadow = 0
 mesh = ExtResource("1_rfq8p")
 
 [node name="Blunt" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.291837, 0, 0.956468, 0, 1, 0, -0.956468, 0, 0.291837, 1.7709, 0.153323, -0.847921)
+transform = Transform3D(0.291836, 0, 0.956468, 0, 1, 0, -0.956468, 0, 0.291836, 1.7709, 0.153323, -0.847921)
 visible = false
 cast_shadow = 0
 mesh = ExtResource("2_px28q")

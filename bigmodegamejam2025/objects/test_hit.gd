@@ -15,13 +15,16 @@ class_name DestructableObjects
 @onready var explosion_1: GPUParticles3D 
 @onready var explosion_2: GPUParticles3D
 
+@onready var keg_particle: GPUParticles3D
+
 @export var anim_player: AnimationPlayer
 
 
 enum ObjectType {
 	NORMAL,
 	EXPLOSIVE,
-	CAT
+	CAT,
+	KEG
 }
 
 func change_health(damage):

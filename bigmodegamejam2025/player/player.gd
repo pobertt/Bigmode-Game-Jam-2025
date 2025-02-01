@@ -16,6 +16,7 @@ extends CharacterBody3D
 
 @onready var bullet_raycast : RayCast3D = $Head/Camera/Bullet_RayCast3D
 @onready var weapon_holder: Node3D = $Head/Camera/WeaponHolder
+@onready var interact_raycast: RayCast3D = $Head/Camera/InteractRaycast
 
 # Stats
 

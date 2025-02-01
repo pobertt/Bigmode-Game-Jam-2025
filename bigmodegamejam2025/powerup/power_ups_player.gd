@@ -2,6 +2,8 @@ extends Node
 class_name PowerUpSystem
 
 @export var player_ref : CharacterBody3D
+@export var achievement_manager: Node
+
 const SMOKE_SOUND = preload("res://SFX/PowerUps/LIGHTING.mp3")
 const DRINKING_SOUND = preload("res://SFX/PowerUps/DRINKING.mp3")
 const PILL_SOUND = preload("res://SFX/PowerUps/SWALLOW.mp3")
@@ -27,6 +29,9 @@ func _ready():
 		power_up.connect("collected", Callable(self, "_on_power_up_collected"))
 
 func _process(delta: float) -> void:
+	if power_ups.PowerUpType.PILLS in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups and power_ups.PowerUpType.SNUSING in collected_powerups and power_ups.PowerUpType.SMOKING in collected_powerups:
+		achievement_manager.unlock_achievement("Pick a struggle")
+	
 	if combo_active:
 		combo_timer -= delta  # Countdown for the combo effect
 		
@@ -35,6 +40,7 @@ func _process(delta: float) -> void:
 		
 	if player_ref.bladder >= 600:
 		player_ref.screen_distort.visible=true
+		
 	else:
 		player_ref.screen_distort.visible=false
 		
@@ -68,9 +74,12 @@ func _on_power_up_collected(power_up_type):
 	
 # Apply individual effects for each power-up
 func _apply_smoking_effect():
+	
+	achievement_manager.unlock_achievement("Smoker's Delight")
+	
 	print("Player starts smoking!")
-	player_ref.health += 10
-	print(player_ref.health)
+	player_ref.strength += 10
+	print(player_ref.strength)
 	var obj = spawn_object.instantiate()  
 	player_ref.obj_holder.add_child(obj)
 	
@@ -87,6 +96,8 @@ func _apply_smoking_effect():
 func _apply_drinking_effect():
 	print("Player starts drinking!")
 	
+	achievement_manager.unlock_achievement("sip happnes")
+	
 	print(player_ref.bladder)
 	player_ref.bladder += 200
 	Global.update_piss_bar.emit(player_ref.bladder)
@@ -99,6 +110,9 @@ func _apply_drinking_effect():
 	
 func _apply_snusing_effect():
 	print("Player uses snus!")
+	
+	achievement_manager.unlock_achievement("I need a snus")
+	
 	original_fov = player_ref.camera.fov
 	
 	var snus_player = AudioStreamPlayer3D.new()
@@ -114,8 +128,11 @@ func _apply_snusing_effect():
 
 func _apply_pills_effect():
 	print("Player gets pills!")
-	player_ref.strength += 10
-	print(player_ref.strength)
+	
+	achievement_manager.unlock_achievement("My pain go away pills")
+	
+	player_ref.health += 10
+	print(player_ref.health)
 	
 	var pill_player = AudioStreamPlayer3D.new()
 	pill_player.stream = PILL_SOUND
@@ -126,6 +143,7 @@ func _apply_pills_effect():
 func _check_for_comboA():
 	if power_ups.PowerUpType.SMOKING in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
 		_activate_combo0()
+		achievement_manager.unlock_achievement("Morning Routine")
 	elif power_ups.PowerUpType.SNUSING in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
 		_activate_combo1()
 	elif power_ups.PowerUpType.PILLS in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:

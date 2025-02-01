@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcs10cmxvu8i8"]
+[gd_scene load_steps=3 format=3 uid="uid://dcs10cmxvu8i8"]
 
 [ext_resource type="Script" path="res://powerup/power_ups_player.gd" id="1_rpjxm"]
+[ext_resource type="Script" path="res://Achievements/AchievementManager.gd" id="2_p3igx"]
 
-[node name="PowerUps" type="Node"]
+[node name="PowerUps" type="Node" node_paths=PackedStringArray("achievement_manager")]
 script = ExtResource("1_rpjxm")
+achievement_manager = NodePath("AchievementManager")
+
+[node name="AchievementManager" type="Node3D" parent="."]
+script = ExtResource("2_p3igx")

@@ -1,15 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdyxrycbmdwfq"]
+[gd_scene load_steps=6 format=3 uid="uid://bdyxrycbmdwfq"]
 
 [ext_resource type="Script" path="res://objects/test_hit.gd" id="1_du31y"]
 [ext_resource type="AudioStream" uid="uid://f08rlpm5wbsj" path="res://SFX/landing.mp3" id="2_0rgup"]
 [ext_resource type="AudioStream" uid="uid://cc8j8vopxsurw" path="res://SFX/dead.mp3" id="3_l02m8"]
 [ext_resource type="ArrayMesh" uid="uid://b4qephasda3cn" path="res://assets/OBJECTS_RES/snus.res" id="4_x47mu"]
-[ext_resource type="PackedScene" uid="uid://brri3hsu4od12" path="res://objects/interaction_area.tscn" id="5_ifnt5"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p2xno"]
 points = PackedVector3Array(0.999999, 0.999985, -0.000196218, 0.999999, -1.00002, -0.000196218, 0.923844, 0.999985, -0.382733, 0.923844, 0.999985, 0.382537, 0.923844, -1.00002, 0.382537, 0.923844, -1.00002, -0.382733, 0.706929, 0.999985, -0.707127, 0.706929, 0.999985, 0.70693, 0.706929, -1.00002, 0.70693, 0.706929, -1.00002, -0.707127, 0.382536, 0.999985, -0.924041, 0.382536, 0.999985, 0.923844, 0.382536, -1.00002, 0.923844, 0.382536, -1.00002, -0.924041, -0.000197172, 0.999985, -1, -0.000197172, 0.999985, 1, -0.000197172, -1.00002, 1, -0.000197172, -1.00002, -1, -0.382734, 0.999985, -0.924041, -0.382734, 0.999985, 0.923844, -0.382734, -1.00002, 0.923844, -0.382734, -1.00002, -0.924041, -0.707128, 0.999985, -0.707127, -0.707128, 0.999985, 0.70693, -0.707128, -1.00002, 0.70693, -0.707128, -1.00002, -0.707127, -0.924042, 0.999985, -0.382733, -0.924042, 0.999985, 0.382537, -0.924042, -1.00002, 0.382537, -0.924042, -1.00002, -0.382733, -1, 0.999985, -0.000196218, -1, -1.00002, -0.000196218)
 
 [node name="parent_object" type="RigidBody3D" groups=["enemy"]]
+collision_layer = 3
 script = ExtResource("1_du31y")
 audio_hit = ExtResource("2_0rgup")
 audio_death = ExtResource("3_l02m8")
@@ -22,6 +22,3 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_p2xno")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-
-[node name="Interactable" parent="." instance=ExtResource("5_ifnt5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.40759)

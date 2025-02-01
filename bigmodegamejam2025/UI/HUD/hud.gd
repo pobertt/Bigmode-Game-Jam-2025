@@ -2,13 +2,15 @@ extends Control
 
 @onready var ammo_count_label: Label = $AmmoCount_Label
 @onready var health_count_label: Label = $HealthCount_Label
-@onready var piss_label: Label = $Control/Piss_Label
-@onready var piss_bar: ProgressBar = $Control/ProgressBar
+@onready var piss_label: Label = $Piss_Control/Piss_Label
+@onready var piss_bar: ProgressBar = $Piss_Control/ProgressBar
+@onready var interact_label: Label = $Interaction/InteractLabel
 
 func _ready() -> void:
 	Global.update_hud.connect(_on_update_hud)
 	Global.update_piss_bar.connect(_on_update_piss_bar)
 	Global.decrease_piss_bar.connect(_on_decrease_piss_bar)
+	Global.update_interact.connect(_on_update_interact)
 
 func _on_update_hud():
 	var player : CharacterBody3D = Global.player_ref
@@ -35,3 +37,9 @@ func _on_decrease_piss_bar(piss_amount):
 	if piss_amount == 0:
 		piss_label.visible = false
 		piss_bar.visible = false
+
+func _on_update_interact():
+	if Global.can_interact == true:
+		interact_label.show()
+	else:
+		interact_label.hide()

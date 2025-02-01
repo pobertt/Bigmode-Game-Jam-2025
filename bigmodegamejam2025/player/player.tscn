@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cdopmcdyyh8t3" path="res://player/fist.tscn" id="6_4xsi2"]
 [ext_resource type="PackedScene" uid="uid://b2k5xyokkcmlb" path="res://player/p_particle.tscn" id="7_84ybi"]
 [ext_resource type="PackedScene" uid="uid://donk6bqbefioh" path="res://shaders/NauseaScene.tscn" id="8_j37d5"]
-[ext_resource type="PackedScene" uid="uid://brri3hsu4od12" path="res://objects/interaction_area.tscn" id="10_lro4m"]
+[ext_resource type="Script" path="res://player/interact_raycast.gd" id="9_gwui1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
 
@@ -74,12 +74,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.488138, -0.426556)
 [node name="obj_holder" type="Node3D" parent="Head/Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047, -1.557)
 
+[node name="InteractRaycast" type="RayCast3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -5, 0)
+collision_mask = 2
+script = ExtResource("9_gwui1")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("4_m2rbr")]
 metadata/_edit_use_anchors_ = true
-
-[node name="Interactable" parent="." instance=ExtResource("10_lro4m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44614, -1.29225)
 
 [editable path="Head/Camera/Control"]

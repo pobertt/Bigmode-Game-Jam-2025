@@ -186,6 +186,7 @@ visible = false
 
 [node name="Enemy" parent="." instance=ExtResource("17_7w12x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24714, 0.617663, 1.42634)
+collision_layer = 3
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_bejte")

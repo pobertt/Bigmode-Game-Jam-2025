@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c51x5bvyq1mth"
+path.s3tc="res://.godot/imported/New-Bike_Frame.png-6d443cf0d6db1b06af66e68771fdc879.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "0df9beb7a38a1a3b5d95ab21693a8341"
+}
+
+[deps]
+
+source_file="res://assets/cars/bike/New-Bike_Frame.png"
+dest_files=["res://.godot/imported/New-Bike_Frame.png-6d443cf0d6db1b06af66e68771fdc879.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

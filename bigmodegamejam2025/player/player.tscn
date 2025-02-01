@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://Achievements/AchievementManager.gd" id="12_xplt0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
-height = 2.5
+height = 2.25
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kcyex"]
 render_priority = 0
@@ -43,7 +43,7 @@ achievement_manager = NodePath("AchievementManager")
 parent = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.125, 0)
 shape = SubResource("CapsuleShape3D_ygf8x")
 
 [node name="PowerUps" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("5_4g6ax")]
@@ -63,7 +63,6 @@ target_position = Vector3(0, 0, 0)
 
 [node name="shader" type="MeshInstance3D" parent="Head/Camera"]
 transform = Transform3D(1, -0.000161073, -0.00049253, 0.000160791, 1, -0.000566793, 0.000492622, 0.000566713, 1, 0.000684738, 0, -1.46264)
-visible = false
 material_override = SubResource("ShaderMaterial_kcyex")
 mesh = SubResource("QuadMesh_wec7u")
 

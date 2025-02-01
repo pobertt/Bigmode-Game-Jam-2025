@@ -16,6 +16,10 @@ signal update_hud
 signal update_piss_bar
 signal decrease_piss_bar
 signal update_interact
+signal lighting
+signal drinking
+signal snusing
+signal pills
 
 # this is for UI later
 func check_menus():

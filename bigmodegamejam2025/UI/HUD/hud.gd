@@ -24,6 +24,7 @@ func _on_update_hud():
 	# Set Label
 	ammo_count_label.text = "%s / %s" % [player.current_bullets, player.ammo[player.current_gun.ammo]]
 	# player health is basically the same way
+	health_count_label.text = "%s" % player.health
 
 func _on_update_piss_bar(piss_amount):
 	piss_bar.value += 200

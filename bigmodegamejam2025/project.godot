@@ -20,11 +20,6 @@ config/icon="res://icon.svg"
 Global="*res://systems/global.gd"
 SoundManager="*res://systems/sound_manager.gd"
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1500
-
 [global_group]
 
 Decal=""

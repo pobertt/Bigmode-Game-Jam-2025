@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5cekjjuw5emp"
-path.s3tc="res://.godot/imported/RV2.png-254b59958b7385ec455b507753923e81.s3tc.ctex"
+uid="uid://crnn6oq6d48u3"
+path.s3tc="res://.godot/imported/dirtgroundandroad-BaseColor.png-e8706bee0b5637b36be8ea0aa0613924.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/VANS/Textures/256/RV2.png"
-dest_files=["res://.godot/imported/RV2.png-254b59958b7385ec455b507753923e81.s3tc.ctex"]
+source_file="res://assets/new_map/dirtgroundandroad-BaseColor.png"
+dest_files=["res://.godot/imported/dirtgroundandroad-BaseColor.png-e8706bee0b5637b36be8ea0aa0613924.s3tc.ctex"]
 
 [params]
 

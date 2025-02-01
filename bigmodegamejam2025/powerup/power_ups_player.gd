@@ -19,8 +19,6 @@ var collected_p = false
 var original_fov : float
 
 const power_ups = preload("res://powerup/power_ups.gd")
-var spawn_object : PackedScene = preload("res://powerup/Lighter.tscn")
-
 
 func _ready():
 	for power_up in get_tree().get_nodes_in_group("power_ups"):
@@ -71,8 +69,8 @@ func _apply_smoking_effect():
 	print("Player starts smoking!")
 	player_ref.health += 10
 	print(player_ref.health)
-	var obj = spawn_object.instantiate()  
-	player_ref.obj_holder.add_child(obj)
+	
+	Global.lighting.emit()
 	
 	var smoke_player = AudioStreamPlayer3D.new()
 	smoke_player.stream = SMOKE_SOUND
@@ -81,7 +79,6 @@ func _apply_smoking_effect():
 	smoke_player.play()
 	
 	await get_tree().create_timer(2.0).timeout
-	obj.queue_free()
 	
 
 func _apply_drinking_effect():
@@ -90,6 +87,8 @@ func _apply_drinking_effect():
 	print(player_ref.bladder)
 	player_ref.bladder += 200
 	Global.update_piss_bar.emit(player_ref.bladder)
+	
+	Global.drinking.emit()
 	
 	var drinking_player = AudioStreamPlayer3D.new()
 	drinking_player.stream = DRINKING_SOUND
@@ -100,6 +99,8 @@ func _apply_drinking_effect():
 func _apply_snusing_effect():
 	print("Player uses snus!")
 	original_fov = player_ref.camera.fov
+	
+	Global.snusing.emit()
 	
 	var snus_player = AudioStreamPlayer3D.new()
 	snus_player.stream = SNUS_SOUND
@@ -116,6 +117,8 @@ func _apply_pills_effect():
 	print("Player gets pills!")
 	player_ref.strength += 10
 	print(player_ref.strength)
+	
+	Global.pills.emit()
 	
 	var pill_player = AudioStreamPlayer3D.new()
 	pill_player.stream = PILL_SOUND

@@ -2,7 +2,6 @@ extends Control
 
 @onready var game_label: Label = $CenterContainer/Panel/MarginContainer/Button_Container/GameLabel
 @onready var quit_button: Button = $CenterContainer/Panel/MarginContainer/Button_Container/Quit_Button
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var is_open : bool = false
 

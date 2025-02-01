@@ -197,5 +197,6 @@ func _camera_shake(period, magnitude):
 
 func change_health(damage):
 	health -= damage
+	Global.update_hud.emit()
 	if health <= 0:
 		print("dead")

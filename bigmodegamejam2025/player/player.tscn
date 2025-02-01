@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://jmxxedj0ya4l"]
+[gd_scene load_steps=16 format=3 uid="uid://jmxxedj0ya4l"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_8cqqi"]
 [ext_resource type="PackedScene" uid="uid://crolqkue26mif" path="res://systems/gun_system.tscn" id="2_b5b6i"]
@@ -9,9 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://cdopmcdyyh8t3" path="res://player/fist.tscn" id="6_4xsi2"]
 [ext_resource type="PackedScene" uid="uid://b2k5xyokkcmlb" path="res://player/p_particle.tscn" id="7_84ybi"]
 [ext_resource type="PackedScene" uid="uid://donk6bqbefioh" path="res://shaders/NauseaScene.tscn" id="8_j37d5"]
-[ext_resource type="PackedScene" uid="uid://brri3hsu4od12" path="res://objects/interaction_area.tscn" id="10_lro4m"]
+[ext_resource type="Script" path="res://player/interact_raycast.gd" id="9_gwui1"]
+[ext_resource type="PackedScene" uid="uid://c6eybb7438fxb" path="res://objects/obj_holder.tscn" id="9_lohfg"]
+[ext_resource type="Script" path="res://Achievements/AchievementManager.gd" id="12_xplt0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
+height = 2.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kcyex"]
 render_priority = 0
@@ -32,21 +35,22 @@ shader_parameter/dither_strength = 0.4
 flip_faces = true
 size = Vector2(2, 2)
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("achievement_manager") groups=["player"]]
 script = ExtResource("1_8cqqi")
+achievement_manager = NodePath("AchievementManager")
 
 [node name="GunSystem" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_b5b6i")]
 parent = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 shape = SubResource("CapsuleShape3D_ygf8x")
 
 [node name="PowerUps" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("5_4g6ax")]
 player_ref = NodePath("..")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
 
@@ -70,16 +74,29 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.554
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.488138, -0.426556)
 
 [node name="Control" parent="Head/Camera" instance=ExtResource("8_j37d5")]
+metadata/_edit_use_anchors_ = true
 
-[node name="obj_holder" type="Node3D" parent="Head/Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047, -1.557)
+[node name="obj_holder" parent="Head/Camera" instance=ExtResource("9_lohfg")]
+
+[node name="Blunt" parent="Head/Camera/obj_holder" index="1"]
+transform = Transform3D(0.291836, 0, 0.956468, 0, 1, 0, -0.956468, 0, 0.291836, 1.7709, 0.153323, -0.847921)
+
+[node name="Beer" parent="Head/Camera/obj_holder" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.188119, -0.982146, 0, 0.982146, 0.188119, 0, 0.504436, -2.65179)
+
+[node name="InteractRaycast" type="RayCast3D" parent="Head/Camera"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -5, 0)
+collision_mask = 2
+script = ExtResource("9_gwui1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("4_m2rbr")]
 metadata/_edit_use_anchors_ = true
 
-[node name="Interactable" parent="." instance=ExtResource("10_lro4m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44614, -1.29225)
+[node name="AchievementManager" type="Node3D" parent="."]
+script = ExtResource("12_xplt0")
 
 [editable path="Head/Camera/Control"]
+[editable path="Head/Camera/obj_holder"]

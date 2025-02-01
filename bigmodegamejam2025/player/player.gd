@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var p_particle: Node3D = $Head/Camera/PParticle
 @onready var screen_distort: ColorRect = $Head/Camera/Control/ScreenDistort
 @onready var obj_holder: Node3D = $Head/Camera/obj_holder
+@export var achievement_manager: Node
 
 # System Nodes
 
@@ -87,15 +88,13 @@ func _input(event: InputEvent) -> void:
 		switch_weapon(SHOTGUN)
 	if event.is_action_pressed("piss") and Global.check_menus() == false:
 		if bladder > 0:
+			achievement_manager.unlock_achievement("The world is my toilet")
 			piss = true
 			
 			p_particle.piss()
 	if event.is_action_released("piss") and Global.check_menus() == false:
 		piss = false
 		p_particle.piss()
-		
-	if event.is_action_pressed("interact"):
-		interact()
 
 func _process(delta: float) -> void:
 	if piss == true:
@@ -106,6 +105,8 @@ func _process(delta: float) -> void:
 	if bladder == 0:
 		piss = false
 		p_particle.piss()
+	if bladder == 1000:
+		achievement_manager.unlock_achievement("When you have to go, you have to go")
 
 func _physics_process(delta: float) -> void:
 	# Gun
@@ -200,9 +201,6 @@ func _camera_shake(period, magnitude):
 
 func change_health(damage):
 	health -= damage
+	Global.update_hud.emit()
 	if health <= 0:
 		print("dead")
-
-func interact():
-	print("interacting")
-	Global.on_interact.emit()

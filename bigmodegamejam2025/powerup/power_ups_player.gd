@@ -33,6 +33,11 @@ func _process(delta: float) -> void:
 	if combo_timer <= 0:
 		_reset_combo()
 		
+	if player_ref.bladder >= 600:
+		player_ref.screen_distort.visible=true
+	else:
+		player_ref.screen_distort.visible=false
+		
 	if collected_p:
 		if !combo_active:
 			clear_timer += delta  # Handle the clear timer for power-ups
@@ -85,8 +90,6 @@ func _apply_drinking_effect():
 	print(player_ref.bladder)
 	player_ref.bladder += 200
 	Global.update_piss_bar.emit(player_ref.bladder)
-	
-	player_ref.screen_distort.visible=true
 	
 	var drinking_player = AudioStreamPlayer3D.new()
 	drinking_player.stream = DRINKING_SOUND

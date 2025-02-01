@@ -72,7 +72,6 @@ albedo_texture = ExtResource("11_idqgj")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogxa6"]
 resource_name = "RV_1"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bmaol"]
@@ -115,7 +114,6 @@ albedo_texture = ExtResource("12_1e5le")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5b11q"]
 resource_name = "Tire"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_neho5"]
@@ -194,7 +192,6 @@ albedo_texture = ExtResource("13_8qe7b")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihxu4"]
 resource_name = "RV_2"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wi01s"]
@@ -235,7 +232,6 @@ albedo_texture = ExtResource("12_1e5le")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p86ng"]
 resource_name = "Tire.001"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xrwsu"]
@@ -324,13 +320,11 @@ albedo_texture = ExtResource("14_lxqdd")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owm8a"]
 resource_name = "Tire.002"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yss5t"]
 resource_name = "RV_3"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_k4anf"]

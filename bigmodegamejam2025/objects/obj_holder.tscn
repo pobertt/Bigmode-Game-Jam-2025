@@ -6,72 +6,6 @@
 [ext_resource type="ArrayMesh" uid="uid://ckh8kn8uauikq" path="res://assets/misc_items/res/BOTTLE.res" id="4_hia72"]
 [ext_resource type="ArrayMesh" uid="uid://cf0e1475am70f" path="res://assets/misc_items/res/PILLS.res" id="5_ni8t3"]
 
-[sub_resource type="Animation" id="Animation_w6qdc"]
-resource_name = "lighting_blunt"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Blunt:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.7709, 0.153323, -0.847921), Vector3(0.261953, 0.153323, -1.50343)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Blunt:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 1.27465, 0), Vector3(0, 1.27465, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Lighter:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -1.5281, -1.557), Vector3(0, 0.047, -1.557)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Lighter:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&""],
-"method": &"animation_finished"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_40y7x"]
 length = 0.001
 tracks/0/type = "value"
@@ -213,6 +147,72 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_w6qdc"]
+resource_name = "lighting_blunt"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blunt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.7709, 0.153323, -0.847921), Vector3(0.261953, 0.153323, -1.50343)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blunt:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.27465, 0), Vector3(0, 1.27465, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lighter:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5281, -1.557), Vector3(0, 0.047, -1.557)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Lighter:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&""],
+"method": &"animation_finished"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_clxel"]
 resource_name = "pills"
 length = 3.0
@@ -273,13 +273,13 @@ cast_shadow = 0
 mesh = ExtResource("1_rfq8p")
 
 [node name="Blunt" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.291838, 0, 0.956468, 0, 1, 0, -0.956468, 0, 0.291838, 1.7709, 0.153323, -0.847921)
+transform = Transform3D(0.291837, 0, 0.956468, 0, 1, 0, -0.956468, 0, 0.291837, 1.7709, 0.153323, -0.847921)
 visible = false
 cast_shadow = 0
 mesh = ExtResource("2_px28q")
 
 [node name="Beer" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.188118, -0.982146, 0, 0.982146, 0.188118, 0, 0.504436, -2.65179)
+transform = Transform3D(1, 0, 0, 0, 0.188119, -0.982146, 0, 0.982146, 0.188119, 0, 0.504436, -2.65179)
 visible = false
 cast_shadow = 0
 mesh = ExtResource("4_hia72")

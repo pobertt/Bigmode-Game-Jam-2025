@@ -79,7 +79,7 @@ metadata/_edit_use_anchors_ = true
 [node name="obj_holder" parent="Head/Camera" instance=ExtResource("9_lohfg")]
 
 [node name="Blunt" parent="Head/Camera/obj_holder" index="1"]
-transform = Transform3D(0.291837, 0, 0.956468, 0, 1, 0, -0.956468, 0, 0.291837, 1.7709, 0.153323, -0.847921)
+transform = Transform3D(0.291836, 0, 0.956468, 0, 1, 0, -0.956468, 0, 0.291836, 1.7709, 0.153323, -0.847921)
 
 [node name="Beer" parent="Head/Camera/obj_holder" index="2"]
 transform = Transform3D(1, 0, 0, 0, 0.188119, -0.982146, 0, 0.982146, 0.188119, 0, 0.504436, -2.65179)

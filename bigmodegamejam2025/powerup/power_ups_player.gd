@@ -80,8 +80,10 @@ func _apply_smoking_effect():
 	print("Player starts smoking!")
 	player_ref.strength += 10
 	print(player_ref.strength)
-	var obj = spawn_object.instantiate()  
-	player_ref.obj_holder.add_child(obj)
+	#var obj = spawn_object.instantiate()  
+	#player_ref.obj_holder.add_child(obj)
+	
+	Global.lighting.emit()
 	
 	var smoke_player = AudioStreamPlayer3D.new()
 	smoke_player.stream = SMOKE_SOUND
@@ -90,7 +92,7 @@ func _apply_smoking_effect():
 	smoke_player.play()
 	
 	await get_tree().create_timer(2.0).timeout
-	obj.queue_free()
+	#obj.queue_free()
 	
 
 func _apply_drinking_effect():
@@ -102,6 +104,8 @@ func _apply_drinking_effect():
 	player_ref.bladder += 200
 	Global.update_piss_bar.emit(player_ref.bladder)
 	
+	Global.drinking.emit()
+	
 	var drinking_player = AudioStreamPlayer3D.new()
 	drinking_player.stream = DRINKING_SOUND
 	drinking_player.global_position = player_ref.global_position
@@ -110,6 +114,8 @@ func _apply_drinking_effect():
 	
 func _apply_snusing_effect():
 	print("Player uses snus!")
+	
+	Global.snusing.emit()
 	
 	achievement_manager.unlock_achievement("I need a snus")
 	
@@ -128,6 +134,8 @@ func _apply_snusing_effect():
 
 func _apply_pills_effect():
 	print("Player gets pills!")
+	
+	Global.pills.emit()
 	
 	achievement_manager.unlock_achievement("My pain go away pills")
 	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://beile14a1xc2w"]
+[gd_scene load_steps=12 format=3 uid="uid://beile14a1xc2w"]
 
 [ext_resource type="Script" path="res://Enemy/enemy_test_world.gd" id="1_56sn2"]
 [ext_resource type="PackedScene" uid="uid://dbjhc7pmmdv30" path="res://Enemy/enemy.tscn" id="1_m5774"]
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="2_0kvcc"]
 [ext_resource type="PackedScene" uid="uid://de1gebfnxt8qp" path="res://UI/pause_menu/pause_menu.tscn" id="4_yq6ql"]
+[ext_resource type="PackedScene" uid="uid://c7pamyh56glp1" path="res://NPC/NPC1.tscn" id="5_ickjk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_brm14"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -41,6 +42,12 @@ shadow_enabled = true
 [node name="Enemy" parent="." instance=ExtResource("1_m5774")]
 transform = Transform3D(1.00153, 0, 0, 0, 1.00153, 0, 0, 0, 1.00153, 6.30428, -0.00669003, 14.7604)
 
+[node name="Enemy2" parent="." instance=ExtResource("1_m5774")]
+transform = Transform3D(1.00153, 0, 0, 0, 1.00153, 0, 0, 0, 1.00153, 6.30428, -0.00669003, -1.07799)
+
+[node name="Enemy3" parent="." instance=ExtResource("1_m5774")]
+transform = Transform3D(1.00153, 0, 0, 0, 1.00153, 0, 0, 0, 1.00153, 16.1024, -0.00669003, -1.07799)
+
 [node name="Player" parent="." instance=ExtResource("2_0kvcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275553, -0.119367, 24.7329)
 
@@ -72,3 +79,15 @@ size = Vector3(2, 4, 4.25732)
 
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("4_yq6ql")]
 visible = false
+
+[node name="NPC" parent="." groups=["enemy"] instance=ExtResource("5_ickjk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4241, 0, 0)
+
+[node name="NPC2" parent="." groups=["enemy"] instance=ExtResource("5_ickjk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.214, 0, 18.606)
+
+[node name="NPC3" parent="." groups=["enemy"] instance=ExtResource("5_ickjk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.214, 0, 9.62684)
+
+[node name="NPC4" parent="." groups=["enemy"] instance=ExtResource("5_ickjk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7679, 0, 18.606)

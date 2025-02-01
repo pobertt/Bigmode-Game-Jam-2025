@@ -14,6 +14,8 @@ extends CharacterBody3D
 @onready var vision_cone_collision: CollisionShape3D = $VisionArea/VisionConeCollision
 @onready var particles_collision: GPUParticlesCollisionSphere3D = $GPUParticlesCollisionSphere3D
 @onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var attacking_timer: Timer = $AttackingTImer
+
 
 @export var audio_hit : AudioStream
 @export var audio_death : AudioStream
@@ -22,11 +24,11 @@ var PlayerRef
 var health = 100
 
 
-enum STATE { ROAMING , CHASING , IDLING , SEARCHING, DYING}
+enum STATE { ROAMING , CHASING , IDLING , SEARCHING, DYING, ATTACKING}
 
 var CurrentState : STATE = STATE.IDLING
 
-const SPEED = 2.0
+const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 	
 func _ready() -> void:
@@ -64,45 +66,57 @@ func target_position(target):
 	navref.target_desired_distance = 2.0
 	navref.path_desired_distance = 2.0
 	
-#every time the timer elapses
-func _on_vision_timer_timeout():
+
+func check_vision_overlap():
 	#check overlapping bodies on vision
 	var overlaps = VisionRef.get_overlapping_bodies()
-	var foundplayer = false
 	
 	if overlaps.size() > 0:
 		for overlap in overlaps:
 			#confirm its the player
-			if overlap.name == "Player" and health != 100:
+			if overlap.name == "Player":
 				#set playerref for following after lostsight
 				PlayerRef = overlap
 				#update raycast with player location
-				foundplayer = _TrackPlayerRaycast()
-
-	#if player wasn't found but still searching
-	if CurrentState == STATE.CHASING and foundplayer == false:
-		#if no aggro yet, start timer and save last position
-		if AggroTimer.time_left == 0.0:
-			AggroTimer.start()
-			_GoTowardsPlayer()
-			CurrentState = STATE.SEARCHING
-		else:
-			pass	
+				return _TrackPlayerRaycast()
+	return false
 	
-	if CurrentState == STATE.CHASING:
-		#check damage overlap
-		var damageoverlaps = DamageAreaRef.get_overlapping_bodies()
-		if damageoverlaps.size() > 0:
-			for overlap in damageoverlaps:
-				#check its player
-				if overlap.name == "Player":
-					#playerdamage function goes here
-					print("DamagePlayer")
-					#apply_central_impulse(overlap.basis.z * 2.0)
-				else:
-					pass
-			
-
+#every time the timer elapses
+func _on_vision_timer_timeout():
+	match CurrentState:
+		#if roaming, check overlap
+		STATE.ROAMING:
+			check_vision_overlap()
+		STATE.SEARCHING:
+			#if searching, check overlap
+			check_vision_overlap()
+		STATE.ATTACKING:
+			#if attacking, pass as to keep anim playing
+			pass
+		STATE.IDLING:
+			check_vision_overlap()
+		STATE.CHASING:
+			#if chasing, check raycast
+			#if not seeing player, start aggro
+			if check_vision_overlap() == false:
+				#if no aggro yet, start timer and save last position
+				if AggroTimer.time_left == 0.0:
+					AggroTimer.start()
+					_GoTowardsPlayer()
+					CurrentState = STATE.SEARCHING
+			else:
+				#if seen, check damage overlap
+				var damageoverlaps = DamageAreaRef.get_overlapping_bodies()
+				if damageoverlaps.size() > 0:
+					for overlap in damageoverlaps:
+						#check its player
+						if overlap.name == "Player":
+							#damage player
+							Global.player_ref.change_health(5)
+							print("Player health now" + str(Global.player_ref.health))
+							animation_player.play("smack")
+							CurrentState = STATE.ATTACKING
+							attacking_timer.start()
 
 #manage enemy line of sight
 func _TrackPlayerRaycast():
@@ -114,8 +128,8 @@ func _TrackPlayerRaycast():
 	if RayCast.is_colliding():
 		#get collider
 		var collider = RayCast.get_collider()
-		#if raycast can see player e.g. not hidden
-		if collider.name == "Player":
+		#if raycast can see player e.g. not hidden AND they have been damaged
+		if collider.name == "Player" and health != 100:
 			RayCast.debug_shape_custom_color = Color.RED
 			print("I see you")
 			#stop timers if active
@@ -127,23 +141,11 @@ func _TrackPlayerRaycast():
 				animation_player.play("injured run")  
 			else:
 				animation_player.play("run") 
-			return	true                                                   
-		#if not colliding with player but still chasing
-		elif collider.name != "Player" and CurrentState == STATE.CHASING:
-			#start timer if not started already
-			if AggroTimer.time_left == 0.0:
-				#if no aggro yet, start timer and save last position
-				print("I lost you")
-				#start/restart timer for aggro
-				AggroTimer.start()
-				_GoTowardsPlayer()
-				CurrentState = STATE.SEARCHING
-				RayCast.debug_shape_custom_color = Color.GREEN
-			return false
+			return	true                               
+			
 		else:
-			#else set debug cast colour
 			RayCast.debug_shape_custom_color = Color.GREEN
-			return false
+			return false           
 
 #Head to players last know location and look at
 func _GoTowardsPlayer():
@@ -196,7 +198,7 @@ func randomlaunch():
 	var launch = false
 	while launch == false:
 		var bones = skeleton.get_children()
-		var randombone = skeleton.get_child(randi_range(0, bones.size()))
+		var randombone = skeleton.get_child(randi_range(0, bones.size() - 1))
 		if randombone.get_class() == "PhysicalBone3D":
 			randombone.apply_impulse(-Global.player_ref.basis.z * 50.0, randombone.global_position)
 			print("random impulse on" + str(randombone.name))
@@ -249,6 +251,7 @@ func change_health(damage):
 	else:
 		audio_stream_player.stream = audio_hit
 		audio_stream_player.play()
+		look_at(Vector3(Global.player_ref.global_transform.origin.x, global_position.y, Global.player_ref.global_transform.origin.z), Vector3.UP, true)
 	
 	
 #on idle timer end
@@ -265,3 +268,7 @@ func _on_idle_timer_timeout() -> void:
 func _on_deathtimer_timeout() -> void:
 	skeleton.physical_bones_stop_simulation()
 	queue_free()
+
+
+func _on_attacking_t_imer_timeout() -> void:
+	_on_idle_timer_timeout()

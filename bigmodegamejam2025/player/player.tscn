@@ -70,6 +70,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.554
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.488138, -0.426556)
 
 [node name="Control" parent="Head/Camera" instance=ExtResource("8_j37d5")]
+metadata/_edit_use_anchors_ = true
 
 [node name="obj_holder" type="Node3D" parent="Head/Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047, -1.557)

@@ -22,14 +22,12 @@ func pause_menu():
 func open():
 	#Show Pause Menu
 	show()
-	animation_player.play("pause")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	is_open = true
 
 func close():
 	hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	animation_player.play("unpause")
 	is_open = false
 
 

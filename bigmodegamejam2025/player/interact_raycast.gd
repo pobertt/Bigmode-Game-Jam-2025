@@ -7,7 +7,9 @@ func _process(delta: float) -> void:
 		Global.update_interact.emit()
 		if Input.is_action_just_pressed("interact"):
 			if get_collider().is_in_group("enemy"):
-				print("interact")
+				print("interact enemy")
+			if get_collider().is_in_group("object"):
+				print("interact object")
 	else:
 		Global.can_interact = false
 		Global.update_interact.emit()

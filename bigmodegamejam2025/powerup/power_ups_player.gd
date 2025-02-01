@@ -5,9 +5,21 @@ class_name PowerUpSystem
 @export var achievement_manager: Node
 
 const SMOKE_SOUND = preload("res://SFX/PowerUps/LIGHTING.mp3")
-const DRINKING_SOUND = preload("res://SFX/PowerUps/DRINKING.mp3")
-const PILL_SOUND = preload("res://SFX/PowerUps/SWALLOW.mp3")
+const DRINKING_SOUNDS = [
+	preload("res://SFX/PowerUps/DRINKING.mp3"),
+	preload("res://SFX/player/Beer.wav")
+]
+const PILL_SOUNDS = [
+	preload("res://SFX/PowerUps/SWALLOW.mp3"),
+	preload("res://SFX/player/Pills.wav")
+] 
 const SNUS_SOUND = preload("res://SFX/PowerUps/SWALLOW.mp3")
+
+var DEATH_SOUNDSNPC = [
+	preload("res://SFX/player/Put_in_your_place.wav"),
+	preload("res://SFX/player/I_dont_like_that.wav")
+]
+
 
 var collected_powerups = []
 
@@ -99,15 +111,19 @@ func _apply_drinking_effect():
 	print("Player starts drinking!")
 	
 	achievement_manager.unlock_achievement("sip happnes")
-	
+	player_ref.strength += 10
 	print(player_ref.bladder)
 	player_ref.bladder += 200
+	print(player_ref.strength)
+	
 	Global.update_piss_bar.emit(player_ref.bladder)
 	
 	Global.drinking.emit()
 	
+	var random_drinking_sound = DRINKING_SOUNDS[randi() % DRINKING_SOUNDS.size()]
+	
 	var drinking_player = AudioStreamPlayer3D.new()
-	drinking_player.stream = DRINKING_SOUND
+	drinking_player.stream = random_drinking_sound
 	drinking_player.global_position = player_ref.global_position
 	player_ref.add_child(drinking_player)
 	drinking_player.play()
@@ -142,8 +158,10 @@ func _apply_pills_effect():
 	player_ref.health += 10
 	print(player_ref.health)
 	
+	var random_pill_sound = PILL_SOUNDS[randi() % PILL_SOUNDS.size()]
+	
 	var pill_player = AudioStreamPlayer3D.new()
-	pill_player.stream = PILL_SOUND
+	pill_player.stream = random_pill_sound
 	pill_player.global_position = player_ref.global_position
 	player_ref.add_child(pill_player)
 	pill_player.play()
@@ -192,3 +210,10 @@ func clear_collected_powerups():
 	clear_timer = 0  # Reset the clear timer after clearing
 	collected_p = false
 	#rever
+func _deathsounds():
+	var random_deathnpc_sound = DEATH_SOUNDSNPC[randi() % DEATH_SOUNDSNPC.size()]
+	var deathnpc_player = AudioStreamPlayer3D.new()
+	deathnpc_player.stream = random_deathnpc_sound
+	deathnpc_player.global_position = player_ref.global_position
+	add_child(deathnpc_player)
+	deathnpc_player.play()

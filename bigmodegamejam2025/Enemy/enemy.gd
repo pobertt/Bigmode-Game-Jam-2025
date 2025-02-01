@@ -13,6 +13,10 @@ extends CharacterBody3D
 @onready var enemy_capsule: CollisionShape3D = $EnemyCapsule
 @onready var vision_cone_collision: CollisionShape3D = $VisionArea/VisionConeCollision
 @onready var particles_collision: GPUParticlesCollisionSphere3D = $GPUParticlesCollisionSphere3D
+@onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
+@export var audio_hit : AudioStream
+@export var audio_death : AudioStream
 
 var PlayerRef
 var health = 100
@@ -202,6 +206,7 @@ func randomlaunch():
 func change_health(damage):
 	#clamp healh
 	health = clamp(health - damage, 0, 100)
+	
 	#if dead
 	if health <= 0:
 		#set next position for nav to self
@@ -238,6 +243,12 @@ func change_health(damage):
 			vision_timer.stop()
 			#start timer to destroy node
 		deathtimer.start()
+		audio_stream_player.stream = audio_death
+		audio_stream_player.play()
+		return
+	else:
+		audio_stream_player.stream = audio_hit
+		audio_stream_player.play()
 	
 	
 #on idle timer end

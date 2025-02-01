@@ -67,7 +67,7 @@ material_override = SubResource("ShaderMaterial_kcyex")
 mesh = SubResource("QuadMesh_wec7u")
 
 [node name="Fist" parent="Head/Camera" instance=ExtResource("6_4xsi2")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.554441, -0.404013, 0.303861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.673, -0.466, -0.507)
 
 [node name="PParticle" parent="Head/Camera" instance=ExtResource("7_84ybi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.488138, -0.426556)
@@ -97,3 +97,4 @@ script = ExtResource("12_xplt0")
 
 [editable path="Head/Camera/Control"]
 [editable path="Head/Camera/obj_holder"]
+[editable path="Head/Camera/obj_holder/snusgordic"]

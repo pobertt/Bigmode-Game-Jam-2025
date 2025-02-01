@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6eybb7438fxb"]
+[gd_scene load_steps=18 format=3 uid="uid://c6eybb7438fxb"]
 
 [ext_resource type="Script" path="res://objects/obj_holder.gd" id="1_jcxdb"]
 [ext_resource type="ArrayMesh" uid="uid://bse2nvffd1vx7" path="res://assets/misc_items/res/zippolighter.res" id="1_rfq8p"]
 [ext_resource type="ArrayMesh" uid="uid://qymdcph8hbc3" path="res://assets/misc_items/res/blunt.res" id="2_px28q"]
 [ext_resource type="ArrayMesh" uid="uid://ckh8kn8uauikq" path="res://assets/misc_items/res/BOTTLE.res" id="4_hia72"]
 [ext_resource type="ArrayMesh" uid="uid://cf0e1475am70f" path="res://assets/misc_items/res/PILLS.res" id="5_ni8t3"]
+[ext_resource type="PackedScene" uid="uid://ccwiiff36gwmi" path="res://assets/misc_items/snusgordic.glb" id="6_2xu16"]
 
 [sub_resource type="Animation" id="Animation_40y7x"]
 length = 0.001
@@ -104,6 +105,42 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("snusgordic:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("snusgordic:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.311, -0.0456771)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PistolParticles3D:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_k3vrj"]
 resource_name = "drinking"
@@ -115,10 +152,10 @@ tracks/0/path = NodePath("Beer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.03333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2.03333, 3),
+"transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector3(0, -1.56772, -2.65179), Vector3(0, 0.504436, -2.65179)]
+"values": [Vector3(0, -1.56772, -2.65179), Vector3(0, -0.311, -0.572), Vector3(0, -1.56772, -2.65179)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -127,10 +164,10 @@ tracks/1/path = NodePath("Beer:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.03333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2.03333, 3),
+"transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.38155, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(1.38155, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -139,7 +176,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.96667),
+"times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&""],
@@ -149,7 +186,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_w6qdc"]
 resource_name = "lighting_blunt"
-length = 3.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -157,10 +194,10 @@ tracks/0/path = NodePath("Blunt:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 1.5, 2.43333, 3, 4),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2),
 "update": 0,
-"values": [Vector3(1.7709, 0.153323, -0.847921), Vector3(0.261953, 0.153323, -1.50343)]
+"values": [Vector3(1.7709, 0.153323, -0.847921), Vector3(0.261953, 0.153323, -1.50343), Vector3(0.261953, 0.153323, -1.50343), Vector3(0.068, -0.25, -0.574), Vector3(0.068, -0.25, -0.574), Vector3(1.46154, -1.2477, -0.573991)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -169,10 +206,10 @@ tracks/1/path = NodePath("Blunt:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 1.5, 2.43333, 3.02454, 4),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2),
 "update": 0,
-"values": [Vector3(0, 1.27465, 0), Vector3(0, 1.27465, 0)]
+"values": [Vector3(0, 1.27465, 0), Vector3(0, 1.27465, 0), Vector3(0, 1.27465, 0), Vector3(0, -0.140236, 0), Vector3(0, -0.140236, 0), Vector3(0, -0.140236, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -181,10 +218,10 @@ tracks/2/path = NodePath("Lighter:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 1.5, 2.43333),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector3(0, -1.5281, -1.557), Vector3(0, 0.047, -1.557)]
+"values": [Vector3(0, -1.5281, -1.557), Vector3(0, 0.047, -1.557), Vector3(0, 0.0470001, -1.557), Vector3(0, -2, -1.557)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -193,10 +230,10 @@ tracks/3/path = NodePath("Lighter:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1, 1.5, 2.43333),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -205,17 +242,29 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&""],
 "method": &"animation_finished"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PistolParticles3D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_clxel"]
 resource_name = "pills"
-length = 3.0
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -223,10 +272,10 @@ tracks/0/path = NodePath("Pills:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.53333, 2.2, 2.3, 2.43333, 2.53333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.266667, 0.6, 0.733333, 0.866667, 1, 1.13333, 1.26667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.0513801, -1.71692, -1.63842), Vector3(0.051, 0.25, -1.638), Vector3(0.051, 0.25, -1.973), Vector3(0.051, 0.25, -1.776), Vector3(0.051, 0.25, -1.977), Vector3(0.051, 0.25, -1.658)]
+"values": [Vector3(0.051, -1, -0.5), Vector3(0.051, -0.5, -0.3), Vector3(0.051, -0.5, -1), Vector3(0.051, -0.5, -0.8), Vector3(0.051, -0.5, -1), Vector3(0.051, -0.5, -0.8), Vector3(0.051, -0.5, -1), Vector3(0.051, -0.5, -0.8)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -235,7 +284,7 @@ tracks/1/path = NodePath("Pills:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.53333, 2.03333),
+"times": PackedFloat32Array(0, 0.266667, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(1.88272, 0, 0)]
@@ -247,7 +296,48 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.93333),
+"times": PackedFloat32Array(1.33333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&""],
+"method": &"animation_finished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rx3ty"]
+resource_name = "snus"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("snusgordic:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0, -0.536134, -2.62854), Vector3(0, -0.311, -0.0456771)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("snusgordic:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(-0.994071, 2.26445, 0.771029)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&""],
@@ -260,21 +350,54 @@ _data = {
 "RESET": SubResource("Animation_40y7x"),
 "drinking": SubResource("Animation_k3vrj"),
 "lighting_blunt": SubResource("Animation_w6qdc"),
-"pills": SubResource("Animation_clxel")
+"pills": SubResource("Animation_clxel"),
+"snus": SubResource("Animation_rx3ty")
 }
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yr10e"]
+angle_min = -70.0
+angle_max = 70.0
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_e3bla"]
+colors = PackedColorArray(1, 0.605918, 0.0939295, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mb8ix"]
+gradient = SubResource("Gradient_e3bla")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8crm8"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.777463, 0.457357, 0, 1)
+albedo_texture = SubResource("GradientTexture2D_mb8ix")
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 5.52
+emission_texture = SubResource("GradientTexture2D_mb8ix")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_2hctj"]
+material = SubResource("StandardMaterial3D_8crm8")
+size = Vector2(0.05, 0.05)
 
 [node name="obj_holder" type="Node3D"]
 script = ExtResource("1_jcxdb")
 
 [node name="Lighter" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5281, -1.557)
-visible = false
 cast_shadow = 0
 mesh = ExtResource("1_rfq8p")
 
 [node name="Blunt" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.291836, 0, 0.956468, 0, 1, 0, -0.956468, 0, 0.291836, 1.7709, 0.153323, -0.847921)
-visible = false
+transform = Transform3D(0.291836, 0, 0.956467, 0, 1, 0, -0.956467, 0, 0.291836, 1.7709, 0.153323, -0.847921)
 cast_shadow = 0
 mesh = ExtResource("2_px28q")
 
@@ -290,9 +413,26 @@ visible = false
 cast_shadow = 0
 mesh = ExtResource("5_ni8t3")
 
+[node name="snusgordic" parent="." instance=ExtResource("6_2xu16")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.311, -0.0456771)
+visible = false
+
+[node name="Cylinder" parent="snusgordic" index="0"]
+cast_shadow = 0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_d0h8f")
 }
 
+[node name="PistolParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0.0255582, 0.0545698, -0.394745)
+emitting = false
+lifetime = 0.01
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_yr10e")
+draw_pass_1 = SubResource("QuadMesh_2hctj")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="snusgordic"]

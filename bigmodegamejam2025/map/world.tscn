@@ -1,4 +1,4 @@
-[gd_scene load_steps=213 format=4 uid="uid://dlsqp5lw5rpwi"]
+[gd_scene load_steps=214 format=4 uid="uid://dlsqp5lw5rpwi"]
 
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="1_w1kce"]
 [ext_resource type="PackedScene" uid="uid://bhvov8bj68qid" path="res://objects/fuel_tank.tscn" id="2_k6ph8"]
@@ -55,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://dwap1ek7gjb4" path="res://assets/buildings/church/church-col.blend" id="50_ai3h7"]
 [ext_resource type="PackedScene" uid="uid://bgpqfiug7or1v" path="res://objects/car2.tscn" id="50_hlkir"]
 [ext_resource type="Texture2D" uid="uid://cdjib8qag5usv" path="res://assets/buildings/church/church1_BaseColor.png" id="51_tc6ps"]
+[ext_resource type="PackedScene" uid="uid://b0u7hlwunax61" path="res://assets/buildings/house/house_col.tscn" id="52_6fs6p"]
 [ext_resource type="PackedScene" uid="uid://dq02s1e3wxcro" path="res://objects/stool.tscn" id="54_l1n5f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ua71i"]
@@ -4378,6 +4379,11 @@ light_energy = 8.919
 spot_range = 13.242
 spot_attenuation = 1.81
 
+[node name="HouseAssets" type="Node3D" parent="BUILDINGS"]
+
+[node name="house-col" parent="BUILDINGS/HouseAssets" instance=ExtResource("52_6fs6p")]
+transform = Transform3D(0.966706, 0, -1.14694, 0, 1.5, 0, 1.14694, 0, 0.966706, 5.99985, -0.0874741, -21.4289)
+
 [node name="Interactables" type="Node3D" parent="."]
 
 [node name="parent_object" parent="Interactables" instance=ExtResource("14_0hj5q")]
@@ -4405,7 +4411,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0446634, 0.241817, 8.47363)
 
 [node name="PowerUp5" parent="PowerUps" instance=ExtResource("3_5ng3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, 11.9067)
-power_up_type = 1
+power_up_type = 3
 
 [node name="PowerUp6" parent="PowerUps" instance=ExtResource("3_5ng3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, 8.1575)
@@ -4413,11 +4419,10 @@ power_up_type = 1
 
 [node name="PowerUp7" parent="PowerUps" instance=ExtResource("3_5ng3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, 4.3069)
-power_up_type = 1
+power_up_type = 2
 
 [node name="PowerUp8" parent="PowerUps" instance=ExtResource("3_5ng3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, 1.0964)
-power_up_type = 1
 
 [editable path="BUILDINGS/FarmAssets/grain_store"]
 [editable path="BUILDINGS/FarmAssets/big_barn-col"]

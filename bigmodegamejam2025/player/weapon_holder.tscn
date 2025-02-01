@@ -11,15 +11,15 @@ initial_velocity_min = 0.5
 initial_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="Gradient" id="Gradient_e3bla"]
+[sub_resource type="Gradient" id="Gradient_r0d7h"]
 colors = PackedColorArray(1, 0.605918, 0.0939295, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5jgq1"]
-gradient = SubResource("Gradient_e3bla")
+gradient = SubResource("Gradient_r0d7h")
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8crm8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bq6rj"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.777463, 0.457357, 0, 1)
@@ -34,7 +34,7 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_hraur"]
-material = SubResource("StandardMaterial3D_8crm8")
+material = SubResource("StandardMaterial3D_bq6rj")
 size = Vector2(0.05, 0.05)
 
 [sub_resource type="Animation" id="Animation_wjf1v"]

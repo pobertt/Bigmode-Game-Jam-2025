@@ -47,7 +47,7 @@ var ammo : Dictionary = {
 # Movement Var
 
 var speed = WALK_SPEED
-const WALK_SPEED = 8
+const WALK_SPEED = 12
 const JUMP_VELOCITY = 4.5
 
 # CAM VARS

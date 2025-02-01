@@ -48,6 +48,15 @@ transform = Transform3D(1.00153, 0, 0, 0, 1.00153, 0, 0, 0, 1.00153, 6.30428, -0
 [node name="Enemy3" parent="." instance=ExtResource("1_m5774")]
 transform = Transform3D(1.00153, 0, 0, 0, 1.00153, 0, 0, 0, 1.00153, 16.1024, -0.00669003, -1.07799)
 
+[node name="Enemy4" parent="." instance=ExtResource("1_m5774")]
+transform = Transform3D(1.00153, 0, 0, 0, 1.00153, 0, 0, 0, 1.00153, 16.1024, -0.00669003, 9.42394)
+
+[node name="Enemy5" parent="." instance=ExtResource("1_m5774")]
+transform = Transform3D(1.00153, 0, 0, 0, 1.00153, 0, 0, 0, 1.00153, 16.1024, -0.00669003, 18.7048)
+
+[node name="Enemy6" parent="." instance=ExtResource("1_m5774")]
+transform = Transform3D(1.00153, 0, 0, 0, 1.00153, 0, 0, 0, 1.00153, 6.96593, -0.00669003, 24.1795)
+
 [node name="Player" parent="." instance=ExtResource("2_0kvcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.275553, -0.119367, 24.7329)
 

@@ -16,9 +16,11 @@ extends CharacterBody3D
 @onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var attacking_timer: Timer = $AttackingTImer
 
-
-@export var audio_hit : AudioStream
 @export var audio_death : AudioStream
+@export var hurtsound1 : AudioStream
+@export var hurtsound2 : AudioStream
+@export var hurtsound3 : AudioStream
+@export var hurtsound4 : AudioStream
 
 var PlayerRef
 var health = 100
@@ -246,11 +248,12 @@ func change_health(damage):
 			#start timer to destroy node
 		deathtimer.start()
 		audio_stream_player.stream = audio_death
-		audio_stream_player.play()
+		audio_stream_player.play(0.5)
 		return
 	else:
-		audio_stream_player.stream = audio_hit
-		audio_stream_player.play()
+		var hitsounds = [hurtsound1, hurtsound2, hurtsound3, hurtsound4]
+		audio_stream_player.stream = hitsounds[randi_range(0, hitsounds.size() - 1)]
+		audio_stream_player.play(0.5)
 		look_at(Vector3(Global.player_ref.global_transform.origin.x, global_position.y, Global.player_ref.global_transform.origin.z), Vector3.UP, true)
 	
 	

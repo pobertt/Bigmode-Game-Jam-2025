@@ -175,16 +175,18 @@ func launchragdoll():
 	for child in Global.player_ref.get_children():
 		if child.name == "GunSystem":
 			var raycast = child.get_bullet_raycasts()
+			var hitbones = false
 			#if raycast hits bone
 			for cast in raycast:
 				if cast["hit_target"].get_class() == "PhysicalBone3D":
 					print(cast["hit_target"])
 					print(cast["hit_target"].global_position)
 					cast["hit_target"].apply_impulse(-Global.player_ref.basis.z * 50.0, cast["hit_target"].global_position)
-					return
+					hitbones = true
 			#if no bone impulse, add random
-			randomlaunch()
-			return
+			if hitbones == false:
+				randomlaunch()
+				return
 	
 #pick a random bone and add impulse (executes when no bone is hit)
 func randomlaunch():

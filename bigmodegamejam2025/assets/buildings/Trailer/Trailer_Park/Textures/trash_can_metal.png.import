@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d54x0oalya2i"
-path.s3tc="res://.godot/imported/trash_can_metal.png-d7cec77d2174097da658d0cb557ddf84.s3tc.ctex"
+path.s3tc="res://.godot/imported/trash_can_metal.png-b2070f8b04d2194a5822326a8ad9d0b3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/trash_can_metal.png"
-dest_files=["res://.godot/imported/trash_can_metal.png-d7cec77d2174097da658d0cb557ddf84.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/trash_can_metal.png"
+dest_files=["res://.godot/imported/trash_can_metal.png-b2070f8b04d2194a5822326a8ad9d0b3.s3tc.ctex"]
 
 [params]
 

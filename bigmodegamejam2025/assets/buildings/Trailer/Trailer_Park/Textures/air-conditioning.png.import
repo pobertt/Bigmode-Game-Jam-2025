@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cv0t85wg52a47"
-path.s3tc="res://.godot/imported/air-conditioning.png-aba42592c51e609166364f0ad8513440.s3tc.ctex"
+path.s3tc="res://.godot/imported/air-conditioning.png-e20e942af3e0e4b9a66151228dec6a53.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/air-conditioning.png"
-dest_files=["res://.godot/imported/air-conditioning.png-aba42592c51e609166364f0ad8513440.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/air-conditioning.png"
+dest_files=["res://.godot/imported/air-conditioning.png-e20e942af3e0e4b9a66151228dec6a53.s3tc.ctex"]
 
 [params]
 

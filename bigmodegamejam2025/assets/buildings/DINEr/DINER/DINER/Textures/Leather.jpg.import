@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1emmodb1242n"
-path.s3tc="res://.godot/imported/Leather.jpg-df38adc192022face0031f8101d3fede.s3tc.ctex"
+path.s3tc="res://.godot/imported/Leather.jpg-7890e9948baaa2623f254ce75cf05555.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Leather.jpg"
-dest_files=["res://.godot/imported/Leather.jpg-df38adc192022face0031f8101d3fede.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Leather.jpg"
+dest_files=["res://.godot/imported/Leather.jpg-7890e9948baaa2623f254ce75cf05555.s3tc.ctex"]
 
 [params]
 

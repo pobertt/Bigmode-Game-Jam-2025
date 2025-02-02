@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://su5etq34dgrc"
-path.s3tc="res://.godot/imported/Banana.png-355bc46f0d3e32a9fd8a1512e43df6e8.s3tc.ctex"
+path.s3tc="res://.godot/imported/Banana.png-3b9e3c8f9b4656cb210339ee49fdb1c0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Banana.png"
-dest_files=["res://.godot/imported/Banana.png-355bc46f0d3e32a9fd8a1512e43df6e8.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Banana.png"
+dest_files=["res://.godot/imported/Banana.png-3b9e3c8f9b4656cb210339ee49fdb1c0.s3tc.ctex"]
 
 [params]
 

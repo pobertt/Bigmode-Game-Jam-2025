@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3n7ovtc10dsf"
-path.s3tc="res://.godot/imported/Marble_01.png-6e0dc286deec84975de4e1057db42460.s3tc.ctex"
+path.s3tc="res://.godot/imported/Marble_01.png-41fdb188b564cb9b524a2c969393dbf5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Marble_01.png"
-dest_files=["res://.godot/imported/Marble_01.png-6e0dc286deec84975de4e1057db42460.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Marble_01.png"
+dest_files=["res://.godot/imported/Marble_01.png-41fdb188b564cb9b524a2c969393dbf5.s3tc.ctex"]
 
 [params]
 

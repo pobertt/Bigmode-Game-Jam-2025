@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0eomvtdum0l3"
-path.s3tc="res://.godot/imported/Casserole.png-91483e3d273f67fd0660c5b957ece1b9.s3tc.ctex"
+path.s3tc="res://.godot/imported/Casserole.png-9cdb3766092d9ef8077e311e2ef803c1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Casserole.png"
-dest_files=["res://.godot/imported/Casserole.png-91483e3d273f67fd0660c5b957ece1b9.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Casserole.png"
+dest_files=["res://.godot/imported/Casserole.png-9cdb3766092d9ef8077e311e2ef803c1.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddl023ooekiln"
-path.s3tc="res://.godot/imported/Salt_shaker.png-27f0bc0f92ecc638489969b0c648dfe3.s3tc.ctex"
+path.s3tc="res://.godot/imported/Salt_shaker.png-2360a26657314c7f1e535d29e9db6fc3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Salt_shaker.png"
-dest_files=["res://.godot/imported/Salt_shaker.png-27f0bc0f92ecc638489969b0c648dfe3.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Salt_shaker.png"
+dest_files=["res://.godot/imported/Salt_shaker.png-2360a26657314c7f1e535d29e9db6fc3.s3tc.ctex"]
 
 [params]
 

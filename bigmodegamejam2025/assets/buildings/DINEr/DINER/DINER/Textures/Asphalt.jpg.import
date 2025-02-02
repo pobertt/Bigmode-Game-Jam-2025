@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxix3ip3a4frm"
-path.s3tc="res://.godot/imported/Asphalt.jpg-d2a7fe0db3e0724b66f91e49c9273428.s3tc.ctex"
+path.s3tc="res://.godot/imported/Asphalt.jpg-98d20aacb297db081401c9f96fc01da6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Asphalt.jpg"
-dest_files=["res://.godot/imported/Asphalt.jpg-d2a7fe0db3e0724b66f91e49c9273428.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Asphalt.jpg"
+dest_files=["res://.godot/imported/Asphalt.jpg-98d20aacb297db081401c9f96fc01da6.s3tc.ctex"]
 
 [params]
 

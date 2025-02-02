@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn0flku7ob4ip"
-path.s3tc="res://.godot/imported/toothpaste_brush.png-c793443983fb14dbbe3ee430779e5e3f.s3tc.ctex"
+path.s3tc="res://.godot/imported/toothpaste_brush.png-a94821ecba66851a6c9f2468e3a41782.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/toothpaste_brush.png"
-dest_files=["res://.godot/imported/toothpaste_brush.png-c793443983fb14dbbe3ee430779e5e3f.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/toothpaste_brush.png"
+dest_files=["res://.godot/imported/toothpaste_brush.png-a94821ecba66851a6c9f2468e3a41782.s3tc.ctex"]
 
 [params]
 

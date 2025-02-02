@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwoxva188jkcx"
-path.s3tc="res://.godot/imported/Metal_05.jpg-15c5ed1b7e2cba4a2a8987e4408a825e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Metal_05.jpg-17e54eea163b0c1c2de23defab6ac4ab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Metal_05.jpg"
-dest_files=["res://.godot/imported/Metal_05.jpg-15c5ed1b7e2cba4a2a8987e4408a825e.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Metal_05.jpg"
+dest_files=["res://.godot/imported/Metal_05.jpg-17e54eea163b0c1c2de23defab6ac4ab.s3tc.ctex"]
 
 [params]
 

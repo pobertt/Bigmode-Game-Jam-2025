@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyxc6sd0uvbtg"
-path.s3tc="res://.godot/imported/Curtain_01.png-e6d643c40ef01ca6640dee78ea1dc4d4.s3tc.ctex"
+path.s3tc="res://.godot/imported/Curtain_01.png-604ec1f3fb9962a6c4d8a4bd857bfa7a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Curtain_01.png"
-dest_files=["res://.godot/imported/Curtain_01.png-e6d643c40ef01ca6640dee78ea1dc4d4.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Curtain_01.png"
+dest_files=["res://.godot/imported/Curtain_01.png-604ec1f3fb9962a6c4d8a4bd857bfa7a.s3tc.ctex"]
 
 [params]
 

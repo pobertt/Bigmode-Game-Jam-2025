@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hp6p21acdpyl"
-path.s3tc="res://.godot/imported/Concrete_03.png-8ca109a8f210e0e4eceaa4101839375d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Concrete_03.png-c8153c411e0ab479d713d0afc1cebcd0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Concrete_03.png"
-dest_files=["res://.godot/imported/Concrete_03.png-8ca109a8f210e0e4eceaa4101839375d.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Concrete_03.png"
+dest_files=["res://.godot/imported/Concrete_03.png-c8153c411e0ab479d713d0afc1cebcd0.s3tc.ctex"]
 
 [params]
 

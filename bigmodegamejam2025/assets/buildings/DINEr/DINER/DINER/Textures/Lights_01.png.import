@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca7psnm81a31a"
-path.s3tc="res://.godot/imported/Lights_01.png-2a0ff92cc4dd079978852bb49f1e3f7d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Lights_01.png-8ee1138a412a2b07b15e3e34602116bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Lights_01.png"
-dest_files=["res://.godot/imported/Lights_01.png-2a0ff92cc4dd079978852bb49f1e3f7d.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Lights_01.png"
+dest_files=["res://.godot/imported/Lights_01.png-8ee1138a412a2b07b15e3e34602116bd.s3tc.ctex"]
 
 [params]
 

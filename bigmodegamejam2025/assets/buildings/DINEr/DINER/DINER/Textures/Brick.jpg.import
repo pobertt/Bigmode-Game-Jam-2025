@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7xtpyn4y0ylq"
-path.s3tc="res://.godot/imported/Brick.jpg-422a8d60748aae3a60e0425fc44cc717.s3tc.ctex"
+path.s3tc="res://.godot/imported/Brick.jpg-7ac8a1bea29fe99b53244d5d41b7e189.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Brick.jpg"
-dest_files=["res://.godot/imported/Brick.jpg-422a8d60748aae3a60e0425fc44cc717.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Brick.jpg"
+dest_files=["res://.godot/imported/Brick.jpg-7ac8a1bea29fe99b53244d5d41b7e189.s3tc.ctex"]
 
 [params]
 

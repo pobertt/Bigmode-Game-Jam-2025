@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ly7bbwhax5j5"
-path.s3tc="res://.godot/imported/Blender.png-700c587441513f2193f621db146d935a.s3tc.ctex"
+path.s3tc="res://.godot/imported/Blender.png-34a6bcdefdca8e79c78b8496ab2ee957.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Blender.png"
-dest_files=["res://.godot/imported/Blender.png-700c587441513f2193f621db146d935a.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Blender.png"
+dest_files=["res://.godot/imported/Blender.png-34a6bcdefdca8e79c78b8496ab2ee957.s3tc.ctex"]
 
 [params]
 

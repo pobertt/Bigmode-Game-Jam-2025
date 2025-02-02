@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btb0bksgl4odd"
-path.s3tc="res://.godot/imported/Spices.png-f0afc5b2b930d4e57268d09bc33f4a1c.s3tc.ctex"
+path.s3tc="res://.godot/imported/Spices.png-91905fcee8574eef8743f86ba291ac8a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Spices.png"
-dest_files=["res://.godot/imported/Spices.png-f0afc5b2b930d4e57268d09bc33f4a1c.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Spices.png"
+dest_files=["res://.godot/imported/Spices.png-91905fcee8574eef8743f86ba291ac8a.s3tc.ctex"]
 
 [params]
 

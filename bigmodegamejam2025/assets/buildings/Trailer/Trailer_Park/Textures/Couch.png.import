@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csk26lvjrgytp"
-path.s3tc="res://.godot/imported/Couch.png-3351a9b16bacaebeed54ba23272a0f2c.s3tc.ctex"
+path.s3tc="res://.godot/imported/Couch.png-8356f0f00d706d1b0273d338a51f3f17.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Couch.png"
-dest_files=["res://.godot/imported/Couch.png-3351a9b16bacaebeed54ba23272a0f2c.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Couch.png"
+dest_files=["res://.godot/imported/Couch.png-8356f0f00d706d1b0273d338a51f3f17.s3tc.ctex"]
 
 [params]
 

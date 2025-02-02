@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddppu82rq133c"
-path.s3tc="res://.godot/imported/Bed_01.png-af95e015fbd92aaa28af37fdeedf1fef.s3tc.ctex"
+path.s3tc="res://.godot/imported/Bed_01.png-21eb107f38cd6945948493a54432cd15.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Bed_01.png"
-dest_files=["res://.godot/imported/Bed_01.png-af95e015fbd92aaa28af37fdeedf1fef.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Bed_01.png"
+dest_files=["res://.godot/imported/Bed_01.png-21eb107f38cd6945948493a54432cd15.s3tc.ctex"]
 
 [params]
 

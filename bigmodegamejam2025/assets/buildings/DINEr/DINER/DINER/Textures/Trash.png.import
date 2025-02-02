@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cahmrt6whe5pp"
-path.s3tc="res://.godot/imported/Trash.png-6cbe117fad08f6e69975c145d49f934d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Trash.png-c1d6c0c82e9f91fc25ccf00831b1ecd1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Trash.png"
-dest_files=["res://.godot/imported/Trash.png-6cbe117fad08f6e69975c145d49f934d.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Trash.png"
+dest_files=["res://.godot/imported/Trash.png-c1d6c0c82e9f91fc25ccf00831b1ecd1.s3tc.ctex"]
 
 [params]
 

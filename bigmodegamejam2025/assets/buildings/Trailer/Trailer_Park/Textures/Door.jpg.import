@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://f5xb7hr43u5n"
-path.s3tc="res://.godot/imported/Door.jpg-8e7bf30e11c9518ab72119f76c159642.s3tc.ctex"
+path.s3tc="res://.godot/imported/Door.jpg-f6089622baec65b22a7e5ba2720a3e69.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Door.jpg"
-dest_files=["res://.godot/imported/Door.jpg-8e7bf30e11c9518ab72119f76c159642.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Door.jpg"
+dest_files=["res://.godot/imported/Door.jpg-f6089622baec65b22a7e5ba2720a3e69.s3tc.ctex"]
 
 [params]
 

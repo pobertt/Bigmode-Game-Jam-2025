@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wmul53dqxtey"
-path.s3tc="res://.godot/imported/Hand_dryer.png-aa890e2270f5a6e1ec6767a45a0e64c7.s3tc.ctex"
+path.s3tc="res://.godot/imported/Hand_dryer.png-fb080b01ec957785ee9f1bad6776e7b5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Hand_dryer.png"
-dest_files=["res://.godot/imported/Hand_dryer.png-aa890e2270f5a6e1ec6767a45a0e64c7.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Hand_dryer.png"
+dest_files=["res://.godot/imported/Hand_dryer.png-fb080b01ec957785ee9f1bad6776e7b5.s3tc.ctex"]
 
 [params]
 

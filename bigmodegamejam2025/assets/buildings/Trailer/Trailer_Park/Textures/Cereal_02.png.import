@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di7ni8knd80sl"
-path.s3tc="res://.godot/imported/Cereal_02.png-c99d3f63da994d19483026e16fb31e2a.s3tc.ctex"
+path.s3tc="res://.godot/imported/Cereal_02.png-286438c37e6719f2d94c7e3cc2ecf4d4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Cereal_02.png"
-dest_files=["res://.godot/imported/Cereal_02.png-c99d3f63da994d19483026e16fb31e2a.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Cereal_02.png"
+dest_files=["res://.godot/imported/Cereal_02.png-286438c37e6719f2d94c7e3cc2ecf4d4.s3tc.ctex"]
 
 [params]
 

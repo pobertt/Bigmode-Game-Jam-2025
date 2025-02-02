@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baobfv41a4vjt"
-path.s3tc="res://.godot/imported/lemon.png-511c2167e99120b530df300fd4b7f6e3.s3tc.ctex"
+path.s3tc="res://.godot/imported/lemon.png-6926a06947eb77effd402f9d16e74049.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/lemon.png"
-dest_files=["res://.godot/imported/lemon.png-511c2167e99120b530df300fd4b7f6e3.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/lemon.png"
+dest_files=["res://.godot/imported/lemon.png-6926a06947eb77effd402f9d16e74049.s3tc.ctex"]
 
 [params]
 

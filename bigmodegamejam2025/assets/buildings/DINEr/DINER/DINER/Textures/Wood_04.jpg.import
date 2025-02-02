@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1wpnmg27lyl8"
-path.s3tc="res://.godot/imported/Wood_04.jpg-c3371b596bfb861f42a49d569d9abc1b.s3tc.ctex"
+path.s3tc="res://.godot/imported/Wood_04.jpg-1de2f82dfc99390d20013f82f09ec089.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Wood_04.jpg"
-dest_files=["res://.godot/imported/Wood_04.jpg-c3371b596bfb861f42a49d569d9abc1b.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Wood_04.jpg"
+dest_files=["res://.godot/imported/Wood_04.jpg-1de2f82dfc99390d20013f82f09ec089.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wb1ewh278b70"
-path.s3tc="res://.godot/imported/Cup_03.png-ef1a5ac004729b16062109da6ab706f8.s3tc.ctex"
+path.s3tc="res://.godot/imported/Cup_03.png-59470c78a426618113f3588328832567.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Cup_03.png"
-dest_files=["res://.godot/imported/Cup_03.png-ef1a5ac004729b16062109da6ab706f8.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Cup_03.png"
+dest_files=["res://.godot/imported/Cup_03.png-59470c78a426618113f3588328832567.s3tc.ctex"]
 
 [params]
 

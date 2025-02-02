@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dle6rwkiynowm"
-path.s3tc="res://.godot/imported/Paperboard.jpg-39da20e045d8d64f8e51c7172ab36504.s3tc.ctex"
+path.s3tc="res://.godot/imported/Paperboard.jpg-8121d40526750e0133d7e1e0795cbe3c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Paperboard.jpg"
-dest_files=["res://.godot/imported/Paperboard.jpg-39da20e045d8d64f8e51c7172ab36504.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Paperboard.jpg"
+dest_files=["res://.godot/imported/Paperboard.jpg-8121d40526750e0133d7e1e0795cbe3c.s3tc.ctex"]
 
 [params]
 

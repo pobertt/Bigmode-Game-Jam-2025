@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvcatn6bjbpkc"
-path.s3tc="res://.godot/imported/Tiles_01.jpg-2dc3a4c53cfe7505a59b505ae36e948d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Tiles_01.jpg-b140b32bbbc07aace1e98ce4d7fea6d4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Tiles_01.jpg"
-dest_files=["res://.godot/imported/Tiles_01.jpg-2dc3a4c53cfe7505a59b505ae36e948d.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Tiles_01.jpg"
+dest_files=["res://.godot/imported/Tiles_01.jpg-b140b32bbbc07aace1e98ce4d7fea6d4.s3tc.ctex"]
 
 [params]
 

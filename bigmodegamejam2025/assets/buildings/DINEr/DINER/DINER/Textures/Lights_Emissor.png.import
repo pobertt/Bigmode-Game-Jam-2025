@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vkvxyltwwg44"
-path.s3tc="res://.godot/imported/Lights_Emissor.png-9aa5ca34e52b763a8abadaa203b9bbba.s3tc.ctex"
+path.s3tc="res://.godot/imported/Lights_Emissor.png-878d2de0825782bb7c831b17d2fe4d40.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Lights_Emissor.png"
-dest_files=["res://.godot/imported/Lights_Emissor.png-9aa5ca34e52b763a8abadaa203b9bbba.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Lights_Emissor.png"
+dest_files=["res://.godot/imported/Lights_Emissor.png-878d2de0825782bb7c831b17d2fe4d40.s3tc.ctex"]
 
 [params]
 

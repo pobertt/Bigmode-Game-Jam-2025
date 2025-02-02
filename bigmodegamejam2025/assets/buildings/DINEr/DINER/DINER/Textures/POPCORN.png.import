@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1frrpufre2nt"
-path.s3tc="res://.godot/imported/POPCORN.png-66032409ca1273b937f23c97382c340e.s3tc.ctex"
+path.s3tc="res://.godot/imported/POPCORN.png-7312f50244411e19fb301c02faf64511.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/POPCORN.png"
-dest_files=["res://.godot/imported/POPCORN.png-66032409ca1273b937f23c97382c340e.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/POPCORN.png"
+dest_files=["res://.godot/imported/POPCORN.png-7312f50244411e19fb301c02faf64511.s3tc.ctex"]
 
 [params]
 

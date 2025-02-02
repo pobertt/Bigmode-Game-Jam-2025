@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ullaxuqh6vut"
-path.s3tc="res://.godot/imported/Cans.png-a9da88db32558f2a15a83d85823c1f52.s3tc.ctex"
+path.s3tc="res://.godot/imported/Cans.png-dd6062665eb3d63d8941793af8af400e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Cans.png"
-dest_files=["res://.godot/imported/Cans.png-a9da88db32558f2a15a83d85823c1f52.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Cans.png"
+dest_files=["res://.godot/imported/Cans.png-dd6062665eb3d63d8941793af8af400e.s3tc.ctex"]
 
 [params]
 

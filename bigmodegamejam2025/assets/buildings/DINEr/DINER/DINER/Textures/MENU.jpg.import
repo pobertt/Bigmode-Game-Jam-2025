@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1duywjgpn5b5"
-path.s3tc="res://.godot/imported/MENU.jpg-c49dfae1b7c433ce4ca2d916d0a8523e.s3tc.ctex"
+path.s3tc="res://.godot/imported/MENU.jpg-2f5b8aeba470227933afd27e446cfc5e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/MENU.jpg"
-dest_files=["res://.godot/imported/MENU.jpg-c49dfae1b7c433ce4ca2d916d0a8523e.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/MENU.jpg"
+dest_files=["res://.godot/imported/MENU.jpg-2f5b8aeba470227933afd27e446cfc5e.s3tc.ctex"]
 
 [params]
 

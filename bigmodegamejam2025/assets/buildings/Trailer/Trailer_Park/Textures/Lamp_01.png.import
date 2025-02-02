@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8stluhlplg8j"
-path.s3tc="res://.godot/imported/Lamp_01.png-8a212dad1d065fefc7b24eaf4a7b9746.s3tc.ctex"
+path.s3tc="res://.godot/imported/Lamp_01.png-fdecacb337a83a0ee396ef32e70430ea.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Lamp_01.png"
-dest_files=["res://.godot/imported/Lamp_01.png-8a212dad1d065fefc7b24eaf4a7b9746.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Lamp_01.png"
+dest_files=["res://.godot/imported/Lamp_01.png-fdecacb337a83a0ee396ef32e70430ea.s3tc.ctex"]
 
 [params]
 

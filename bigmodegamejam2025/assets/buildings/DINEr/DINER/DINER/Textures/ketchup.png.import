@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnvsm4bfjlel6"
-path.s3tc="res://.godot/imported/ketchup.png-bd6c3f1794581f5ff3b6d19d2844a163.s3tc.ctex"
+path.s3tc="res://.godot/imported/ketchup.png-d01fc30ae562f1e06db008e458391f7e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/ketchup.png"
-dest_files=["res://.godot/imported/ketchup.png-bd6c3f1794581f5ff3b6d19d2844a163.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/ketchup.png"
+dest_files=["res://.godot/imported/ketchup.png-d01fc30ae562f1e06db008e458391f7e.s3tc.ctex"]
 
 [params]
 

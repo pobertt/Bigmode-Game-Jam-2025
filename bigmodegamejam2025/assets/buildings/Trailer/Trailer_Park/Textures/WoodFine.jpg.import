@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cffqb0j50y1b8"
-path.s3tc="res://.godot/imported/WoodFine.jpg-34c16f42f22398c20e14f64ddd71b973.s3tc.ctex"
+path.s3tc="res://.godot/imported/WoodFine.jpg-cfb00864ad736f7addce11728b625c25.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/WoodFine.jpg"
-dest_files=["res://.godot/imported/WoodFine.jpg-34c16f42f22398c20e14f64ddd71b973.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/WoodFine.jpg"
+dest_files=["res://.godot/imported/WoodFine.jpg-cfb00864ad736f7addce11728b625c25.s3tc.ctex"]
 
 [params]
 

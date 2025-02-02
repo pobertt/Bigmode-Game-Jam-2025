@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1v0btbk32wb"
-path.s3tc="res://.godot/imported/Coffee_machine.jpg-9e9ca4c9ac4408a969f12014206187ee.s3tc.ctex"
+path.s3tc="res://.godot/imported/Coffee_machine.jpg-788f51da3cf93d6c9462d923197705d2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Coffee_machine.jpg"
-dest_files=["res://.godot/imported/Coffee_machine.jpg-9e9ca4c9ac4408a969f12014206187ee.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Coffee_machine.jpg"
+dest_files=["res://.godot/imported/Coffee_machine.jpg-788f51da3cf93d6c9462d923197705d2.s3tc.ctex"]
 
 [params]
 

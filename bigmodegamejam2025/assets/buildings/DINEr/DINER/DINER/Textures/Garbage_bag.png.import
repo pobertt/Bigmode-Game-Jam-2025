@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgqt06et0svhi"
-path.s3tc="res://.godot/imported/Garbage_bag.png-bdc75ae36a090fe37cc41ce367fc6ee0.s3tc.ctex"
+path.s3tc="res://.godot/imported/Garbage_bag.png-6225df7c673cc7a8c62f99ed449be0b9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Garbage_bag.png"
-dest_files=["res://.godot/imported/Garbage_bag.png-bdc75ae36a090fe37cc41ce367fc6ee0.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Garbage_bag.png"
+dest_files=["res://.godot/imported/Garbage_bag.png-6225df7c673cc7a8c62f99ed449be0b9.s3tc.ctex"]
 
 [params]
 

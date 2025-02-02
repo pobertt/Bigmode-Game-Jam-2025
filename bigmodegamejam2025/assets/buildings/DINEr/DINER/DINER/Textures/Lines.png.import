@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjdhqbt87ecmb"
-path.s3tc="res://.godot/imported/Lines.png-79bf71e952d4b4949f896266239303c4.s3tc.ctex"
+path.s3tc="res://.godot/imported/Lines.png-a62c1835e87783c2958c134961bdc861.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Lines.png"
-dest_files=["res://.godot/imported/Lines.png-79bf71e952d4b4949f896266239303c4.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Lines.png"
+dest_files=["res://.godot/imported/Lines.png-a62c1835e87783c2958c134961bdc861.s3tc.ctex"]
 
 [params]
 

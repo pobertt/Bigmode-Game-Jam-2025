@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bacsuaj16pjol"
-path.s3tc="res://.godot/imported/Dishes.png-d521b1d12adca5f90f7ecf50f075f11f.s3tc.ctex"
+path.s3tc="res://.godot/imported/Dishes.png-3fc32dfe4d64a9c5065146ec4e8f4d3e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Dishes.png"
-dest_files=["res://.godot/imported/Dishes.png-d521b1d12adca5f90f7ecf50f075f11f.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Dishes.png"
+dest_files=["res://.godot/imported/Dishes.png-3fc32dfe4d64a9c5065146ec4e8f4d3e.s3tc.ctex"]
 
 [params]
 

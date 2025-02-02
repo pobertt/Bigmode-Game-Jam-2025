@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfxpfxi80qmxm"
-path.s3tc="res://.godot/imported/bathroom_drain.png-96c1fa02529286da21d1af1154c12ca9.s3tc.ctex"
+path.s3tc="res://.godot/imported/bathroom_drain.png-09090f0be9cce1ab6ca864817a037841.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/bathroom_drain.png"
-dest_files=["res://.godot/imported/bathroom_drain.png-96c1fa02529286da21d1af1154c12ca9.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/bathroom_drain.png"
+dest_files=["res://.godot/imported/bathroom_drain.png-09090f0be9cce1ab6ca864817a037841.s3tc.ctex"]
 
 [params]
 

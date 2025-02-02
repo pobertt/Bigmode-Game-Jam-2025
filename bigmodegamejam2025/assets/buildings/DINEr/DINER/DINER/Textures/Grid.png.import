@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cup0w16m7smmh"
-path.s3tc="res://.godot/imported/Grid.png-cf5a6f3826475a8882b2cf02155b2f53.s3tc.ctex"
+path.s3tc="res://.godot/imported/Grid.png-52216abc4140e204717de3538c0f9b61.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Grid.png"
-dest_files=["res://.godot/imported/Grid.png-cf5a6f3826475a8882b2cf02155b2f53.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Grid.png"
+dest_files=["res://.godot/imported/Grid.png-52216abc4140e204717de3538c0f9b61.s3tc.ctex"]
 
 [params]
 

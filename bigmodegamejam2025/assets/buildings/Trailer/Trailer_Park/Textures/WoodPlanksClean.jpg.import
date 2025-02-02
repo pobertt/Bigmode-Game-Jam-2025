@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://q6y7tyt1c4fs"
-path.s3tc="res://.godot/imported/WoodPlanksClean.jpg-1331065a43846e6bbbd546e994ca3b37.s3tc.ctex"
+path.s3tc="res://.godot/imported/WoodPlanksClean.jpg-7b2b7389c33a1a44a0a9945c71b75699.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/WoodPlanksClean.jpg"
-dest_files=["res://.godot/imported/WoodPlanksClean.jpg-1331065a43846e6bbbd546e994ca3b37.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/WoodPlanksClean.jpg"
+dest_files=["res://.godot/imported/WoodPlanksClean.jpg-7b2b7389c33a1a44a0a9945c71b75699.s3tc.ctex"]
 
 [params]
 

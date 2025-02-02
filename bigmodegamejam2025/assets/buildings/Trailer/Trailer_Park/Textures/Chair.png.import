@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bej8cba0g0ft3"
-path.s3tc="res://.godot/imported/Chair.png-fe8cc8e00b470d0fc315ebc6ff3fa1a7.s3tc.ctex"
+path.s3tc="res://.godot/imported/Chair.png-2edb4bffb59ee86605f90704fe28c491.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/Trailer/Trailer_Park/textures/Chair.png"
-dest_files=["res://.godot/imported/Chair.png-fe8cc8e00b470d0fc315ebc6ff3fa1a7.s3tc.ctex"]
+source_file="res://assets/buildings/Trailer/Trailer_Park/Textures/Chair.png"
+dest_files=["res://.godot/imported/Chair.png-2edb4bffb59ee86605f90704fe28c491.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ciakkfiemkll2"
-path.s3tc="res://.godot/imported/guard_rails.jpg-46d4682ffe43a138d0fcdf0af41504af.s3tc.ctex"
+path.s3tc="res://.godot/imported/guard_rails.jpg-df9276863b1d798affc2c5040c164b2b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/guard_rails.jpg"
-dest_files=["res://.godot/imported/guard_rails.jpg-46d4682ffe43a138d0fcdf0af41504af.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/guard_rails.jpg"
+dest_files=["res://.godot/imported/guard_rails.jpg-df9276863b1d798affc2c5040c164b2b.s3tc.ctex"]
 
 [params]
 

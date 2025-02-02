@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hkpkir8mf1pe"
-path.s3tc="res://.godot/imported/Napkin_Ring.png-ee0a66bcd9a215106fb9107e7be135ac.s3tc.ctex"
+path.s3tc="res://.godot/imported/Napkin_Ring.png-32b6d4019bf2815c07153987bf5f12c0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/buildings/DINEr/DINER/DINER/textures/Napkin_Ring.png"
-dest_files=["res://.godot/imported/Napkin_Ring.png-ee0a66bcd9a215106fb9107e7be135ac.s3tc.ctex"]
+source_file="res://assets/buildings/DINEr/DINER/DINER/Textures/Napkin_Ring.png"
+dest_files=["res://.godot/imported/Napkin_Ring.png-32b6d4019bf2815c07153987bf5f12c0.s3tc.ctex"]
 
 [params]
 

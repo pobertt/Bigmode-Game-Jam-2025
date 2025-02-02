@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1118cqtdm1xd"]
+[gd_scene load_steps=9 format=3 uid="uid://c1118cqtdm1xd"]
 
 [ext_resource type="Texture2D" uid="uid://pqw4p130xr0g" path="res://UI/HUD/reticle.png" id="1_1fxo2"]
 [ext_resource type="Script" path="res://UI/HUD/hud.gd" id="1_f63ty"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://tvtqx6u6wo1m" path="res://UI/HUD/heart.png" id="4_rql76"]
 [ext_resource type="Texture2D" uid="uid://dx56u3l4xliv3" path="res://UI/HUD/blood.png" id="5_wf5jt"]
 [ext_resource type="Texture2D" uid="uid://2ud0irekr1r2" path="res://UI/HUD/bullet.png" id="6_am2f0"]
+[ext_resource type="PackedScene" uid="uid://d0qpk7iqv04tn" path="res://Slot Machine/Slot.tscn" id="8_nvtfo"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -270,3 +271,19 @@ Say hello to NPCs
 Use slot machine (bar)
 Explore the farm
 Use all powerups!"
+
+[node name="SlotUI" parent="." instance=ExtResource("8_nvtfo")]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -573.0
+offset_top = -324.5
+offset_right = 573.0
+offset_bottom = 324.5
+grow_horizontal = 2
+grow_vertical = 2

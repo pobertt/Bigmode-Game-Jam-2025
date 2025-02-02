@@ -8,6 +8,7 @@ extends Control
 @onready var ammo_count_label: Label = $Control2/AmmoCount_Label
 @onready var kill_count_label: Label = $KillCountLabel
 @onready var power_label: Label = $POWERLabel
+@onready var slot_ui: Control = $SlotUI
 
 var paused : bool
 
@@ -46,6 +47,11 @@ func _on_update_hud():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		get_tree().change_scene_to_file("res://map/world.tscn")
 		gameover.visible = false
+	
+	if player.slot_machine == true:
+		slot_ui.visible = true
+	else: 
+		slot_ui.visible = false
 
 func _on_update_piss_bar(piss_amount, keg_used):
 	print("updating piss")

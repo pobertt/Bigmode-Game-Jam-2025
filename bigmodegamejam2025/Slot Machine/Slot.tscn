@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0qpk7iqv04tn"]
+[gd_scene load_steps=7 format=3 uid="uid://d0qpk7iqv04tn"]
 
 [ext_resource type="Script" path="res://SM.gd" id="1_pvb2w"]
 [ext_resource type="Texture2D" uid="uid://cf8p6fqlntmq8" path="res://Slot Machine/slot icons/apple.png" id="2_t72d4"]
 [ext_resource type="Texture2D" uid="uid://b0m6v6ta0lls0" path="res://Slot Machine/slot icons/coin.png" id="3_3eyj1"]
 [ext_resource type="Texture2D" uid="uid://cfh2u34wbbpl3" path="res://Slot Machine/slot icons/Seven.png" id="4_rxq7r"]
 [ext_resource type="Script" path="res://Achievements/AchievementManager.gd" id="5_62mfb"]
+[ext_resource type="FontFile" uid="uid://bbl7j4o5fvnwj" path="res://UI/emotion-engine-18002/EmotionEngine-8ynA.ttf" id="6_5ph6q"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("achievement_manager")]
 layout_mode = 3
@@ -40,3 +41,23 @@ offset_bottom = 395.0
 
 [node name="AchievementManager" type="Node3D" parent="."]
 script = ExtResource("5_62mfb")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.5
+offset_top = -218.0
+offset_right = 167.5
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_5ph6q")
+theme_override_font_sizes/font_size = 60
+text = "SPACE TO PLAY
+F TO LEAVE"
+horizontal_alignment = 1
+vertical_alignment = 1

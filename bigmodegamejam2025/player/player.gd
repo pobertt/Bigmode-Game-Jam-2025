@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var obj_holder: Node3D = $Head/Camera/obj_holder
 @export var achievement_manager: Node
 
+
 var DAMAGE_SOUNDS = [
 	preload("res://SFX/player/Hurt1.wav"),
 	preload("res://SFX/player/Hurt2.wav"),
@@ -33,7 +34,7 @@ var piss : bool = false
 var killcount : int = 0
 
 var keg_interact : bool
-
+var slot_machine : bool = false
 # Guns
 
 @export var current_gun : Gun = PISTOL

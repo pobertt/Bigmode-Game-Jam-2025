@@ -14,14 +14,14 @@ func _ready():
 	# Add all the TextureRect nodes to an array
 	slots = [ $Slot1, $Slot2, $Slot3 ]
 	
-	canvas_layer = $".." # Assuming your CanvasLayer is named "CanvasLayer"
-	
 	# Connect a signal to detect clicks on the screen
 	#set_process_input(true)
 
 func _input(event:InputEvent):
-	if event.is_action_pressed("escape"):
-		pass
+	if event.is_action_pressed("leave_slot"):
+		Global.player_ref.slot_machine = false
+		Global.update_hud.emit()
+		get_tree().paused = false
 	
 	if event.is_action_pressed("Slot_Machine"):
 		# Randomly pick one of the 3 images for each slot when clicked
@@ -41,13 +41,8 @@ func _input(event:InputEvent):
 			print("All three images match!")
 			achievement_manager.unlock_achievement("Lets Go Gambling")
 			 
-			await get_tree().create_timer(2.0).timeout
-			canvas_layer.visible = false
 		else:
 			print("Images do not match.")
-			
-			await get_tree().create_timer(2.0).timeout
-			canvas_layer.visible = false
 					
 func check_if_all_match() -> bool:
 	if slots[0].texture == slots[1].texture and slots[1].texture == slots[2].texture:

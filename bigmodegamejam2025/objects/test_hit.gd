@@ -26,7 +26,8 @@ enum ObjectType {
 	CAT,
 	KEG,
 	VENDING_MACHINE,
-	FOOD
+	FOOD,
+	SLOT_MACHINE
 }
 
 func change_health(damage):

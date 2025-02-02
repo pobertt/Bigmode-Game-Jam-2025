@@ -72,6 +72,10 @@ func _process(delta: float) -> void:
 					pill_player.global_position = parent.global_position
 					parent.add_child(pill_player)
 					pill_player.play()
+				elif obj.obj_type == 6:
+					parent.slot_machine = true
+					Global.update_hud.emit()
+					get_tree().paused = true
 	
 	else:
 		Global.can_interact = false

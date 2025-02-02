@@ -1,4 +1,4 @@
-[gd_scene load_steps=242 format=4 uid="uid://dlsqp5lw5rpwi"]
+[gd_scene load_steps=243 format=4 uid="uid://dlsqp5lw5rpwi"]
 
 [ext_resource type="Script" path="res://map/world.gd" id="1_1pn0n"]
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="1_w1kce"]
@@ -73,6 +73,7 @@
 [ext_resource type="Texture2D" uid="uid://bsof3ma2e5dg" path="res://assets/buildings/Trailer/Trailer_Park/Textures/TV.png" id="71_8uxna"]
 [ext_resource type="PackedScene" uid="uid://df8x77epymrqi" path="res://objects/food.tscn" id="72_ao138"]
 [ext_resource type="PackedScene" uid="uid://ftm3d0wh2f6a" path="res://objects/vending_machine.tscn" id="73_584y4"]
+[ext_resource type="PackedScene" uid="uid://bgsafp1upyd3e" path="res://objects/slot_machine.tscn" id="75_3baf1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ua71i"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -4964,6 +4965,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2338, 1.05145, 7.71911)
 
 [node name="vendingmachine" parent="." instance=ExtResource("73_584y4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9374, 1.11794, 12.4631)
+
+[node name="slot_machine" parent="." instance=ExtResource("75_3baf1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7598, 1.18175, -15.9522)
 
 [editable path="NavigationRegion3D/dirtground_updated-col"]
 [editable path="NavigationRegion3D/BUILDINGS/FarmAssets/grain_store"]

@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			if get_collider() and get_collider().is_in_group("enemy"):
 				var enemy = get_collider()
-				enemy.hit_sounds()
+				enemy.random_sounds()
 			if get_collider() and get_collider().is_in_group("object"):
 				var obj = get_obj()
 				if obj.obj_type == 3:

@@ -21,6 +21,15 @@ extends CharacterBody3D
 @export var MiscSounds : Array[AudioStream]
 @export var Idles : Array[AudioStream]
 
+const girlsound1 = preload("res://SFX/NPC/Girl1/Misc1.wav")
+const girlsound2 = preload("res://SFX/NPC/Girl1/Misc1v2.wav")
+const girlsound3 = preload("res://SFX/NPC/Girl1/Misc2.wav")
+const girlsound4 = preload("res://SFX/NPC/Girl1/MiscHit1.wav")
+const girlsound5 = preload("res://SFX/NPC/Girl2/HitMisc2.wav")
+const girlsound6 = preload("res://SFX/NPC/Girl2/Misc2.wav")
+const girlsound7 = preload("res://SFX/NPC/Girl2/Misc3.wav")
+const girlsound8 = preload("res://SFX/NPC/Girl2/Misc.wav")
+
 var PlayerRef
 var health = 100
 
@@ -256,7 +265,7 @@ func change_health(damage):
 #on idle timer end
 func _on_idle_timer_timeout() -> void:
 	#wander
-	var randompos = Vector3(randf_range(-20, 20), position.y,randf_range(-20, 20))
+	var randompos = Vector3(randf_range(-59, 50), position.y, randf_range(-90, 75))
 	look_at(Vector3(randompos.x, global_position.y, randompos.z), Vector3.UP, true)
 	target_position(randompos)
 	CurrentState = STATE.ROAMING
@@ -277,4 +286,9 @@ func _on_attacking_timer_timeout() -> void:
 
 func hit_sounds():
 	audio_stream_player.stream = HitSounds[randi_range(0, HitSounds.size() - 1)]
+	audio_stream_player.play()
+
+func random_sounds():
+	var random_sounds = [girlsound1, girlsound2, girlsound3, girlsound4, girlsound5, girlsound6, girlsound7, girlsound8]
+	audio_stream_player.stream = random_sounds[randi_range(0, random_sounds.size() - 1)]
 	audio_stream_player.play()

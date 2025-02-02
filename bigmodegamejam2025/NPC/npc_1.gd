@@ -112,7 +112,7 @@ func _on_vision_timer_timeout():
 						#check its player
 						if overlap.name == "Player":
 							#damage player
-							Global.player_ref.change_health(5)
+							Global.player_ref.change_health(20)
 							print("Player health now" + str(Global.player_ref.health))
 							animation_player.play("punch")
 							CurrentState = STATE.ATTACKING

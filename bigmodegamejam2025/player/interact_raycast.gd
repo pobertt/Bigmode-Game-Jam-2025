@@ -59,6 +59,7 @@ func _process(delta: float) -> void:
 					var new_food = food.instantiate()
 					new_food.global_position = Vector3(parent.global_position.x, parent.global_position.y + 2, parent.global_position.z + 1)
 					get_tree().get_root().add_child(new_food)
+					parent.achievement_manager.unlock_achievement("Use the Vending Machine!", "get them pills yo")
 				elif obj.obj_type == 5:
 					obj.eaten()
 					parent.health += 10

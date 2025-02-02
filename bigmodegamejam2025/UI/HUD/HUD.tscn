@@ -198,4 +198,14 @@ offset_left = 61.0
 offset_top = 27.0
 offset_right = 140.0
 offset_bottom = 50.0
+scale = Vector2(1.5, 1.5)
 text = "Kill Count:"
+
+[node name="POWERLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 60.0
+offset_right = 141.0
+offset_bottom = 83.0
+scale = Vector2(1.5, 1.5)
+text = "POWER:"

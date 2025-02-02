@@ -12,6 +12,8 @@ const BULLET_DECAL = preload("res://assets/decals/BulletDecal.tscn")
 var max_decals : int = 500
 var spawned_decals : Array
 
+var unpause : bool
+
 signal update_hud
 signal update_piss_bar
 signal decrease_piss_bar

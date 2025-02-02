@@ -6,6 +6,7 @@ extends Node3D
 @onready var pills: MeshInstance3D = $Pills
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var snus: Node3D = $snusgordic
+@onready var light_particles: GPUParticles3D = $PistolParticles3D
 
 var obj_enum = PowerUps.PowerUpType
 
@@ -28,6 +29,7 @@ func lighting_blunt():
 func drinking_beer():
 	print("drinking beer")
 	obj_enum = PowerUps.PowerUpType.DRINKING
+	light_particles.emitting = false
 	blunt.visible = false
 	lighter.visible = false
 	pills.visible = false
@@ -38,6 +40,7 @@ func drinking_beer():
 func taking_snus():
 	print("snus destroyer")
 	obj_enum = PowerUps.PowerUpType.SNUSING
+	light_particles.emitting = false
 	snus.visible = true
 	blunt.visible = false
 	lighter.visible = false
@@ -48,6 +51,7 @@ func taking_snus():
 func taking_pills():
 	print("pill lover")
 	obj_enum = PowerUps.PowerUpType.PILLS
+	light_particles.emitting = false
 	blunt.visible = false
 	lighter.visible = false
 	beer.visible = false
@@ -59,8 +63,11 @@ func animation_finished(anim_name: StringName) -> void:
 	if obj_enum == PowerUps.PowerUpType.SMOKING:
 		blunt.visible = false
 		lighter.visible = false
+		light_particles.emitting = false
 	if obj_enum == PowerUps.PowerUpType.DRINKING:
 		beer.visible = false
 	if obj_enum == PowerUps.PowerUpType.PILLS:
 		pills.visible = false
+	if obj_enum == PowerUps.PowerUpType.SNUSING:
+		snus.visible = false
 		

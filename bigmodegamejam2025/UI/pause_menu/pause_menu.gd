@@ -32,8 +32,8 @@ func close():
 
 ## Buttons
 func _on_quit_button_pressed() -> void:
-	get_tree().quit()
-
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://UI/menu/menu.tscn")
 
 func _on_resume_button_pressed() -> void:
 	close()

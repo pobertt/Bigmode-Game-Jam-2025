@@ -217,6 +217,3 @@ func change_health(damage):
 	damage_player.global_position = global_position
 	add_child(damage_player)
 	damage_player.play()
-	
-	if health <= 0:
-		print("dead")

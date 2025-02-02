@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://bs8u5dly1knov"]
+
+[ext_resource type="Script" path="res://UI/menu/menu.gd" id="1_eomo0"]
+[ext_resource type="Texture2D" uid="uid://c8rupauqe7rm7" path="res://UI/menu/gameover.png" id="2_apdjd"]
+[ext_resource type="Texture2D" uid="uid://b73iyva32boej" path="res://UI/menu/PT_buttons_PLAY.png" id="3_rgvk3"]
+[ext_resource type="Texture2D" uid="uid://cvxpnerinjnf8" path="res://UI/menu/PT_buttons_PLAY2.png" id="4_okq0e"]
+[ext_resource type="Texture2D" uid="uid://cygl7l3w5b20s" path="res://UI/menu/PT_buttons_QUIT.png" id="5_tol22"]
+[ext_resource type="Texture2D" uid="uid://ll21u534te1x" path="res://UI/menu/PT_buttons_QUIT2.png" id="6_wae2h"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eomo0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 2.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_apdjd")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -526.0
+offset_top = 247.0
+offset_right = -230.0
+offset_bottom = 428.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_rgvk3")
+texture_pressed = ExtResource("3_rgvk3")
+texture_hover = ExtResource("4_okq0e")
+
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 137.0
+offset_top = 245.0
+offset_right = 433.0
+offset_bottom = 415.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_tol22")
+texture_pressed = ExtResource("5_tol22")
+texture_hover = ExtResource("6_wae2h")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -8,6 +8,11 @@ extends CharacterBody3D
 @onready var obj_holder: Node3D = $Head/Camera/obj_holder
 @export var achievement_manager: Node
 
+var DAMAGE_SOUNDS = [
+	preload("res://SFX/player/Hurt1.wav"),
+	preload("res://SFX/player/Hurt2.wav"),
+	preload("res://SFX/player/I_dont_like_that.wav"),
+]
 # System Nodes
 
 @onready var gun: Node = $GunSystem
@@ -128,8 +133,8 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		if get_direction():
-			velocity.x = get_direction().x * speed
-			velocity.z = get_direction().z * speed
+			velocity.x = get_direction().x * speed * snusM
+			velocity.z = get_direction().z * speed * snusM
 		else:
 			velocity.x = lerp(velocity.x, get_direction().x * speed, delta * 7.0)
 			velocity.z = lerp(velocity.z, get_direction().x * speed, delta * 7.0)
@@ -203,5 +208,14 @@ func _camera_shake(period, magnitude):
 func change_health(damage):
 	health -= damage
 	Global.update_hud.emit()
+	
+	var random_damage_sounds = DAMAGE_SOUNDS[randi() % DAMAGE_SOUNDS.size()]
+	
+	var damage_player = AudioStreamPlayer3D.new()
+	damage_player.stream = random_damage_sounds
+	damage_player.global_position = global_position
+	add_child(damage_player)
+	damage_player.play()
+	
 	if health <= 0:
 		print("dead")

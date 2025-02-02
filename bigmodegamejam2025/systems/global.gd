@@ -22,6 +22,7 @@ signal lighting
 signal drinking
 signal snusing
 signal pills
+signal achpopup
 
 # this is for UI later
 func check_menus():

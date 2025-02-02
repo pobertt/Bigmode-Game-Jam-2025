@@ -39,7 +39,7 @@ func _input(event:InputEvent):
 					slot.texture = image3
 		if check_if_all_match():
 			print("All three images match!")
-			achievement_manager.unlock_achievement("Lets Go Gambling")
+			achievement_manager.unlock_achievement("Lets Go Gambling", "win on the fruit machine")
 			 
 		else:
 			print("Images do not match.")

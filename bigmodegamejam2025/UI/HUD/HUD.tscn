@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1118cqtdm1xd"]
+[gd_scene load_steps=10 format=3 uid="uid://c1118cqtdm1xd"]
 
 [ext_resource type="Texture2D" uid="uid://pqw4p130xr0g" path="res://UI/HUD/reticle.png" id="1_1fxo2"]
 [ext_resource type="Script" path="res://UI/HUD/hud.gd" id="1_f63ty"]
@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dx56u3l4xliv3" path="res://UI/HUD/blood.png" id="5_wf5jt"]
 [ext_resource type="Texture2D" uid="uid://2ud0irekr1r2" path="res://UI/HUD/bullet.png" id="6_am2f0"]
 [ext_resource type="PackedScene" uid="uid://d0qpk7iqv04tn" path="res://Slot Machine/Slot.tscn" id="8_nvtfo"]
+[ext_resource type="Script" path="res://Achievements/AchievementManager.gd" id="9_ajlol"]
 
-[node name="HUD" type="Control"]
+[node name="HUD" type="Control" node_paths=PackedStringArray("achievement")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_f63ty")
+achievement = NodePath("achievementManager")
 
 [node name="Reticle" type="TextureRect" parent="."]
 layout_mode = 1
@@ -100,11 +102,13 @@ visible = false
 layout_mode = 1
 
 [node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_left = -2.0
-offset_top = 791.0
-offset_right = 38.0
-offset_bottom = 831.0
+layout_mode = 1
+anchor_right = 0.017
+anchor_bottom = 0.031
+offset_left = 14.0
+offset_top = 80.0
+offset_right = 34.416
+offset_bottom = 99.912
 
 [node name="TextureRect2" type="TextureRect" parent="Control"]
 layout_mode = 1
@@ -265,14 +269,17 @@ grow_horizontal = 0
 theme_override_fonts/font = ExtResource("3_q4qw3")
 theme_override_font_sizes/font_size = 20
 text = "Quests:
-Use vending machine ( gas station)
-Drink from keg (bar)
-Say hello to NPCs
-Use slot machine (bar)
-Explore the farm
-Use all powerups!"
+Morning Routine
+Smoker's Delight
+sip happnes
+I need a snus
+When you have to go, you have to go
+The world is my toilet
+My pain go away pills
+Pick a struggle
+Lets Go Gambling"
 
-[node name="SlotUI" parent="." instance=ExtResource("8_nvtfo")]
+[node name="SlotUI" parent="." node_paths=PackedStringArray("achievement_manager") instance=ExtResource("8_nvtfo")]
 process_mode = 3
 visible = false
 layout_mode = 1
@@ -287,3 +294,40 @@ offset_right = 573.0
 offset_bottom = 324.5
 grow_horizontal = 2
 grow_vertical = 2
+achievement_manager = NodePath("../achievementManager")
+
+[node name="achievementManager" type="Node3D" parent="."]
+process_mode = 3
+script = ExtResource("9_ajlol")
+
+[node name="Control4" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control4"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -227.0
+offset_top = -129.0
+offset_right = 227.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_q4qw3")
+theme_override_font_sizes/font_size = 30
+text = "aaa"
+horizontal_alignment = 1

@@ -98,7 +98,7 @@ func _input(event: InputEvent) -> void:
 		switch_weapon(SHOTGUN)
 	if event.is_action_pressed("piss") and Global.check_menus() == false:
 		if bladder > 0:
-			achievement_manager.unlock_achievement("The world is my toilet")
+			achievement_manager.unlock_achievement("The world is my toilet", "Relieve yourself")
 			piss = true
 			
 			p_particle.piss()
@@ -116,7 +116,12 @@ func _process(delta: float) -> void:
 		piss = false
 		p_particle.piss()
 	if bladder == 1000:
-		achievement_manager.unlock_achievement("When you have to go, you have to go")
+		achievement_manager.unlock_achievement("When you have to go, you have to go", "Max out the piss meter")
+		
+	if killcount >= 10:
+		achievement_manager.unlock_achievement("Grim Sleeper", "put 10 pound town residents to sleep")
+	if strength >=  500:
+		achievement_manager.unlock_achievement("Pound town veteran", "reach 500 power")
 
 func _physics_process(delta: float) -> void:
 	# Gun

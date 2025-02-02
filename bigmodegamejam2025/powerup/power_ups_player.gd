@@ -42,7 +42,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if power_ups.PowerUpType.PILLS in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups and power_ups.PowerUpType.SNUSING in collected_powerups and power_ups.PowerUpType.SMOKING in collected_powerups:
-		achievement_manager.unlock_achievement("Pick a struggle")
+		achievement_manager.unlock_achievement("Pick a struggle", "Collect all power-up types!")
 	
 	if combo_active:
 		combo_timer -= delta  # Countdown for the combo effect
@@ -91,7 +91,7 @@ func _on_power_up_collected(power_up_type):
 # Apply individual effects for each power-up
 func _apply_smoking_effect():
 	
-	achievement_manager.unlock_achievement("Smoker's Delight")
+	achievement_manager.unlock_achievement("Smoker's Delight", "Collect a smoking power-up!")
 	
 	print("Player starts smoking!")
 	player_ref.strength += 10
@@ -114,7 +114,7 @@ func _apply_smoking_effect():
 func _apply_drinking_effect():
 	print("Player starts drinking!")
 	
-	achievement_manager.unlock_achievement("sip happnes")
+	achievement_manager.unlock_achievement("sip happens","Collect a drinking power-up!")
 	player_ref.strength += 10
 	print(player_ref.bladder)
 	player_ref.bladder += 200
@@ -137,7 +137,7 @@ func _apply_snusing_effect():
 	
 	Global.snusing.emit()
 	
-	achievement_manager.unlock_achievement("I need a snus")
+	achievement_manager.unlock_achievement("I need a snus","Collect a suns power-up!")
 	
 	original_fov = player_ref.camera.fov
 	
@@ -157,7 +157,7 @@ func _apply_pills_effect():
 	
 	Global.pills.emit()
 	
-	achievement_manager.unlock_achievement("My pain go away pills")
+	achievement_manager.unlock_achievement("My pain go away pills", "Collect a pill power-up!")
 	
 	player_ref.health += 10
 	print(player_ref.health)
@@ -173,7 +173,7 @@ func _apply_pills_effect():
 func _check_for_comboA():
 	if power_ups.PowerUpType.SMOKING in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
 		_activate_combo0()
-		achievement_manager.unlock_achievement("Morning Routine")
+		achievement_manager.unlock_achievement("Morning Routine", "Combo Smoking and drinking")
 	elif power_ups.PowerUpType.SNUSING in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:
 		_activate_combo1()
 	elif power_ups.PowerUpType.PILLS in collected_powerups and power_ups.PowerUpType.DRINKING in collected_powerups:

@@ -8,12 +8,16 @@ class Achievement:
 
 # A list of all achievements in the game
 var achievements: Array = []
+var achievement_hud: Control
+
 
 # Signals for achievement events
 signal achievement_unlocked(achievement: Achievement)
 
+
 func _ready():
 	# Load achievements (This could be done from a file or preset)
+	
 	achievements.append(Achievement.new())
 	achievements[0].name = "Morning Routine"
 	achievements[0].description = "Combo Smoking and drinking"
@@ -23,7 +27,7 @@ func _ready():
 	achievements[1].description = "Collect a smoking power-up!"
 	
 	achievements.append(Achievement.new())
-	achievements[2].name = "sip happnes"
+	achievements[2].name = "sip happens"
 	achievements[2].description = "Collect a drinking power-up!"
 	
 	achievements.append(Achievement.new())
@@ -49,11 +53,20 @@ func _ready():
 	achievements.append(Achievement.new())
 	achievements[7].name = "Lets Go Gambling"
 	achievements[7].description = "win on the fruit machine"
-	# Add more achievements as needed...
+	
+	achievements.append(Achievement.new())
+	achievements[8].name = "Grim Sleeper"
+	achievements[8].description = "put 10 pound town residents to sleep"
+	
+	achievements.append(Achievement.new())
+	achievements[7].name = "Pound town veteran"
+	achievements[7].description = "reach 500 power"
+	# Add more achievements as needed
 
-func unlock_achievement(achievement_name: String):
+func unlock_achievement(achievement_name: String, description: String):
 	for achievement in achievements:
 		if achievement.name == achievement_name and !achievement.triggered:
 			achievement.triggered = true
-			emit_signal("achievement_unlocked", achievement)
+			#emit_signal("achievement_unlocked", achievement)
+			Global.achpopup.emit(achievement_name,description)
 			print("Achievement unlocked: " + achievement.name)

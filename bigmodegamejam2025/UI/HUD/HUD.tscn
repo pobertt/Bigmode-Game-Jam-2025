@@ -48,18 +48,20 @@ grow_horizontal = 2
 [node name="Piss_Label" type="Label" parent="Piss_Control"]
 visible = false
 layout_mode = 0
-offset_left = -39.0
-offset_right = 69.0
-offset_bottom = 23.0
+offset_left = -18.0
+offset_top = -9.0
+offset_right = 90.0
+offset_bottom = 14.0
 text = "Q to PISS"
 
 [node name="ProgressBar" type="ProgressBar" parent="Piss_Control"]
 visible = false
 layout_mode = 0
-offset_left = -51.0
+offset_left = -87.0
 offset_top = 22.0
-offset_right = 75.0
+offset_right = 39.0
 offset_bottom = 49.0
+scale = Vector2(1.76, 1)
 max_value = 1000.0
 
 [node name="Interaction" type="Control" parent="."]
@@ -73,17 +75,17 @@ offset_bottom = 40.0
 grow_horizontal = 2
 
 [node name="InteractLabel" type="Label" parent="Interaction"]
-visible = false
 z_index = 20
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -68.0
+offset_top = 119.0
 offset_right = 68.0
-offset_bottom = 23.0
+offset_bottom = 142.0
 grow_horizontal = 2
-text = "E to interact bozo"
+text = "E to INTERACT idiot"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -192,6 +194,8 @@ horizontal_alignment = 1
 
 [node name="KillCountLabel" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 61.0
+offset_top = 27.0
+offset_right = 140.0
+offset_bottom = 50.0
 text = "Kill Count:"

@@ -116,7 +116,7 @@ func _apply_drinking_effect():
 	player_ref.bladder += 200
 	print(player_ref.strength)
 	
-	Global.update_piss_bar.emit(player_ref.bladder)
+	Global.update_piss_bar.emit(player_ref.bladder, false)
 	
 	Global.drinking.emit()
 	

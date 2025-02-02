@@ -32,6 +32,8 @@ var snusM : int = 1
 var piss : bool = false
 var killcount : int = 0
 
+var keg_interact : bool
+
 # Guns
 
 @export var current_gun : Gun = PISTOL

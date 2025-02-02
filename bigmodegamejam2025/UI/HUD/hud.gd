@@ -44,8 +44,13 @@ func _on_update_hud():
 		get_tree().change_scene_to_file("res://map/world.tscn")
 		gameover.visible = false
 
-func _on_update_piss_bar(piss_amount):
-	piss_bar.value += 200
+func _on_update_piss_bar(piss_amount, keg_used):
+	print("updating piss")
+	if keg_used == true:
+		piss_bar.value += piss_amount
+	else:
+		piss_bar.value += 200
+	
 	
 	if piss_amount > 0:
 		piss_label.visible = true

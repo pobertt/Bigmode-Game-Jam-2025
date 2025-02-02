@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1118cqtdm1xd"]
+[gd_scene load_steps=7 format=3 uid="uid://c1118cqtdm1xd"]
 
 [ext_resource type="Texture2D" uid="uid://pqw4p130xr0g" path="res://UI/HUD/reticle.png" id="1_1fxo2"]
 [ext_resource type="Script" path="res://UI/HUD/hud.gd" id="1_f63ty"]
+[ext_resource type="PackedScene" uid="uid://bs8u5dly1knov" path="res://UI/menu/gameover.tscn" id="3_5hp2p"]
+[ext_resource type="Texture2D" uid="uid://tvtqx6u6wo1m" path="res://UI/HUD/heart.png" id="4_rql76"]
+[ext_resource type="Texture2D" uid="uid://dx56u3l4xliv3" path="res://UI/HUD/blood.png" id="5_wf5jt"]
+[ext_resource type="Texture2D" uid="uid://2ud0irekr1r2" path="res://UI/HUD/bullet.png" id="6_am2f0"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -29,33 +33,6 @@ grow_vertical = 2
 texture = ExtResource("1_1fxo2")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="AmmoCount_Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -74.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "6 / 6"
-horizontal_alignment = 1
-
-[node name="HealthCount_Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -42.0
-offset_right = 62.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "100"
-horizontal_alignment = 1
 
 [node name="Piss_Control" type="Control" parent="."]
 layout_mode = 1
@@ -109,3 +86,106 @@ grow_horizontal = 2
 text = "E to interact bozo"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Gameover" parent="." instance=ExtResource("3_5hp2p")]
+process_mode = 3
+visible = false
+layout_mode = 1
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 791.0
+offset_right = 38.0
+offset_bottom = 831.0
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 466.0
+offset_right = 1037.0
+offset_bottom = 1417.0
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_rql76")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 418.0
+offset_right = 993.0
+offset_bottom = 1369.0
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_wf5jt")
+
+[node name="HealthCount_Label" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -394.0
+offset_top = 607.0
+offset_right = 598.0
+offset_bottom = 649.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "100"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -817.0
+offset_right = 47.0
+offset_bottom = -777.0
+grow_vertical = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Control2"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 466.0
+offset_right = 1037.0
+offset_bottom = 1417.0
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_am2f0")
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 418.0
+offset_right = 993.0
+offset_bottom = 1369.0
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_wf5jt")
+
+[node name="AmmoCount_Label" type="Label" parent="Control2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 577.0
+offset_right = 104.0
+offset_bottom = 619.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "6 / 6"
+horizontal_alignment = 1

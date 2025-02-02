@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 				var obj = get_obj()
 				if obj.obj_type == 3:
 					obj.keg_particle.emitting = true
-		elif Input.is_action_just_released("interact"):
+		elif Input.is_action_just_released("interact") and get_collider().is_in_group("object"):
 			var obj = get_obj()
 			if obj.obj_type == 3:
 				obj.keg_particle.emitting = false

@@ -3,8 +3,8 @@
 [ext_resource type="AudioStream" uid="uid://0fk4qktm85x6" path="res://SFX/Guns/shot_dry.wav" id="1_8w1qt"]
 [ext_resource type="AudioStream" uid="uid://ctswk1ff13uwm" path="res://SFX/Guns/shot_shotgun.wav" id="2_oymbp"]
 [ext_resource type="ArrayMesh" uid="uid://dk3cx0r5h8sf1" path="res://assets/weapons/tres/new_tres/new_shotgun.res" id="3_fbvx8"]
-[ext_resource type="AudioStream" uid="uid://cpy25w8khvjgu" path="res://SFX/Guns/reload_shotgun.wav" id="4_4tej0"]
 [ext_resource type="Script" path="res://resources/gun_resource.gd" id="4_ovt1m"]
+[ext_resource type="AudioStream" uid="uid://c8o2ae2g3je2m" path="res://SFX/Guns/reload_pistol.wav" id="4_xdjei"]
 
 [resource]
 script = ExtResource("4_ovt1m")
@@ -15,7 +15,7 @@ cooldown = 0.5
 sway = 0.2
 automatic = false
 firing_sounds = Array[AudioStream]([ExtResource("2_oymbp")])
-reload_sound = ExtResource("4_4tej0")
+reload_sound = ExtResource("4_xdjei")
 dry_fire_sound = ExtResource("1_8w1qt")
 damage = 10
 spread = 2.25

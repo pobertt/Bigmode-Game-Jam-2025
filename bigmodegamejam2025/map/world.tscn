@@ -4326,6 +4326,10 @@ power_up_type = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61941, 0.367626, 6.47335)
 power_up_type = 1
 
+[node name="PowerUp9" parent="NavigationRegion3D/BUILDINGS/BarAssets/BarPowerups" instance=ExtResource("3_5ng3o")]
+transform = Transform3D(0.753953, -0.51125, 0.412527, 0.656928, 0.586759, -0.473455, 3.06139e-09, 0.627963, 0.778243, 0.474993, 11.8651, 7.31707)
+power_up_type = 1
+
 [node name="Interactables" type="Node3D" parent="NavigationRegion3D/BUILDINGS/BarAssets"]
 
 [node name="bottle" parent="NavigationRegion3D/BUILDINGS/BarAssets/Interactables" instance=ExtResource("46_2ir7o")]
@@ -4730,23 +4734,23 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2b86p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2291, 0, 0)
 
 [node name="PowerUp5" parent="NavigationRegion3D/BUILDINGS/ChurchAssets/ChurchPowerUps" instance=ExtResource("3_5ng3o")]
-transform = Transform3D(0.959299, 0, 0.282392, 0, 1, 0, -0.282392, 0, 0.959299, 6.25515, 1.67299, 0.533653)
+transform = Transform3D(0.959299, 0, 0.282392, 0, 1, 0, -0.282392, 0, 0.959299, 6.25515, 0.0805589, 0.533653)
 power_up_type = 2
 
 [node name="PowerUp6" parent="NavigationRegion3D/BUILDINGS/ChurchAssets/ChurchPowerUps" instance=ExtResource("3_5ng3o")]
-transform = Transform3D(0.959299, 0, 0.282392, 0, 1, 0, -0.282392, 0, 0.959299, 1.94587, 1.67299, 1.44603)
+transform = Transform3D(0.959299, 0, 0.282392, 0, 1, 0, -0.282392, 0, 0.959299, 1.94587, 0.0805589, 1.44603)
 power_up_type = 2
 
 [node name="PowerUp7" parent="NavigationRegion3D/BUILDINGS/ChurchAssets/ChurchPowerUps" instance=ExtResource("3_5ng3o")]
-transform = Transform3D(0.959299, 0, 0.282392, 0, 1, 0, -0.282392, 0, 0.959299, 0.193342, 1.67299, -4.45729)
+transform = Transform3D(0.959299, 0, 0.282392, 0, 1, 0, -0.282392, 0, 0.959299, 0.193342, 0.0805589, -4.45729)
 power_up_type = 2
 
 [node name="PowerUp8" parent="NavigationRegion3D/BUILDINGS/ChurchAssets/ChurchPowerUps" instance=ExtResource("3_5ng3o")]
-transform = Transform3D(0.959299, 0, 0.282392, 0, 1, 0, -0.282392, 0, 0.959299, 4.27205, 1.67299, -5.96549)
+transform = Transform3D(0.959299, 0, 0.282392, 0, 1, 0, -0.282392, 0, 0.959299, 4.27205, 0.0805589, -5.96549)
 power_up_type = 2
 
 [node name="PowerUp9" parent="NavigationRegion3D/BUILDINGS/ChurchAssets/ChurchPowerUps" instance=ExtResource("3_5ng3o")]
-transform = Transform3D(0.959299, 0, 0.282392, 0, 1, 0, -0.282392, 0, 0.959299, 10.1007, 6.49185, -4.20643)
+transform = Transform3D(0.959299, 0, 0.282392, 0, 1, 0, -0.282392, 0, 0.959299, 10.1007, 4.89942, -4.20643)
 power_up_type = 3
 
 [node name="SpotLight3D" type="SpotLight3D" parent="NavigationRegion3D/BUILDINGS/ChurchAssets"]

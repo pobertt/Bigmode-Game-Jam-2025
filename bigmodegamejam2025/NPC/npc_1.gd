@@ -249,7 +249,6 @@ func change_health(damage):
 		deathtimer.start()
 		audio_stream_player.stream = DeathSounds[randi_range(0, DeathSounds.size() - 1)]
 		audio_stream_player.play()
-		Global.player_ref.killcount += 1
 		return
 	else:
 		audio_stream_player.stream = HitSounds[randi_range(0, HitSounds.size() - 1)]
@@ -269,6 +268,9 @@ func _on_idle_timer_timeout() -> void:
 #once timer finishes, destroy node
 func _on_deathtimer_timeout() -> void:
 	skeleton.physical_bones_stop_simulation()
+	Global.player_ref.killcount += 1
+	Global.update_hud.emit()
+	print(Global.player_ref.killcount)
 	queue_free()
 
 

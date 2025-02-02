@@ -6,6 +6,7 @@ extends Control
 @onready var gameover: Control = $Gameover
 @onready var health_count_label: Label = $Control/HealthCount_Label
 @onready var ammo_count_label: Label = $Control2/AmmoCount_Label
+@onready var kill_count_label: Label = $KillCountLabel
 
 var paused : bool
 
@@ -30,6 +31,8 @@ func _on_update_hud():
 	ammo_count_label.text = "%s / %s" % [player.current_bullets, player.ammo[player.current_gun.ammo]]
 	# player health is basically the same way
 	health_count_label.text = "%s" % player.health
+	
+	kill_count_label.text = "Kill Count: %s" % player.killcount
 	
 	if player.health <= 0:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

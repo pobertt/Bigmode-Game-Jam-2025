@@ -1,4 +1,4 @@
-[gd_scene load_steps=215 format=4 uid="uid://dlsqp5lw5rpwi"]
+[gd_scene load_steps=220 format=4 uid="uid://dlsqp5lw5rpwi"]
 
 [ext_resource type="Script" path="res://map/world.gd" id="1_1pn0n"]
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="1_w1kce"]
@@ -58,6 +58,11 @@
 [ext_resource type="Texture2D" uid="uid://cdjib8qag5usv" path="res://assets/buildings/church/church1_BaseColor.png" id="51_tc6ps"]
 [ext_resource type="PackedScene" uid="uid://b0u7hlwunax61" path="res://assets/buildings/house/house_col.tscn" id="52_6fs6p"]
 [ext_resource type="PackedScene" uid="uid://dq02s1e3wxcro" path="res://objects/stool.tscn" id="54_l1n5f"]
+[ext_resource type="PackedScene" uid="uid://c7pamyh56glp1" path="res://NPC/NPC1.tscn" id="59_4yk5o"]
+[ext_resource type="AudioStream" uid="uid://d4j44djf5knbh" path="res://SFX/NPC/Girl2/Hit1.wav" id="60_v8i1b"]
+[ext_resource type="AudioStream" uid="uid://bfakof0pypkaf" path="res://SFX/NPC/Girl2/Hit2.wav" id="61_e7vxy"]
+[ext_resource type="AudioStream" uid="uid://btk462xyded1d" path="res://SFX/NPC/Girl1/Idle.wav" id="62_nh14u"]
+[ext_resource type="AudioStream" uid="uid://rcdupj6bog5o" path="res://SFX/NPC/Girl1/Death.wav" id="63_prnbq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ua71i"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -4425,6 +4430,17 @@ power_up_type = 2
 
 [node name="PowerUp8" parent="PowerUps" instance=ExtResource("3_5ng3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272589, 0.93067, 1.0964)
+
+[node name="NPC" parent="." instance=ExtResource("59_4yk5o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03533, 1.09566, 4.74325)
+
+[node name="NPC2" parent="." instance=ExtResource("59_4yk5o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2886, 1.09566, 4.74325)
+HitSounds = Array[AudioStream]([ExtResource("60_v8i1b"), ExtResource("61_e7vxy")])
+DeathSounds = Array[AudioStream]([ExtResource("62_nh14u"), ExtResource("63_prnbq")])
+
+[node name="Enemy2" parent="." instance=ExtResource("17_7w12x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.71187, 1.1272, 5.15355)
 
 [editable path="NavigationRegion3D/dirtground_updated-col"]
 [editable path="NavigationRegion3D/BUILDINGS/FarmAssets/grain_store"]

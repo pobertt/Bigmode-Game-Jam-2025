@@ -249,7 +249,6 @@ func change_health(damage):
 		deathtimer.start()
 		audio_stream_player.stream = audio_death
 		audio_stream_player.play(0.5)
-		Global.player_ref.killcount += 1
 		return
 	else:
 		var hitsounds = [hurtsound1, hurtsound2, hurtsound3, hurtsound4]
@@ -271,7 +270,11 @@ func _on_idle_timer_timeout() -> void:
 #once timer finishes, destroy node
 func _on_deathtimer_timeout() -> void:
 	skeleton.physical_bones_stop_simulation()
+	Global.player_ref.killcount += 1
+	Global.update_hud.emit()
+	print(Global.player_ref.killcount)
 	queue_free()
+	
 
 
 func _on_attacking_t_imer_timeout() -> void:

@@ -19,5 +19,5 @@ offset_bottom = 40.0
 visible = false
 material = SubResource("ShaderMaterial_20jx7")
 layout_mode = 0
-offset_right = 1150.0
-offset_bottom = 648.0
+offset_right = 2000.0
+offset_bottom = 2000.0

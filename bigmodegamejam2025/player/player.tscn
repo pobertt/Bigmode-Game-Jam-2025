@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://Achievements/AchievementManager.gd" id="12_xplt0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygf8x"]
-height = 2.5
+height = 2.25
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kcyex"]
 render_priority = 0
@@ -43,7 +43,7 @@ achievement_manager = NodePath("AchievementManager")
 parent = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.125, 0)
 shape = SubResource("CapsuleShape3D_ygf8x")
 
 [node name="PowerUps" parent="." node_paths=PackedStringArray("player_ref") instance=ExtResource("5_4g6ax")]
@@ -63,12 +63,11 @@ target_position = Vector3(0, 0, 0)
 
 [node name="shader" type="MeshInstance3D" parent="Head/Camera"]
 transform = Transform3D(1, -0.000161073, -0.00049253, 0.000160791, 1, -0.000566793, 0.000492622, 0.000566713, 1, 0.000684738, 0, -1.46264)
-visible = false
 material_override = SubResource("ShaderMaterial_kcyex")
 mesh = SubResource("QuadMesh_wec7u")
 
 [node name="Fist" parent="Head/Camera" instance=ExtResource("6_4xsi2")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.554441, -0.404013, 0.303861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.673, -0.466, -0.507)
 
 [node name="PParticle" parent="Head/Camera" instance=ExtResource("7_84ybi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.488138, -0.426556)
@@ -81,14 +80,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Blunt" parent="Head/Camera/obj_holder" index="1"]
 transform = Transform3D(0.291836, 0, 0.956468, 0, 1, 0, -0.956468, 0, 0.291836, 1.7709, 0.153323, -0.847921)
 
-[node name="Beer" parent="Head/Camera/obj_holder" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.188119, -0.982146, 0, 0.982146, 0.188119, 0, 0.504436, -2.65179)
-
-[node name="InteractRaycast" type="RayCast3D" parent="Head/Camera"]
+[node name="InteractRaycast" type="RayCast3D" parent="Head/Camera" node_paths=PackedStringArray("parent")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-target_position = Vector3(0, -5, 0)
+target_position = Vector3(0, -2, 0)
 collision_mask = 2
 script = ExtResource("9_gwui1")
+parent = NodePath("../../..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -100,3 +97,4 @@ script = ExtResource("12_xplt0")
 
 [editable path="Head/Camera/Control"]
 [editable path="Head/Camera/obj_holder"]
+[editable path="Head/Camera/obj_holder/snusgordic"]

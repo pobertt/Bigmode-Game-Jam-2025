@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1g253cf37klq"]
+
+[ext_resource type="Script" path="res://objects/test_hit.gd" id="1_enyyb"]
+[ext_resource type="AudioStream" uid="uid://f08rlpm5wbsj" path="res://SFX/landing.mp3" id="2_cwd80"]
+[ext_resource type="AudioStream" uid="uid://cc8j8vopxsurw" path="res://SFX/dead.mp3" id="3_cspp7"]
+[ext_resource type="PackedScene" uid="uid://re6lioal20n3" path="res://assets/animals/cat.tscn" id="4_00aqe"]
+[ext_resource type="Texture2D" uid="uid://c78nhxlujwhh8" path="res://assets/animals/catskin.png" id="5_aifu0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uahak"]
+albedo_texture = ExtResource("5_aifu0")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_52pbp"]
+points = PackedVector3Array(0.225713, 5.07643, 3.62498, -0.902483, -0.0507607, -1.91305, -0.902483, 0.154389, -1.91305, 0.943689, -0.0507607, -1.91305, 0.635933, 4.35814, -1.91305, 0.738398, -0.0507607, 1.98394, -0.697192, 4.35814, -1.91305, -0.667718, 0.648895, 2.30905, 0.215976, 3.2009, -2.78338, -0.184507, 5.28158, 3.52218, 0.691715, 1.94457, 2.45213, -0.6988, 2.25632, 2.14074, -0.677582, 0.0220775, 1.93911, 0.738398, 4.15299, -1.91305, -0.37353, 3.20597, -2.7117, 0.225713, 5.28158, 2.59885, -0.902483, 0.56469, -0.990366, -0.184507, 4.76844, 3.62498, -0.799837, 3.33291, -1.91305, 0.943689, 0.0520754, -1.50311, 0.695883, 0.686155, 2.27179, 0.225713, 5.28158, 3.52218, 0.214666, 2.90607, -2.76241, 0.738398, 4.15299, -1.70744, 0.405995, 3.19287, -2.64395, -0.184507, 5.28158, 2.59885, 0.225713, 4.76844, 3.62498, -0.697192, 4.35814, -1.70744, -0.716012, 0.866542, 2.09145, 0.508557, 0.370979, 2.19649, -0.902483, -0.0507607, -1.4003, -0.649938, 1.84956, 2.45034)
+
+[node name="cat" type="RigidBody3D" groups=["object"]]
+collision_layer = 3
+script = ExtResource("1_enyyb")
+audio_hit = ExtResource("2_cwd80")
+audio_death = ExtResource("3_cspp7")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="cat2" parent="." instance=ExtResource("4_00aqe")]
+
+[node name="Skeleton3D" parent="cat2/Armature" index="0"]
+bones/2/rotation = Quaternion(0.177485, -4.78538e-18, -8.54934e-17, 0.984124)
+bones/3/rotation = Quaternion(0.144435, -5.54798e-17, -4.62456e-17, 0.989514)
+bones/4/position = Vector3(0.390257, 1.23267, -0.983409)
+bones/6/position = Vector3(-0.390257, 0.584276, -0.847282)
+bones/6/rotation = Quaternion(-0.831247, 0.0383284, 0.065769, 0.550666)
+bones/7/rotation = Quaternion(-0.23232, 0.118583, -0.0497654, 0.9641)
+bones/8/rotation = Quaternion(-1.40829e-06, 0.354353, 0.935112, -5.33659e-07)
+bones/9/rotation = Quaternion(-0.141247, 9.14427e-14, -4.25438e-07, 0.989974)
+bones/10/rotation = Quaternion(-0.531792, -5.33754e-08, -1.75178e-06, 0.846875)
+bones/11/rotation = Quaternion(0.997733, 0.0670931, 0.000357557, -0.00531565)
+bones/12/rotation = Quaternion(-0.551393, -0.0453693, 0.0434573, 0.831877)
+bones/13/rotation = Quaternion(0.271102, 0.00405381, 0.0143912, 0.962434)
+bones/14/position = Vector3(-0.390257, 1.00514, -1.9796)
+bones/15/rotation = Quaternion(-0.459288, 0.0377908, -0.0462991, 0.886275)
+bones/16/rotation = Quaternion(0.357548, -0.00534641, -0.0139627, 0.933775)
+
+[node name="cat" parent="cat2/Armature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_uahak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_52pbp")
+
+[editable path="cat2"]

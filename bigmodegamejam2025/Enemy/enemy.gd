@@ -12,7 +12,7 @@ extends CharacterBody3D
 @onready var skeleton = $policeresizedanims/Armature/Skeleton3D
 @onready var enemy_capsule: CollisionShape3D = $EnemyCapsule
 @onready var vision_cone_collision: CollisionShape3D = $VisionArea/VisionConeCollision
-@onready var particles_collision: GPUParticlesCollisionSphere3D = $GPUParticlesCollisionSphere3D
+#@onready var particles_collision: GPUParticlesCollisionSphere3D = $GPUParticlesCollisionSphere3D
 @onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var attacking_timer: Timer = $AttackingTImer
 

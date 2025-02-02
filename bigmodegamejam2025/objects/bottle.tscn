@@ -14,10 +14,12 @@ audio_hit = ExtResource("2_3bjqg")
 audio_death = ExtResource("3_7ghdd")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("2_yscwc")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_ywg8d")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

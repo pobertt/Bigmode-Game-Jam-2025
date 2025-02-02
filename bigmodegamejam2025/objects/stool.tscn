@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dq02s1e3wxcro"]
+
+[ext_resource type="Script" path="res://objects/test_hit.gd" id="1_5dw2y"]
+[ext_resource type="AudioStream" uid="uid://f08rlpm5wbsj" path="res://SFX/landing.mp3" id="2_a4c1y"]
+[ext_resource type="AudioStream" uid="uid://cc8j8vopxsurw" path="res://SFX/dead.mp3" id="3_l7doe"]
+[ext_resource type="ArrayMesh" uid="uid://dfteukk85nrr5" path="res://assets/bar/res/stool.res" id="4_8ofq7"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ykvxd"]
+points = PackedVector3Array(0.0706198, 0.394862, 0.0718677, -0.220084, -0.542013, -0.20445, -0.217808, -0.56885, 0.227008, 0.211528, -0.537239, -0.216662, 0.21499, -0.54488, 0.21619, 0.213887, 0.268123, -0.219184, -0.018932, 0.318526, 0.25765, 0.219226, 0.27696, 0.220426, -0.195213, 0.363405, -0.194013, -0.222665, 0.27182, 0.217265, -0.0179201, 0.359427, -0.23611, 0.23852, 0.332836, 0.0122705, 0.133981, -0.56885, -0.231929, -0.180712, 0.379003, 0.175204, -0.23308, -0.56885, -0.124831, -0.218005, 0.264602, -0.216852, 0.186821, 0.374193, -0.177621, 0.187316, 0.37542, 0.188468, -0.231454, 0.348782, 0.0408316, -0.0772312, 0.393831, -0.0760789, 0.189608, -0.554493, 0.220504, -0.23097, 0.347901, -0.0446184, -0.180567, 0.378643, -0.179415, -0.0328824, 0.378613, 0.219338, 0.215933, 0.373899, -0.0458943, 0.0705013, 0.394019, -0.0761112, -0.00334181, 0.375285, -0.222064, -0.210252, 0.378857, 0.0569011, 0.238184, 0.303882, -0.00186035, -0.190448, 0.352817, 0.199648, -0.0624799, 0.393866, 0.0717277, 0.199924, 0.356006, 0.201077)
+
+[node name="stool" type="RigidBody3D" groups=["enemy"]]
+script = ExtResource("1_5dw2y")
+audio_hit = ExtResource("2_a4c1y")
+audio_death = ExtResource("3_l7doe")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_8ofq7")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_ykvxd")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

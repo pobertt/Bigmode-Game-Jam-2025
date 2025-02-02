@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3ohi07opqlj8"]
+
+[ext_resource type="Script" path="res://objects/keg.gd" id="1_ysa0w"]
+[ext_resource type="ArrayMesh" uid="uid://illgwmeefgfo" path="res://assets/bar/res/keg.res" id="4_hfjnr"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b3epj"]
+points = PackedVector3Array(-0.234172, 0.409169, -0.6426, 0.409046, 0.125056, -0.201935, 0.408854, 0.0820962, -0.201929, -0.395167, -0.247064, 0.185427, 0.0646193, -0.275297, -0.645252, -0.050278, 0.486781, 0.144917, 0.395789, -0.321763, 0.140639, 0.350379, 0.267843, -0.644891, -0.365397, -0.018265, -0.64661, -0.365505, 0.225443, 0.142201, 0.319418, 0.323393, 0.138566, 0.0227123, -0.142636, 0.289963, 0.136171, 0.468192, -0.645195, -0.410073, -0.321763, 0.140639, 0.367834, -0.0188696, -0.648887, -0.407154, 0.182105, -0.37341, -0.150678, -0.248671, -0.647782, -0.206234, 0.466793, -0.358526, 0.206014, 0.465452, -0.301177, 0.235232, -0.202414, -0.643295, -0.0211525, 0.512701, -0.446, -0.249916, 0.396686, 0.141148, 0.135512, 0.466422, 0.13958, -0.333867, 0.352399, -0.372452, 0.37907, 0.18217, 0.140999, -0.0369965, -0.232074, 0.289963, -0.0211365, -0.305173, -0.417143, 0.363348, 0.309994, -0.37264, -0.364833, 0.225219, -0.645901, 0.380882, -0.232074, 0.185427, 0.409404, 0.0820673, -0.445912, -0.304717, -0.130484, -0.641693)
+
+[sub_resource type="Curve" id="Curve_qxwnv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0869565, 0.56044), 0.0, 0.0, 0, 0, Vector2(0.731884, 0.989011), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_6fmvi"]
+curve = SubResource("Curve_qxwnv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s3hxo"]
+particle_flag_align_y = true
+direction = Vector3(0, 0.27, -0.49)
+spread = 2.5
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, -5, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_6fmvi")
+color = Color(1, 0.9145, 0.43, 0.0705882)
+hue_variation_min = -0.08
+hue_variation_max = 0.02
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jd8ut"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+uv1_triplanar = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_1c7k3"]
+material = SubResource("StandardMaterial3D_jd8ut")
+radius = 0.025
+height = 0.146
+
+[node name="keg" type="RigidBody3D" groups=["object"]]
+collision_layer = 3
+mass = 1000.0
+script = ExtResource("1_ysa0w")
+
+[node name="mesh" type="MeshInstance3D" parent="." groups=["object"]]
+mesh = ExtResource("4_hfjnr")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_b3epj")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="3dparticle" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.995106, 0, 0.0988162, 0.0368476, 0.927875, 0.371066, -0.0916891, 0.372891, -0.923334, 0, -0.156212, 0)
+emitting = false
+amount = 100
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_s3hxo")
+draw_pass_1 = SubResource("SphereMesh_1c7k3")

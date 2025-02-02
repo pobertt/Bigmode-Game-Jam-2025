@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0u7hlwunax61"]
+
+[ext_resource type="PackedScene" uid="uid://o2cb25cwnn3m" path="res://assets/buildings/house/house-col.blend" id="1_ga7ca"]
+[ext_resource type="Texture2D" uid="uid://bh4p81kwhw8hs" path="res://assets/buildings/house/house_BaseColor.png" id="2_jupbe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0agul"]
+albedo_texture = ExtResource("2_jupbe")
+
+[node name="house-col" instance=ExtResource("1_ga7ca")]
+
+[node name="house_005" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0agul")

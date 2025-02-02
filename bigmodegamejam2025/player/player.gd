@@ -21,6 +21,7 @@ var DAMAGE_SOUNDS = [
 
 @onready var bullet_raycast : RayCast3D = $Head/Camera/Bullet_RayCast3D
 @onready var weapon_holder: Node3D = $Head/Camera/WeaponHolder
+@onready var interact_raycast: RayCast3D = $Head/Camera/InteractRaycast
 
 # Stats
 
@@ -51,7 +52,7 @@ var ammo : Dictionary = {
 # Movement Var
 
 var speed = WALK_SPEED
-const WALK_SPEED = 8
+const WALK_SPEED = 12
 const JUMP_VELOCITY = 4.5
 
 # CAM VARS

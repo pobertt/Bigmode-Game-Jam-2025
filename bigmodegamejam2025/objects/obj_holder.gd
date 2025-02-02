@@ -5,6 +5,7 @@ extends Node3D
 @onready var blunt: MeshInstance3D = $Blunt
 @onready var pills: MeshInstance3D = $Pills
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var snus: Node3D = $snusgordic
 
 var obj_enum = PowerUps.PowerUpType
 
@@ -21,6 +22,7 @@ func lighting_blunt():
 	lighter.visible = true
 	pills.visible = false
 	beer.visible = false
+	snus.visible = false
 	anim_player.play("lighting_blunt")
 
 func drinking_beer():
@@ -29,12 +31,19 @@ func drinking_beer():
 	blunt.visible = false
 	lighter.visible = false
 	pills.visible = false
+	snus.visible = false
 	beer.visible = true
 	anim_player.play("drinking")
 
 func taking_snus():
 	print("snus destroyer")
 	obj_enum = PowerUps.PowerUpType.SNUSING
+	snus.visible = true
+	blunt.visible = false
+	lighter.visible = false
+	beer.visible = false
+	pills.visible = false
+	anim_player.play("snus")
 
 func taking_pills():
 	print("pill lover")
@@ -42,6 +51,7 @@ func taking_pills():
 	blunt.visible = false
 	lighter.visible = false
 	beer.visible = false
+	snus.visible = false
 	pills.visible = true
 	anim_player.play("pills")
 

@@ -1,0 +1,149 @@
+[gd_scene load_steps=23 format=3 uid="uid://c604rdn2ek2r0"]
+
+[ext_resource type="Script" path="res://objects/fuel_tank.gd" id="1_btipp"]
+[ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://SFX/melee_swing.mp3" id="2_tj8yt"]
+[ext_resource type="AudioStream" uid="uid://cc8j8vopxsurw" path="res://SFX/dead.mp3" id="3_qrys3"]
+[ext_resource type="ArrayMesh" uid="uid://m7s2qtavr458" path="res://assets/cars/CARS_RES/car2.res" id="4_kj33i"]
+[ext_resource type="Texture2D" uid="uid://bai235wugtswo" path="res://addons/kenney_particle_pack/smoke_05.png" id="5_4q8xc"]
+[ext_resource type="Texture2D" uid="uid://bvk7xx75ogi4c" path="res://addons/kenney_particle_pack/smoke_04.png" id="6_vb6bu"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wji2r"]
+points = PackedVector3Array(-1.74769, 1.50151, -2.05623, -1.74769, 1.50151, -1.75646, 1.20445, -3.07709, -0.779645, 1.16066, 1.20747, -2.65508, -1.38446, -2.10092, -0.0186201, -1.07021, -2.51483, -2.66233, -1.38948, 2.59256, -0.109515, 1.4513, 2.0013, 0.0426577, 1.07169, -2.50976, -2.6597, 1.75133, 1.7013, -2.0565, -0.616555, 2.85767, -1.54718, 1.3847, -2.09576, -0.0219099, -1.1597, 1.2106, -2.65844, -1.20063, -3.07748, -0.779572, 1.20896, -2.79881, -2.22606, 1.25812, 2.70182, -1.54297, -1.29046, -2.86951, -1.73954, 0.520111, 3.02027, -0.413951, -1.19895, 2.88483, -1.26135, -1.37851, 2.38188, -0.0243695, 1.35056, -2.50902, -1.63589, 1.39328, 2.59286, -0.109635, -0.716753, -2.77775, -2.41132, 1.75133, 1.50151, -1.75646, 1.16149, -2.87409, -0.5223, -1.17621, 2.92473, -0.414272, 1.19265, 2.95569, -0.880887, -1.3847, -2.29299, -0.113799, -1.74769, 1.7013, -2.05623, 0.620456, 2.85736, -1.54715, -0.516291, 3.01736, -0.88617, -1.25405, 2.5137, -1.72876)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1nla4"]
+
+[sub_resource type="Curve" id="Curve_jbj6u"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.417241, 0.13757), 0.734702, 0.734702, 0, 0, Vector2(0.537931, 0.300978), 1.0191, 1.0191, 0, 0, Vector2(0.603448, 0.418994), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_go78i"]
+curve = SubResource("Curve_jbj6u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mon32"]
+particle_flag_rotate_y = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.5
+angular_velocity_min = 8.99998
+angular_velocity_max = 11.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -0.100002
+linear_accel_max = 0.199998
+alpha_curve = SubResource("CurveTexture_go78i")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_65kxa"]
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fh5w"]
+render_priority = 2
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.219501, 0.219501, 0.219501, 1)
+albedo_texture = ExtResource("5_4q8xc")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_65kxa")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_ar84i"]
+lightmap_size_hint = Vector2i(52, 52)
+material = SubResource("StandardMaterial3D_5fh5w")
+size = Vector2(20, 20)
+
+[sub_resource type="Curve" id="Curve_q0nlk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_t8swe"]
+curve = SubResource("Curve_q0nlk")
+
+[sub_resource type="Gradient" id="Gradient_hjvw8"]
+offsets = PackedFloat32Array(0, 0.301527)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.0392157, 0.0235294, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vm3mj"]
+gradient = SubResource("Gradient_hjvw8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mh8m8"]
+particle_flag_rotate_y = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 0.35
+initial_velocity_max = 0.75
+angular_velocity_min = 8.99998
+angular_velocity_max = 11.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -0.100002
+linear_accel_max = 0.199998
+color_ramp = SubResource("GradientTexture1D_vm3mj")
+alpha_curve = SubResource("CurveTexture_t8swe")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k0f8q"]
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbo31"]
+render_priority = 2
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.504899, 0.28111, 4.81307e-07, 1)
+albedo_texture = ExtResource("6_vb6bu")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_k0f8q")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_u2akc"]
+material = SubResource("StandardMaterial3D_lbo31")
+size = Vector2(5, 5)
+
+[node name="car1" type="RigidBody3D" groups=["enemy"]]
+script = ExtResource("1_btipp")
+audio_hit = ExtResource("2_tj8yt")
+audio_death = ExtResource("3_qrys3")
+obj_type = 1
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0117458, -0.999931, 4.37084e-08, 0, -4.37114e-08, -1, 0.999931, -0.0117458, 5.13426e-10, 0, 0, 0)
+mesh = ExtResource("4_kj33i")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.0117458, -0.999931, 4.37084e-08, 0, -4.37114e-08, -1, 0.999931, -0.0117458, 5.13426e-10, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_wji2r")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("BoxShape3D_1nla4")
+
+[node name="explosion1" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0573, -1.04381)
+emitting = false
+amount = 32
+lifetime = 2.3
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_mon32")
+draw_pass_1 = SubResource("QuadMesh_ar84i")
+
+[node name="explosion2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11305, 0.986165, -1.15489)
+emitting = false
+amount = 12
+lifetime = 0.5
+speed_scale = 1.35
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_mh8m8")
+draw_pass_1 = SubResource("QuadMesh_u2akc")

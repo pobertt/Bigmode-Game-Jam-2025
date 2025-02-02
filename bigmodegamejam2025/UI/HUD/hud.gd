@@ -7,6 +7,7 @@ extends Control
 @onready var health_count_label: Label = $Control/HealthCount_Label
 @onready var ammo_count_label: Label = $Control2/AmmoCount_Label
 @onready var kill_count_label: Label = $KillCountLabel
+@onready var power_label: Label = $POWERLabel
 
 var paused : bool
 
@@ -33,6 +34,8 @@ func _on_update_hud():
 	health_count_label.text = "%s" % player.health
 	
 	kill_count_label.text = "Kill Count: %s" % player.killcount
+	
+	power_label.text = "POWER: %s" % player.strength
 	
 	if player.health <= 0:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

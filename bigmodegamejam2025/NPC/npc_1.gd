@@ -12,7 +12,6 @@ extends CharacterBody3D
 @onready var skeleton = $animsfornpc/Armature/Skeleton3D
 @onready var enemy_capsule: CollisionShape3D = $CollisionShape3D
 @onready var vision_cone_collision: CollisionShape3D = $VisionArea/VisionConeCollision
-@onready var particles_collision: GPUParticlesCollisionSphere3D = $GPUParticlesCollisionSphere3D
 @onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var attacking_timer: Timer = $AttackingTimer
 
@@ -251,8 +250,7 @@ func change_health(damage):
 		audio_stream_player.play()
 		return
 	else:
-		audio_stream_player.stream = HitSounds[randi_range(0, HitSounds.size() - 1)]
-		audio_stream_player.play()
+		hit_sounds()
 		look_at(Vector3(Global.player_ref.global_transform.origin.x, global_position.y, Global.player_ref.global_transform.origin.z), Vector3.UP, true)
 	
 #on idle timer end
@@ -276,3 +274,7 @@ func _on_deathtimer_timeout() -> void:
 
 func _on_attacking_timer_timeout() -> void:
 	_on_idle_timer_timeout()
+
+func hit_sounds():
+	audio_stream_player.stream = HitSounds[randi_range(0, HitSounds.size() - 1)]
+	audio_stream_player.play()

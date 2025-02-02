@@ -70,15 +70,19 @@ func _on_power_up_collected(power_up_type):
 	match power_up_type:
 		power_ups.PowerUpType.SMOKING:
 			_apply_smoking_effect()
+			Global.update_hud.emit()
 			
 		power_ups.PowerUpType.DRINKING:
 			_apply_drinking_effect()
+			Global.update_hud.emit()
 			
 		power_ups.PowerUpType.SNUSING:
 			_apply_snusing_effect()
+			Global.update_hud.emit()
 			
 		power_ups.PowerUpType.PILLS:
 			_apply_pills_effect()
+			Global.update_hud.emit()
 	# Check for combo
 	
 	_check_for_comboA()

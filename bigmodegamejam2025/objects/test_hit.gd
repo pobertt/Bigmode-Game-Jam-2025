@@ -24,7 +24,9 @@ enum ObjectType {
 	NORMAL,
 	EXPLOSIVE,
 	CAT,
-	KEG
+	KEG,
+	VENDING_MACHINE,
+	FOOD
 }
 
 func change_health(damage):
@@ -54,7 +56,6 @@ func change_health(damage):
 func _process(delta: float) -> void:
 	if audio_stream_player.stream == audio_death && audio_stream_player.playing == false:
 		self.queue_free()
-	
 
 func push_away_objects():
 	for body in $Area3D.get_overlapping_bodies():
@@ -75,3 +76,8 @@ func push_away_objects():
 			body.velocity += explosion_vec * explosion_force
 			if body.has_method("change_health"):
 				body.change_health(explosion_damage)
+
+func eaten():
+	Global.pills.emit()
+	await get_tree().create_timer(0.25).timeout
+	self.queue_free()

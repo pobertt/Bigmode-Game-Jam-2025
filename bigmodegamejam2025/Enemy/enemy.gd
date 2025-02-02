@@ -251,7 +251,7 @@ func change_health(damage):
 		audio_stream_player.play(0.5)
 		return
 	else:
-		
+		hit_sounds()
 		look_at(Vector3(Global.player_ref.global_transform.origin.x, global_position.y, Global.player_ref.global_transform.origin.z), Vector3.UP, true)
 	
 	

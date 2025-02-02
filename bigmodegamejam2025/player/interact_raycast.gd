@@ -22,9 +22,9 @@ func _process(delta: float) -> void:
 		Global.update_interact.emit()
 		
 		if Input.is_action_pressed("interact"):
-			if get_collider().is_in_group("enemy"):
+			if get_collider() && get_collider().is_in_group("enemy"):
 				print("HELD interact enemy")
-			if get_collider().is_in_group("object"):
+			if get_collider() && get_collider().is_in_group("object") :
 				var obj = get_obj()
 				if obj.obj_type == 3 and parent.bladder <= 1000:
 					obj.keg_particle.emitting = true
@@ -37,16 +37,16 @@ func _process(delta: float) -> void:
 					print("food")
 					
 	
-		elif Input.is_action_just_released("interact") and get_collider().is_in_group("object"):
+		elif Input.is_action_just_released("interact") and get_collider() and get_collider().is_in_group("object"):
 			var obj = get_obj()
 			if obj.obj_type == 3:
 				obj.keg_particle.emitting = false
 		
 		if Input.is_action_just_pressed("interact"):
-			if get_collider().is_in_group("enemy"):
+			if get_collider() and get_collider().is_in_group("enemy"):
 				var enemy = get_collider()
 				enemy.hit_sounds()
-			if get_collider().is_in_group("object"):
+			if get_collider() and get_collider().is_in_group("object"):
 				var obj = get_obj()
 				if obj.obj_type == 3:
 					var random_drinking_sound = DRINKING_SOUNDS[randi() % DRINKING_SOUNDS.size()]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://de1gebfnxt8qp"]
+[gd_scene load_steps=3 format=3 uid="uid://de1gebfnxt8qp"]
 
 [ext_resource type="Script" path="res://UI/pause_menu/pause_menu.gd" id="1_4d25c"]
+[ext_resource type="FontFile" uid="uid://bbl7j4o5fvnwj" path="res://UI/emotion-engine-18002/EmotionEngine-8ynA.ttf" id="2_rllij"]
 
 [node name="pause_menu" type="Control"]
 process_mode = 3
@@ -40,6 +41,8 @@ alignment = 1
 
 [node name="GameLabel" type="Label" parent="CenterContainer/Panel/MarginContainer/Button_Container"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rllij")
+theme_override_font_sizes/font_size = 30
 text = "Pound Town
 "
 horizontal_alignment = 1
@@ -51,12 +54,16 @@ layout_mode = 2
 [node name="Resume_Button" type="Button" parent="CenterContainer/Panel/MarginContainer/Button_Container"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rllij")
+theme_override_font_sizes/font_size = 30
 text = "Resume
 "
 
 [node name="Quit_Button" type="Button" parent="CenterContainer/Panel/MarginContainer/Button_Container"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rllij")
+theme_override_font_sizes/font_size = 30
 text = "Main Menu"
 
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/Button_Container/Resume_Button" to="." method="_on_resume_button_pressed"]

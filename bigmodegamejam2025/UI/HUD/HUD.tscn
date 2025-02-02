@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1118cqtdm1xd"]
+[gd_scene load_steps=8 format=3 uid="uid://c1118cqtdm1xd"]
 
 [ext_resource type="Texture2D" uid="uid://pqw4p130xr0g" path="res://UI/HUD/reticle.png" id="1_1fxo2"]
 [ext_resource type="Script" path="res://UI/HUD/hud.gd" id="1_f63ty"]
 [ext_resource type="PackedScene" uid="uid://bs8u5dly1knov" path="res://UI/menu/gameover.tscn" id="3_5hp2p"]
+[ext_resource type="FontFile" uid="uid://bbl7j4o5fvnwj" path="res://UI/emotion-engine-18002/EmotionEngine-8ynA.ttf" id="3_q4qw3"]
 [ext_resource type="Texture2D" uid="uid://tvtqx6u6wo1m" path="res://UI/HUD/heart.png" id="4_rql76"]
 [ext_resource type="Texture2D" uid="uid://dx56u3l4xliv3" path="res://UI/HUD/blood.png" id="5_wf5jt"]
 [ext_resource type="Texture2D" uid="uid://2ud0irekr1r2" path="res://UI/HUD/bullet.png" id="6_am2f0"]
@@ -52,6 +53,7 @@ offset_left = -18.0
 offset_top = -9.0
 offset_right = 90.0
 offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_q4qw3")
 text = "Q to PISS"
 
 [node name="ProgressBar" type="ProgressBar" parent="Piss_Control"]
@@ -80,12 +82,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -149.0
+offset_left = -146.0
 offset_top = 122.0
-offset_right = -1.0
-offset_bottom = 145.0
+offset_right = 155.0
+offset_bottom = 167.0
 grow_horizontal = 2
-scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_q4qw3")
+theme_override_font_sizes/font_size = 40
 text = "E to INTERACT idiot"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -135,6 +138,7 @@ offset_top = 607.0
 offset_right = 598.0
 offset_bottom = 649.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_q4qw3")
 theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1
@@ -189,6 +193,7 @@ offset_right = 104.0
 offset_bottom = 619.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_q4qw3")
 theme_override_font_sizes/font_size = 30
 text = "6 / 6"
 horizontal_alignment = 1
@@ -199,7 +204,8 @@ offset_left = 61.0
 offset_top = 27.0
 offset_right = 140.0
 offset_bottom = 50.0
-scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("3_q4qw3")
+theme_override_font_sizes/font_size = 30
 text = "Kill Count:"
 
 [node name="POWERLabel" type="Label" parent="."]
@@ -208,7 +214,8 @@ offset_left = 62.0
 offset_top = 60.0
 offset_right = 141.0
 offset_bottom = 83.0
-scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("3_q4qw3")
+theme_override_font_sizes/font_size = 30
 text = "POWER:"
 
 [node name="ControlLabel" type="Control" parent="."]
@@ -218,8 +225,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -56.0
+offset_top = -20.0
+offset_right = -16.0
+offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -229,6 +238,8 @@ offset_left = -188.0
 offset_top = -11.0
 offset_right = 22.0
 offset_bottom = 12.0
+theme_override_fonts/font = ExtResource("3_q4qw3")
+theme_override_font_sizes/font_size = 20
 text = "1 Pistol, 2 Shotgun, F Melee"
 
 [node name="Control3" type="Control" parent="."]
@@ -250,6 +261,8 @@ anchor_right = 1.0
 offset_left = -268.0
 offset_bottom = 153.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_q4qw3")
+theme_override_font_sizes/font_size = 20
 text = "Quests:
 Use vending machine ( gas station)
 Drink from keg (bar)

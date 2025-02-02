@@ -85,6 +85,10 @@ transform = Transform3D(1, 0, 0, 0, 0.188119, -0.982146, 0, 0.982146, 0.188119, 
 
 [node name="snusgordic" parent="Head/Camera/obj_holder" index="4"]
 transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, -0.311, -0.0456771)
+visible = true
+
+[node name="Cylinder" parent="Head/Camera/obj_holder/snusgordic" index="0"]
+cast_shadow = 1
 
 [node name="InteractRaycast" type="RayCast3D" parent="Head/Camera" node_paths=PackedStringArray("parent")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bhvov8bj68qid"]
+[gd_scene load_steps=23 format=3 uid="uid://bhvov8bj68qid"]
 
 [ext_resource type="Script" path="res://objects/fuel_tank.gd" id="1_pmpnu"]
 [ext_resource type="AudioStream" uid="uid://tl7kvp8204ni" path="res://SFX/melee_swing.mp3" id="2_u5uk4"]
@@ -14,7 +14,7 @@ points = PackedVector3Array(-258.653, -40.218, -178.264, -304.073, -85.4498, -13
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.417241, 0.13757), 0.734702, 0.734702, 0, 0, Vector2(0.537931, 0.300978), 1.0191, 1.0191, 0, 0, Vector2(0.603448, 0.418994), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 5
 
-[sub_resource type="CurveTexture" id="CurveTexture_1q16v"]
+[sub_resource type="CurveTexture" id="CurveTexture_gcq0v"]
 curve = SubResource("Curve_1spcj")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k7vde"]
@@ -29,27 +29,41 @@ angular_velocity_max = 11.0
 gravity = Vector3(0, 0, 0)
 linear_accel_min = -0.100002
 linear_accel_max = 0.199998
-alpha_curve = SubResource("CurveTexture_1q16v")
+alpha_curve = SubResource("CurveTexture_gcq0v")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nk611"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ho2m4"]
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3gdq"]
+render_priority = 2
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.219501, 0.219501, 0.219501, 1)
 albedo_texture = ExtResource("3_0na6n")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_ho2m4")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_43guk"]
-material = SubResource("StandardMaterial3D_nk611")
-size = Vector2(10, 10)
+lightmap_size_hint = Vector2i(52, 52)
+material = SubResource("StandardMaterial3D_k3gdq")
+size = Vector2(20, 20)
 
 [sub_resource type="Curve" id="Curve_afxbv"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_wh8qa"]
+[sub_resource type="CurveTexture" id="CurveTexture_ht4r3"]
 curve = SubResource("Curve_afxbv")
 
 [sub_resource type="Gradient" id="Gradient_a0vuv"]
 offsets = PackedFloat32Array(0, 0.301527)
 colors = PackedColorArray(1, 1, 0, 1, 1, 0.0392157, 0.0235294, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_suxkx"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sjpuj"]
 gradient = SubResource("Gradient_a0vuv")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pmvw2"]
@@ -64,15 +78,28 @@ angular_velocity_max = 11.0
 gravity = Vector3(0, 0, 0)
 linear_accel_min = -0.100002
 linear_accel_max = 0.199998
-color_ramp = SubResource("GradientTexture1D_suxkx")
-alpha_curve = SubResource("CurveTexture_wh8qa")
+color_ramp = SubResource("GradientTexture1D_sjpuj")
+alpha_curve = SubResource("CurveTexture_ht4r3")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wb5v"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mqgfa"]
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sijxe"]
+render_priority = 2
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.504899, 0.28111, 4.81307e-07, 1)
 albedo_texture = ExtResource("3_l2npg")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_mqgfa")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_hfvcn"]
-material = SubResource("StandardMaterial3D_6wb5v")
-size = Vector2(2, 2)
+material = SubResource("StandardMaterial3D_sijxe")
+size = Vector2(5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1nla4"]
 
@@ -81,6 +108,7 @@ script = ExtResource("1_pmpnu")
 audio_hit = ExtResource("2_u5uk4")
 audio_death = ExtResource("3_pxbhk")
 obj_type = 1
+explosion_force = 20.0
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
@@ -94,10 +122,10 @@ shape = SubResource("ConvexPolygonShape3D_c1soh")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
 [node name="explosion1" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0573, -1.04381)
 emitting = false
 amount = 32
 lifetime = 2.3
-one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
@@ -105,10 +133,10 @@ process_material = SubResource("ParticleProcessMaterial_k7vde")
 draw_pass_1 = SubResource("QuadMesh_43guk")
 
 [node name="explosion2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11305, 0.986165, -1.15489)
 emitting = false
 amount = 12
 lifetime = 0.5
-one_shot = true
 speed_scale = 1.35
 explosiveness = 1.0
 randomness = 1.0

@@ -28,7 +28,7 @@ var combo_active = false
 var combo_timer = 0.0
 var combo_duration = 5.0  # combo length 
 var clear_timer = 0.0  # Timer for clearing collected power-ups
-var clear_duration = 5.0  # power-up length
+var clear_duration = 10.0  # power-up length
 var collected_p = false
 var original_fov : float
 
@@ -145,7 +145,7 @@ func _apply_snusing_effect():
 	
 	var tween := create_tween()
 	
-	player_ref.snusM += 2.5
+	player_ref.snusM += 0.5
 	tween.tween_property(player_ref.camera, "fov", 75 + 20, 1)
 
 func _apply_pills_effect():
@@ -203,7 +203,7 @@ func clear_collected_powerups():
 	
 	if power_ups.PowerUpType.SNUSING in collected_powerups:
 		var tween := create_tween()
-		player_ref.snusM += 1
+		player_ref.snusM = 1
 		tween.tween_property(player_ref.camera, "fov", original_fov, 1)
 	
 	collected_powerups.clear()  # Clear the list

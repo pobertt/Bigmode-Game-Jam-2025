@@ -133,8 +133,8 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		if get_direction():
-			velocity.x = get_direction().x * speed
-			velocity.z = get_direction().z * speed
+			velocity.x = get_direction().x * speed * snusM
+			velocity.z = get_direction().z * speed * snusM
 		else:
 			velocity.x = lerp(velocity.x, get_direction().x * speed, delta * 7.0)
 			velocity.z = lerp(velocity.z, get_direction().x * speed, delta * 7.0)

@@ -57,7 +57,7 @@ text = "Resume
 [node name="Quit_Button" type="Button" parent="CenterContainer/Panel/MarginContainer/Button_Container"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "Quit Game"
+text = "Main Menu"
 
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/Button_Container/Resume_Button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/MarginContainer/Button_Container/Quit_Button" to="." method="_on_quit_button_pressed"]

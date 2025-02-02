@@ -45,6 +45,10 @@ func _ready():
 	achievements.append(Achievement.new())
 	achievements[6].name = "Pick a struggle"
 	achievements[6].description = "Collect all power-up types!"
+	
+	achievements.append(Achievement.new())
+	achievements[7].name = "Lets Go Gambling"
+	achievements[7].description = "win on the fruit machine"
 	# Add more achievements as needed...
 
 func unlock_achievement(achievement_name: String):

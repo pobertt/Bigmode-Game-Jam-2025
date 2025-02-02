@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0qpk7iqv04tn"]
+
+[ext_resource type="Script" path="res://SM.gd" id="1_pvb2w"]
+[ext_resource type="Texture2D" uid="uid://cf8p6fqlntmq8" path="res://Slot Machine/slot icons/apple.png" id="2_t72d4"]
+[ext_resource type="Texture2D" uid="uid://b0m6v6ta0lls0" path="res://Slot Machine/slot icons/coin.png" id="3_3eyj1"]
+[ext_resource type="Texture2D" uid="uid://cfh2u34wbbpl3" path="res://Slot Machine/slot icons/Seven.png" id="4_rxq7r"]
+[ext_resource type="Script" path="res://Achievements/AchievementManager.gd" id="5_62mfb"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("achievement_manager")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1146.0
+offset_bottom = 649.0
+script = ExtResource("1_pvb2w")
+image1 = ExtResource("2_t72d4")
+image2 = ExtResource("3_3eyj1")
+image3 = ExtResource("4_rxq7r")
+achievement_manager = NodePath("AchievementManager")
+
+[node name="Slot1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 228.0
+offset_right = 389.0
+offset_bottom = 389.0
+
+[node name="Slot2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 231.0
+offset_right = 659.0
+offset_bottom = 392.0
+
+[node name="Slot3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 234.0
+offset_right = 961.0
+offset_bottom = 395.0
+
+[node name="AchievementManager" type="Node3D" parent="."]
+script = ExtResource("5_62mfb")

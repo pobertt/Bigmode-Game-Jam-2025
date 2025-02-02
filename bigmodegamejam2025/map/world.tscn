@@ -1,4 +1,4 @@
-[gd_scene load_steps=264 format=4 uid="uid://dlsqp5lw5rpwi"]
+[gd_scene load_steps=265 format=4 uid="uid://dlsqp5lw5rpwi"]
 
 [ext_resource type="Script" path="res://map/world.gd" id="1_1pn0n"]
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="1_w1kce"]
@@ -63,14 +63,15 @@
 [ext_resource type="AudioStream" uid="uid://bfakof0pypkaf" path="res://SFX/NPC/Girl2/Hit2.wav" id="61_e7vxy"]
 [ext_resource type="AudioStream" uid="uid://btk462xyded1d" path="res://SFX/NPC/Girl1/Idle.wav" id="62_nh14u"]
 [ext_resource type="AudioStream" uid="uid://rcdupj6bog5o" path="res://SFX/NPC/Girl1/Death.wav" id="63_prnbq"]
-[ext_resource type="Texture2D" uid="uid://bgc5togkia1xq" path="res://assets/buildings/DINEr/DINER/DINER/textures/Metal_02.jpg" id="64_7t0ua"]
-[ext_resource type="Texture2D" uid="uid://nxlei4sbai8v" path="res://assets/buildings/DINEr/DINER/DINER/textures/Wire.png" id="65_g2tm2"]
-[ext_resource type="Texture2D" uid="uid://khclvdpb5lv6" path="res://assets/buildings/DINEr/DINER/DINER/textures/Dumpster.png" id="66_i70ub"]
-[ext_resource type="Texture2D" uid="uid://bgqt06et0svhi" path="res://assets/buildings/DINEr/DINER/DINER/textures/Garbage_bag.png" id="67_8t0cu"]
-[ext_resource type="Texture2D" uid="uid://cw4uttb4cm7gq" path="res://assets/buildings/DINEr/DINER/DINER/textures/Trash_01.png" id="68_t07lk"]
+[ext_resource type="Texture2D" uid="uid://bgc5togkia1xq" path="res://assets/buildings/DINEr/DINER/DINER/Textures/Metal_02.jpg" id="64_7t0ua"]
+[ext_resource type="Texture2D" uid="uid://nxlei4sbai8v" path="res://assets/buildings/DINEr/DINER/DINER/Textures/Wire.png" id="65_g2tm2"]
+[ext_resource type="Texture2D" uid="uid://khclvdpb5lv6" path="res://assets/buildings/DINEr/DINER/DINER/Textures/Dumpster.png" id="66_i70ub"]
+[ext_resource type="Texture2D" uid="uid://bgqt06et0svhi" path="res://assets/buildings/DINEr/DINER/DINER/Textures/Garbage_bag.png" id="67_8t0cu"]
+[ext_resource type="Texture2D" uid="uid://cw4uttb4cm7gq" path="res://assets/buildings/DINEr/DINER/DINER/Textures/Trash_01.png" id="68_t07lk"]
 [ext_resource type="PackedScene" uid="uid://wwgbkm0ppfor" path="res://assets/buildings/Trailer/trailer.tscn" id="69_1lt4b"]
-[ext_resource type="Texture2D" uid="uid://6265y0b504pr" path="res://assets/buildings/Trailer/Trailer_Park/textures/Toilet.png" id="70_uvrg6"]
-[ext_resource type="Texture2D" uid="uid://bsof3ma2e5dg" path="res://assets/buildings/Trailer/Trailer_Park/textures/TV.png" id="71_8uxna"]
+[ext_resource type="Texture2D" uid="uid://6265y0b504pr" path="res://assets/buildings/Trailer/Trailer_Park/Textures/Toilet.png" id="70_uvrg6"]
+[ext_resource type="Texture2D" uid="uid://bsof3ma2e5dg" path="res://assets/buildings/Trailer/Trailer_Park/Textures/TV.png" id="71_8uxna"]
+[ext_resource type="PackedScene" uid="uid://d0qpk7iqv04tn" path="res://Slot Machine/Slot.tscn" id="72_1db5x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ua71i"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -1332,7 +1333,6 @@ albedo_texture = ExtResource("9_pskil")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2g8u"]
 resource_name = "Dumpster"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("66_i70ub")
 emission_enabled = true
 
@@ -1692,7 +1692,6 @@ albedo_texture = ExtResource("15_5imwt")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lc0ow"]
 resource_name = "Garbage_bag"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("67_8t0cu")
 emission_enabled = true
 
@@ -1810,7 +1809,6 @@ points = PackedVector3Array(-0.00235618, -0.00276813, -0.00363321, 0.00462698, 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1mrp"]
 resource_name = "Trash_01"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("68_t07lk")
 emission_enabled = true
 
@@ -1854,7 +1852,6 @@ points = PackedVector3Array(0.000679759, 0.00497428, 0.00599958, -0.00758316, -0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sch0i"]
 resource_name = "Metal_02"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("64_7t0ua")
 emission_enabled = true
 
@@ -1862,7 +1859,6 @@ emission_enabled = true
 resource_name = "Wire"
 transparency = 4
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("65_g2tm2")
 emission_enabled = true
 
@@ -1972,7 +1968,6 @@ data = PackedVector3Array(-0.0008, -0.0043, -0.0043, 0.0008, -0.0043, -0.0043, 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6tb50"]
 resource_name = "TV"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("71_8uxna")
 emission_enabled = true
 
@@ -5179,6 +5174,10 @@ explosion_damage = 100.0
 [node name="mesh" parent="fuel_tank" index="0"]
 skeleton = NodePath("../../../../../../Interactables")
 surface_material_override/0 = SubResource("StandardMaterial3D_x1atb")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer2" instance=ExtResource("72_1db5x")]
 
 [editable path="NavigationRegion3D/dirtground_updated-col"]
 [editable path="NavigationRegion3D/BUILDINGS/FarmAssets/grain_store"]

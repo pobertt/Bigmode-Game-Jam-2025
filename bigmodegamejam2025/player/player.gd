@@ -30,6 +30,7 @@ var bladder : int = 0
 var strength : float = 10
 var snusM : int = 1
 var piss : bool = false
+var killcount : int = 0
 
 # Guns
 

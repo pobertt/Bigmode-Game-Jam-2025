@@ -249,6 +249,7 @@ func change_health(damage):
 		deathtimer.start()
 		audio_stream_player.stream = audio_death
 		audio_stream_player.play(0.5)
+		Global.player_ref.killcount += 1
 		return
 	else:
 		var hitsounds = [hurtsound1, hurtsound2, hurtsound3, hurtsound4]

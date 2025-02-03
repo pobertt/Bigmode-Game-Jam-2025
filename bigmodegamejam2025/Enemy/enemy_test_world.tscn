@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://beile14a1xc2w"]
+[gd_scene load_steps=13 format=3 uid="uid://beile14a1xc2w"]
 
 [ext_resource type="Script" path="res://Enemy/enemy_test_world.gd" id="1_56sn2"]
 [ext_resource type="PackedScene" uid="uid://dbjhc7pmmdv30" path="res://Enemy/enemy.tscn" id="1_m5774"]
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="2_0kvcc"]
 [ext_resource type="PackedScene" uid="uid://de1gebfnxt8qp" path="res://UI/pause_menu/pause_menu.tscn" id="4_yq6ql"]
 [ext_resource type="PackedScene" uid="uid://c7pamyh56glp1" path="res://NPC/NPC1.tscn" id="5_ickjk"]
+[ext_resource type="PackedScene" uid="uid://ddb80otls1q0v" path="res://jesus/snusjesusanims.tscn" id="6_5e77u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_brm14"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -100,3 +101,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.214, 0, 9.62684)
 
 [node name="NPC4" parent="." groups=["enemy"] instance=ExtResource("5_ickjk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7679, 0, 18.606)
+
+[node name="snusjesusanims" parent="." instance=ExtResource("6_5e77u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.30471, -1.03208, 21.0103)

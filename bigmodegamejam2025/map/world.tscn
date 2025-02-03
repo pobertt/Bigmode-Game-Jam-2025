@@ -4997,7 +4997,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_x1atb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9374, 1.11794, 12.2227)
 
 [node name="slot_machine" parent="." instance=ExtResource("75_3baf1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7598, 1.18175, -15.9522)
+transform = Transform3D(0.845905, 0, -0.533334, 0, 1, 0, 0.533334, 0, 0.845905, -19.794, 0.707389, -16.3535)
+mass = 1000.0
 object_health = 100000000
 
 [node name="MapCorner" type="Node3D" parent="."]

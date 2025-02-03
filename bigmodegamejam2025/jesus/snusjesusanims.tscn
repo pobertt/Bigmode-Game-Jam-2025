@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://ddb80otls1q0v"]
+[gd_scene load_steps=15 format=4 uid="uid://ddb80otls1q0v"]
 
 [ext_resource type="Texture2D" uid="uid://j3u7am3vm3ml" path="res://jesus/snusjesus_jesus1_Material_BaseColor.png" id="1_1vqv4"]
 [ext_resource type="Script" path="res://jesus/snusjesusanims.gd" id="1_btfc1"]
@@ -2349,7 +2349,9 @@ _data = {
 "tpose": SubResource("Animation_gffjm")
 }
 
-[node name="snusjesusanims" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4yums"]
+
+[node name="snusjesusanims" type="RigidBody3D" groups=["enemy"]]
 script = ExtResource("1_btfc1")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -2545,5 +2547,11 @@ libraries = {
 [node name="Timer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_4yums")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

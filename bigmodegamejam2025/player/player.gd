@@ -23,6 +23,7 @@ var DAMAGE_SOUNDS = [
 @onready var bullet_raycast : RayCast3D = $Head/Camera/Bullet_RayCast3D
 @onready var weapon_holder: Node3D = $Head/Camera/WeaponHolder
 @onready var interact_raycast: RayCast3D = $Head/Camera/InteractRaycast
+@onready var audio_player: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 # Stats
 

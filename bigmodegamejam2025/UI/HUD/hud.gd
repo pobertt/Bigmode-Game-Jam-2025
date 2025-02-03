@@ -11,8 +11,6 @@ extends Control
 @onready var power_label: Label = $POWERLabel
 @onready var slot_ui: Control = $SlotUI
 
-
-
 var paused : bool 
 var achievement_panel: Panel
 @export var achievement: Node
@@ -46,7 +44,6 @@ func _on_update_hud():
 	kill_count_label.text = "Kill Count: %s" % player.killcount
 	
 	power_label.text = "POWER: %s" % player.strength
-	
 	
 	if player.health <= 0:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

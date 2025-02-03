@@ -1,4 +1,4 @@
-[gd_scene load_steps=237 format=4 uid="uid://dlsqp5lw5rpwi"]
+[gd_scene load_steps=238 format=4 uid="uid://dlsqp5lw5rpwi"]
 
 [ext_resource type="Script" path="res://map/world.gd" id="1_1pn0n"]
 [ext_resource type="PackedScene" uid="uid://jmxxedj0ya4l" path="res://player/player.tscn" id="1_w1kce"]
@@ -70,6 +70,7 @@
 [ext_resource type="PackedScene" uid="uid://wwgbkm0ppfor" path="res://assets/buildings/Trailer/trailer.tscn" id="69_1lt4b"]
 [ext_resource type="Texture2D" uid="uid://6265y0b504pr" path="res://assets/buildings/Trailer/Trailer_Park/Textures/Toilet.png" id="70_uvrg6"]
 [ext_resource type="Texture2D" uid="uid://bsof3ma2e5dg" path="res://assets/buildings/Trailer/Trailer_Park/Textures/TV.png" id="71_8uxna"]
+[ext_resource type="PackedScene" uid="uid://ddb80otls1q0v" path="res://jesus/snusjesusanims.tscn" id="73_0bijs"]
 [ext_resource type="PackedScene" uid="uid://ftm3d0wh2f6a" path="res://objects/vending_machine.tscn" id="73_584y4"]
 [ext_resource type="PackedScene" uid="uid://bgsafp1upyd3e" path="res://objects/slot_machine.tscn" id="75_3baf1"]
 
@@ -5003,6 +5004,9 @@ object_health = 100000000
 
 [node name="MapCorner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.6242, 0, 74.1409)
+
+[node name="snusjesusanims" parent="." instance=ExtResource("73_0bijs")]
+transform = Transform3D(0.249214, 0, -0.968448, 0, 1, 0, 0.968448, 0, 0.249214, 24.2773, -3.8147e-06, -4.03533)
 
 [editable path="NavigationRegion3D/dirtground_updated-col"]
 [editable path="NavigationRegion3D/BUILDINGS/FarmAssets/grain_store"]

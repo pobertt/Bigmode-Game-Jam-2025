@@ -105,6 +105,8 @@ metadata/_edit_use_anchors_ = true
 [node name="AchievementManager" type="Node3D" parent="."]
 script = ExtResource("12_xplt0")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
 [editable path="Head/Camera/Control"]
 [editable path="Head/Camera/obj_holder"]
 [editable path="Head/Camera/obj_holder/snusgordic"]

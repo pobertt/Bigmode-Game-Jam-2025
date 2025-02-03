@@ -47,20 +47,28 @@ func _ready():
 	achievements[6].description = "Collect a pill power-up!"
 	
 	achievements.append(Achievement.new())
-	achievements[6].name = "Pick a struggle"
-	achievements[6].description = "Collect all power-up types!"
+	achievements[7].name = "Pick a struggle"
+	achievements[7].description = "Collect all power-up types!"
 	
 	achievements.append(Achievement.new())
-	achievements[7].name = "Lets Go Gambling"
-	achievements[7].description = "win on the fruit machine"
+	achievements[8].name = "Lets Go Gambling"
+	achievements[8].description = "win on the fruit machine"
 	
 	achievements.append(Achievement.new())
-	achievements[8].name = "Grim Sleeper"
-	achievements[8].description = "put 10 pound town residents to sleep"
+	achievements[9].name = "Grim Sleeper"
+	achievements[9].description = "put 10 pound town residents to sleep"
 	
 	achievements.append(Achievement.new())
-	achievements[7].name = "Pound town veteran"
-	achievements[7].description = "reach 500 power"
+	achievements[10].name = "Pound town veteran"
+	achievements[10].description = "reach 500 power"
+	
+	achievements.append(Achievement.new())
+	achievements[11].name = "Blow me UP!"
+	achievements[11].description = "blow up a car!"
+	
+	achievements.append(Achievement.new())
+	achievements[12].name = "Use the Vending Machine!"
+	achievements[12].description = "get them pills yo"
 	# Add more achievements as needed
 
 func unlock_achievement(achievement_name: String, description: String):

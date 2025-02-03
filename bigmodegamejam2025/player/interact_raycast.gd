@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			if get_collider() and get_collider().is_in_group("enemy"):
 				var enemy = get_collider()
-				enemy.hit_sounds()
+				enemy.random_sounds()
 			if get_collider() and get_collider().is_in_group("object"):
 				var obj = get_obj()
 				if obj.obj_type == 3:
@@ -59,6 +59,7 @@ func _process(delta: float) -> void:
 					var new_food = food.instantiate()
 					new_food.global_position = Vector3(parent.global_position.x, parent.global_position.y + 2, parent.global_position.z + 1)
 					get_tree().get_root().add_child(new_food)
+					parent.achievement_manager.unlock_achievement("Use the Vending Machine!", "get them pills yo")
 				elif obj.obj_type == 5:
 					obj.eaten()
 					parent.health += 10

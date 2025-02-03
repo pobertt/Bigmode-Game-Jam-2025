@@ -277,7 +277,11 @@ When you have to go, you have to go
 The world is my toilet
 My pain go away pills
 Pick a struggle
-Lets Go Gambling"
+Lets Go Gambling
+Use the Vending Machine
+Elimante 10 Pound Towners
+Blow something up (car)
+Reach 500 Power!"
 
 [node name="SlotUI" parent="." node_paths=PackedStringArray("achievement_manager") instance=ExtResource("8_nvtfo")]
 process_mode = 3

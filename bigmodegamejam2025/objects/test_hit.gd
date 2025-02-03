@@ -18,6 +18,7 @@ class_name DestructableObjects
 @onready var keg_particle: GPUParticles3D
 
 @export var anim_player: AnimationPlayer
+@export var achievement_manager: Node3D
 
 
 enum ObjectType {
@@ -43,7 +44,7 @@ func change_health(damage):
 	
 	if object_health <= 0:
 		audio_stream_player.stream = audio_death
-		
+		#achievement_manager.unlock_achievement("Blow me UP!", "blow up a car!")
 		var a = get_child(0)
 		var b = get_child(1)
 		b.queue_free()
@@ -52,6 +53,7 @@ func change_health(damage):
 		if obj_type == ObjectType.EXPLOSIVE:
 			explosion_1.emitting = true
 			explosion_2.emitting = true
+			
 			push_away_objects()
 
 func _process(delta: float) -> void:

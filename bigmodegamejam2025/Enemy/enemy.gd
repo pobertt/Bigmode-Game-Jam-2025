@@ -25,6 +25,10 @@ extends CharacterBody3D
 var PlayerRef
 var health = 100
 
+const guysound1 = preload("res://SFX/NPC/Guy1/Hit1.wav")
+const guysound2 = preload("res://SFX/NPC/Guy1/Hit2.wav")
+const guysound3 = preload("res://SFX/NPC/Guy1/Idle2.wav")
+const guysound4 = preload("res://SFX/NPC/Guy1/Idle.wav")
 
 enum STATE { ROAMING , CHASING , IDLING , SEARCHING, DYING, ATTACKING}
 
@@ -114,7 +118,7 @@ func _on_vision_timer_timeout():
 						#check its player
 						if overlap.name == "Player":
 							#damage player
-							Global.player_ref.change_health(5)
+							Global.player_ref.change_health(20)
 							print("Player health now" + str(Global.player_ref.health))
 							animation_player.play("smack")
 							CurrentState = STATE.ATTACKING
@@ -258,7 +262,7 @@ func change_health(damage):
 #on idle timer end
 func _on_idle_timer_timeout() -> void:
 	#wander
-	var randompos = Vector3(randf_range(-20, 20), position.y,randf_range(-20, 20))
+	var randompos = Vector3(randf_range(-59, 50), position.y, randf_range(-90, 75))
 	look_at(Vector3(randompos.x, global_position.y, randompos.z), Vector3.UP, true)
 	target_position(randompos)
 	CurrentState = STATE.ROAMING
@@ -282,3 +286,8 @@ func hit_sounds():
 	var hitsounds = [hurtsound1, hurtsound2, hurtsound3, hurtsound4]
 	audio_stream_player.stream = hitsounds[randi_range(0, hitsounds.size() - 1)]
 	audio_stream_player.play(0.5)
+
+func random_sounds():
+	var random_sounds = [guysound1, guysound2, guysound3, guysound4]
+	audio_stream_player.stream = random_sounds[randi_range(0, random_sounds.size() - 1)]
+	audio_stream_player.play()
